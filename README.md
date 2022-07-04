@@ -12,11 +12,15 @@ Adaptation of Ferrante's master's code for distinct rocket dynamics and paramete
 
 Start by downloading the required libraries:
 
-| pip install -r requirements.txt |
+'''
+pip install -r requirements.txt |
+'''
 
 If it does not work, install each dependency separately. Then, run:
 
-| python3 main.py |
+'''
+python3 main.py
+'''
 
 ~~(If we are problemless)~~ **Congratulations**, you have just landed a rocket!!
 

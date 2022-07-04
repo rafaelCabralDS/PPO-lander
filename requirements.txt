@@ -1,0 +1,10 @@
+tensorflow
+matplotlib
+gym==0.21.0
+numpy
+Box2D
+#logging
+pyglet
+cvxpy
+#abc
+#concurrent

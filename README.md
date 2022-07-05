@@ -23,8 +23,10 @@ If it does not work, install each dependency separately. Then, run:
 python3 test.py
 ```
 
-~~(If we are problemless)~~ **Congratulations**, you have just landed a rocket!! (~~ or atleast tried to~~)
+~~(If we are problemless)~~ **Congratulations**, you have just landed a rocket!! ~~ (or atleast tried to)~~
 
 ## Results
 
+## TODO
 
+* where *************** then pay attention

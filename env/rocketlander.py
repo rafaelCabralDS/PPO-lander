@@ -548,7 +548,11 @@ class RocketLander(gym.Env):
                 maskbits=0x001, # collide only with ground
                 restitution=0.3)
         )
-
+        p.ttl = ttl
+        self.particles.append(p)
+        self._clean_particles(False)
+        return p
+        
     ## stopped in _clean_particles(self, all_particles):
 
 

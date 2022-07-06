@@ -49,6 +49,11 @@ SIDE_ENGINE_VERTICAL_OFFSET = 5
 SIDE_ENGINE_HEIGHT = LANDER_LENGTH - SIDE_ENGINE_VERTICAL_OFFSET
 SIDE_ENGINE_AWAY = 10.0
 
+CAP_POLY = [
+    (-LANDER_RADIUS, 0), (LANDER_RADIUS, 0),
+    (1, LANDER_LENGTH/6), (-1, LANDER_LENGTH/6)
+]
+
 # --------------------------------
 '''State array'''
 # ***************

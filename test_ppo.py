@@ -7,7 +7,7 @@ from env.rocketlander import RocketLander
 
 from env.constants import LEFT_GROUND_CONTACT, RIGHT_GROUND_CONTACT
 
-from PPO_beginner.ppo import PPO
+from PPO_beginner.ppo_original import PPO
 from PPO_beginner.network import FeedForwardNN
 
 def main():

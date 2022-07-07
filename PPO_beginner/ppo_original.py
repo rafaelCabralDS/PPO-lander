@@ -145,8 +145,9 @@ class PPO:
 
 			# Save our model if it's time
 			if i_so_far % self.save_freq == 0:
-				torch.save(self.actor.state_dict(), './ppo_actor.pth')
-				torch.save(self.critic.state_dict(), './ppo_critic.pth')
+				# control the name of the file to be saved
+				torch.save(self.actor.state_dict(), './ppo/models/ppo_actor_1.pth')
+				torch.save(self.critic.state_dict(), './ppo/models/ppo_critic_2.pth')
 		# end while
 		print("t_so_far: " + str(t_so_far))
 
@@ -193,8 +194,8 @@ class PPO:
 			for ep_t in range(self.max_timesteps_per_episode):
 				# If render is specified, render the environment
 				if (self.render and (self.logger['i_so_far'] % self.render_every_i == 0) and len(batch_lens) == 0) or (self.render and (self.logger['i_so_far'] == 0)):
-					self.env.render() 
-					self.env.draw_marker(x=self.env.landing_coordinates[0], y=self.env.landing_coordinates[1], isBody=False)
+					self.env.render()
+					self.env.draw_marker(x=self.env.landing_coordinates[0], y=self.env.landing_coordinates[1], isBody=False) # landing marker
 					self.env.refresh(render=False)
 
 				t += 1 # Increment timesteps ran this batch so far

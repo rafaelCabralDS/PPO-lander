@@ -186,6 +186,7 @@ class PPO:
 
 			# Reset the environment. sNote that obs is short for observation. 
 			obs = self.env.reset()
+			#print(obs) # correct
 			done = False
 
 			# Run an episode for a maximum of max_timesteps_per_episode timesteps
@@ -193,7 +194,7 @@ class PPO:
 				# If render is specified, render the environment
 				if (self.render and (self.logger['i_so_far'] % self.render_every_i == 0) and len(batch_lens) == 0) or (self.render and (self.logger['i_so_far'] == 0)):
 					self.env.render() 
-					self.env.draw_marker(self.env.landing_coordinates[0], self.env.landing_coordinates[1])
+					self.env.draw_marker(x=self.env.landing_coordinates[0], y=self.env.landing_coordinates[1], isBody=False)
 					self.env.refresh(render=False)
 
 				t += 1 # Increment timesteps ran this batch so far

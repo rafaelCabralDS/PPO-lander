@@ -27,12 +27,18 @@ H = int(VIEWPORT_H / SCALE)
 # --------------------------------
 '''Rocket Relative Dimensions'''
 # changed name to something better
-INITIAL_RANDOM_FORCE = 6000.0 # WILL NEED TO CHANGE HERE
+INITIAL_RANDOM_FORCE = 10000.0 # WILL NEED TO CHANGE HERE
+
+RANDOM_DISTURBANCE_FORCE = 2000.0
 
 LANDER_LENGTH = 227
 LANDER_RADIUS = 10
+
+# changed to look capy
 LANDER_POLY = [
-    (-LANDER_RADIUS, 0), (LANDER_RADIUS, 0), 
+    (-LANDER_RADIUS, 0),
+    (-LANDER_RADIUS/5, LANDER_LENGTH + LANDER_LENGTH/10), (+LANDER_RADIUS/5, LANDER_LENGTH + LANDER_LENGTH/10), # additional points
+    (LANDER_RADIUS, 0),
     (LANDER_RADIUS, LANDER_LENGTH), (-LANDER_RADIUS, LANDER_LENGTH)
 ]
 
@@ -53,6 +59,9 @@ CAP_POLY = [
     (-LANDER_RADIUS, 0), (LANDER_RADIUS, 0),
     (1, LANDER_LENGTH/6), (-1, LANDER_LENGTH/6)
 ]
+
+LEG_LOWEST = 40 * DEGTORAD
+LEG_HIGHEST = 45 * DEGTORAD
 
 # --------------------------------
 '''State array'''

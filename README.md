@@ -1,12 +1,12 @@
 # rocket-lander-homework
-Adaptation of Ferrante's master's environment with distinct rocket dynamics and parameters, plus a PPO controller, based on Yu's implementation.
+Adaptation of Ferrante's master's environment with distinct rocket dynamics and parameters, plus a PPO rl algorithm to train an actor network as controller, based on Yu's implementation.
 
 * Ferrante's work: https://github.com/arex18/rocket-lander
 * Yu's PPO implementation: https://github.com/ericyangyu/PPO-for-Beginners
 
 ## Preliminaries
 
-* Bidimentional 3-DoF dynamics, with yaw included
+* states: Bidimentional 3-DoF dynamics, with yaw included and ground_contact status on both legs
 * PPO controller
 
 ## How to start

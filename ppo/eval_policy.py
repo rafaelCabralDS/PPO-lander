@@ -1,6 +1,4 @@
-# I will rewrite this one 
-# Use a parameter to tell how many iterations
-# Controle não está funcionando, wtf?
+# Exists independly of the PPO training algorithm
 
 def _log_summary(ep_len, ep_ret, ep_num):
         """ Print to stdout what we've logged so far in the most recent episode """
@@ -10,10 +8,11 @@ def _log_summary(ep_len, ep_ret, ep_num):
 
         # Print logging statements
         print(flush=True)
-        print(f"-------------------- Episode #{ep_num} --------------------", flush=True)
+        print(f"----------------------------------------", flush=True)
+        print(f"Iteration: {ep_num}", flush=True) # written as Iteration to simplify make_graph consumption
         print(f"Episodic Length: {ep_len}", flush=True)
         print(f"Episodic Return: {ep_ret}", flush=True)
-        print(f"------------------------------------------------------", flush=True)
+        print(f"----------------------------------------", flush=True)
         print(flush=True)
 
 def rollout(policy, env, render):
@@ -42,7 +41,7 @@ def rollout(policy, env, render):
             # Query deterministic action from policy and run it
             action = policy(obs).detach().numpy()
             #action = [1,1,1] # teste manual
-            print(f"action_vec: {action}")
+            #print(f"action_vec: {action}")
             obs, rew, done, _ = env.step(action)
             ep_ret += rew
         # end while

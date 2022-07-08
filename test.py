@@ -6,7 +6,6 @@ from program_control.hyperparameter_constants import *
 
 from env.rocketlander import RocketLander
 
-from ppo.ppo import PPO
 from ppo.network import FeedForwardNN
 from ppo.eval_policy import eval_policy
 
@@ -15,7 +14,7 @@ def test(env, actor_model, render):
     print(f"Testing {actor_model}", flush=True)
 
     if actor_model == '':
-        print(f"Didn't specify model file. Exiting.", flush=True)
+        print(f"Didn't specify model file. Use --load_actor_model <filepath>.", flush=True)
         sys.exit(0)
 
     # Extract out dimensions of observation and action spaces
@@ -43,5 +42,5 @@ def main(args):
 
 if __name__ == '__main__':
     args = get_args()
-    print(args)
+    print(args) # will go to stdout and be saved in the log file -if redirected-
     main(args)

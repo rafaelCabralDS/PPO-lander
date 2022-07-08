@@ -25,6 +25,14 @@ python3 test.py
 
 ~~(If we are problemless)~~ **Congratulations**, you have just landed a rocket!! ~~(or atleast tried to)~~
 
+To save data for plotting, just pipe stdout to a file, like:
+
+```
+python3 test.py > plot/test_data/test_ppo_actor_1.txt
+```
+
+Then, run make_graph.py
+
 ## Results
 
 ## TODO

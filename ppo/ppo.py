@@ -271,14 +271,14 @@ class PPO:
 
         # Print logging statements
         print(flush=True)
-        print(f"-----------------------------------------------", flush=True)
-        print(f"Iteration #{i_so_far}")
+        print(f"----------------------------------------", flush=True)
+        print(f"Iteration: {i_so_far}")
         print(f"Average Episodic Length: {avg_ep_lens}", flush=True)
-        print(f"Average Episodic Return: {avg_ep_rews}", flush=True)
+        print(f"Episodic Return: {avg_ep_rews}", flush=True) # AVERAGE
         print(f"Average Loss: {avg_actor_loss}", flush=True)
         print(f"Timesteps So Far: {t_so_far}", flush=True)
-        print(f"Iteration took: {delta_t} seconds", flush=True)
-        print(flush=True)
+        print(f"Took: {delta_t} seconds", flush=True)
+        print(f"----------------------------------------", flush=True)
 
         # Reset batch-specific logging data
         self.logger['batch_lens'] = []

@@ -1,5 +1,4 @@
 import math
-from re import X
 import matplotlib
 matplotlib.use('TkAgg')
 from enum import Enum

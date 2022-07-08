@@ -13,8 +13,8 @@ UPDATE_TIME = 1/FPS
 '''Simulation view, scale and unit conversions'''
 SCALE = 30
 
-VIEWPORT_W = 1000
-VIEWPORT_H = 800
+VIEWPORT_W = 1000 
+VIEWPORT_H = 800 # ~ 250 m
 
 SEA_CHUNKS = 25
 
@@ -30,7 +30,7 @@ INITIAL_RANDOM_FORCE = 10000.0 # WILL NEED TO CHANGE HERE
 
 RANDOM_DISTURBANCE_FORCE = 2000.0
 
-LANDER_LENGTH = 227
+LANDER_LENGTH = 227 # 70 m
 LANDER_RADIUS = 10
 
 # changed to look capy
@@ -102,7 +102,7 @@ BARGE_LENGTH_X2_RATIO = 0.65 # ???
 
 # --------------------------------
 '''Params'''
-# ***************
+# *************** VALIDAR, MAS ACHO QUE É REALISTA
 MASS = 25.222
 L1 = 3.8677
 L2 = 3.7

@@ -5,9 +5,10 @@ TODO:
     2 - _create_rocket
     3 - __compute_rewards
     4 - _decrease_mass
-    5 - evaluate_kinematics
-- CHANGE ROCKET AND CLOUD DRAWINGS
-- CHANGE AND ADD CONSTANTS
+    5 - evaluate_kinematics -> nem precisa, pq não é chamada no código
+- FUNÇÃO PIXEL TO METER PARA INCLUIR UM MODELO DE VENTO
+- TESTES COM VENTO FORTE E SEM VENTO
+- GRÁFICO COM AÇÕES DE CONTROLE
 '''
 import numpy as np
 
@@ -92,7 +93,6 @@ class RocketLander(gym.Env):
         self.impulsePos = (0, 0)
 
         self.action_space = spaces.Box(-np.inf, +np.inf, (3,)) # Main Engine, Nozzle Angle, Left/Right Engine
-        #self.action_space = [0, 0, 0] # original def
 
         self.untransformed_state = [0] * 6  # Non-normalized state
 
@@ -288,7 +288,7 @@ class RocketLander(gym.Env):
                 # Orientation engines
                 engine_dir = np.sign(action[1])
                 s_power = np.clip(np.abs(action[1]), SIDE_ENGINE_ACTIVATE, 1.0)
-                assert s_power >= 0.5 and s_power <= 1.0
+                assert s_power >= SIDE_ENGINE_ACTIVATE and s_power <= 1.0
 
                 # if (self.lander.worldCenter.y > self.lander.position[1]):
                 #     y_dir = 1

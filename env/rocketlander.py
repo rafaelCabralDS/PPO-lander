@@ -36,14 +36,15 @@ class ContactDetector(contactListener):
         contactListener.__init__(self)
         self.env = env
 
-    def begin_contact(self, contact):
+    def BeginContact(self, contact):
         if self.env.lander == contact.fixtureA.body or self.env.lander == contact.fixtureB.body:
             self.env.game_over = True
         for i in range(2):
             if self.env.legs[i] in [contact.fixtureA.body, contact.fixtureB.body]:
+                #print("contacted ground")
                 self.env.legs[i].ground_contact = True
 
-    def end_contact(self, contact):
+    def EndContact(self, contact):
         for i in range(2):
             if self.env.legs[i] in [contact.fixtureA.body, contact.fixtureB.body]:
                 self.env.legs[i].ground_contact = False
@@ -68,6 +69,7 @@ class RocketLander(gym.Env):
         self.main_base = None
         self.barge_base = None
         self.CONTACT_FLAG = False
+        self.count_ticks_to_end = 0
 
         self.minimum_barge_height = 0
         self.maximum_barge_height = 0
@@ -111,6 +113,7 @@ class RocketLander(gym.Env):
         self.game_over = False
         self.world.contactListener_keepref = ContactDetector(self)
         self.world.contactListener = self.world.contactListener_keepref
+        self.count_ticks_to_end = 0
 
         smoothed_terrain_edges, terrain_divider_coordinates_x = self._create_terrain(TERRAIN_CHUNKS)
 
@@ -167,14 +170,16 @@ class RocketLander(gym.Env):
         self.lander = None
         self.world.DestroyBody(self.legs[0])
         self.world.DestroyBody(self.legs[1])
+        self.count_ticks_to_end = 0
 
     # ----------------------------------------------------------------------------
     def step(self, action): ####
+
         assert(len(action) == 3)  # Fe, Fs, psi
 
         # Check for contact with the ground
-        if (self.legs[0].ground_contact or self.legs[1].ground_contact) and self.CONTACT_FLAG == False:
-            self.CONTACT_FLAG = True
+        if self.legs[0].ground_contact or self.legs[1].ground_contact:
+            self.CONTACT_FLAG = True # will end shortly after touching
 
         # Shutdown all Engines upon contact with the ground
         if self.CONTACT_FLAG:
@@ -215,7 +220,7 @@ class RocketLander(gym.Env):
         state_reset_conditions = [
             self.game_over,  # Evaluated depending on body contact
             abs(state[XX]) >= 1.0,  # Rocket moves out of x-space
-            state[YY] < 0 or state[YY] > 1.3,  # Rocket moves out of y-space or below barge
+            state[YY] < 0 or state[YY] > 1.6,  # Rocket moves out of y-space or below barge
             abs(state[THETA]) > THETA_LIMIT]  # Rocket tilts greater than the "controllable" limit
         done = False
         if any(state_reset_conditions):
@@ -224,8 +229,24 @@ class RocketLander(gym.Env):
         if not self.lander.awake:
             done = True
             reward = +10
+        if self.CONTACT_FLAG:
+            self.count_ticks_to_end += 1
+            if self.count_ticks_to_end >= FPS: # 1 second
+                done = True
 
         self._update_particles()
+
+        #print(f"state_vec: {self.state}")
+
+         # When should the barge move? Water movement, dynamics etc can be simulated here.
+        left_or_right_barge_movement = np.random.randint(0, 2)
+        epsilon = 0.05
+        if self.state[LEFT_GROUND_CONTACT] == 0 and self.state[RIGHT_GROUND_CONTACT] == 0:
+            self.move_barge_randomly(epsilon, left_or_right_barge_movement)
+            # Random Force on rocket to simulate wind.
+            self.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
+            self.apply_random_y_disturbance(epsilon=0.005)
+        ##############3
 
         return np.array(state), reward, done, {}  # {} = info (required by parent class)
 
@@ -388,7 +409,7 @@ class RocketLander(gym.Env):
         # Terrain Coordinates
         # self.helipad_x1 = W / 5
         # self.helipad_x2 = self.helipad_x1 + W / 5
-        divisor_constant = 8  # Control the height of the sea
+        divisor_constant = 20  # Control the height of the sea
         self.helipad_y = H / divisor_constant
 
         # Terrain
@@ -446,7 +467,8 @@ class RocketLander(gym.Env):
                 fixtures=fixtureDef(
                     shape=polygonShape(box=(LEG_W / SCALE, LEG_H / SCALE)),
                     density=5.0,
-                    restitution=0.0,
+                    restitution=0.01,
+                    friction = 1e9, # very high value to not allow sliding
                     categoryBits=0x0020,
                     maskBits=0x005)
             )
@@ -456,8 +478,8 @@ class RocketLander(gym.Env):
             rjd = revoluteJointDef(
                 bodyA=self.lander,
                 bodyB=leg,
-                localAnchorA=(-i * 0.3, 0),
-                localAnchorB=(i * 0.5, LEG_DOWN),
+                localAnchorA=(-i*0.16, 0), # localAnchorA=(-i * 0.3, 0),
+                localAnchorB=(i * 0.4, LEG_DOWN), # localAnchorB=(i * 0.5, LEG_DOWN),
                 enableMotor=True,
                 enableLimit=True,
                 maxMotorTorque=LEG_SPRING_TORQUE,
@@ -1036,6 +1058,10 @@ def swap_array_values(array, indices_to_swap):
     for i, j in indices_to_swap:
         array[i], array[j] = array[j], array[i]
     return array
+
+#def state_to_meters(input):
+#    return input*
+
 
 
 # ----------------------------------------------------------------------------

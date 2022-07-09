@@ -11,6 +11,8 @@ Adaptation of Ferrante's master's environment with distinct rocket dynamics and 
 
 ## How to start
 
+To work without hacking the code, you will need a screen which can contain a 1000x800 window. Else go into env/constants.py and change VIEWPORT_W and VIEWPORT_H.
+
 Start by downloading the required libraries:
 
 ```

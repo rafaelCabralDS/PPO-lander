@@ -29,8 +29,8 @@ def main():
 				'render': RENDER,
 				'render_every_i': RENDER_EVERY_I,
                 't_to_end' : T_TO_END,
-                'save_actor_model' : "'./ppo/models/ppo_actor_0.pth'", # file_name
-                'save_critic_model' : "'./ppo/models/ppo_critic_0.pth'"
+                'save_actor_model' : "'./ppo/models/ppo_actor_123.pth'", # file_name
+                'save_critic_model' : "'./ppo/models/ppo_critic_123.pth'"
 			  }
 
     # a training section to see if everything running smooth

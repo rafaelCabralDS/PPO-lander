@@ -30,9 +30,9 @@ H = int(VIEWPORT_H / SCALE)
 # --------------------------------
 '''Rocket Relative Dimensions'''
 # changed name to something better
-INITIAL_RANDOM_FORCE = 8000.0 # HERE
+INITIAL_RANDOM_FORCE = 8000.0 # remove this and insert randomness in initial conditions
 
-RANDOM_DISTURBANCE_FORCE = 1000.0 # HERE
+RANDOM_DISTURBANCE_FORCE = 1000.0 # proportional to altitude
 
 LANDER_LENGTH = 120 # 227 # 70 m
 LANDER_RADIUS = 6 # 10
@@ -108,7 +108,7 @@ BARGE_LENGTH_X2_RATIO = 0.7 #
 
 # --------------------------------
 '''Params'''
-# *************** VALIDAR, MAS ACHO QUE É REALISTA
+# *************** VALIDAR, MAS ACHO QUE É REALISTA **** botar parâmetros que quiser
 MASS = 25.222
 L1 = 3.8677
 L2 = 3.7

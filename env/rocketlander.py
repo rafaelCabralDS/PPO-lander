@@ -238,14 +238,15 @@ class RocketLander(gym.Env):
 
         #print(f"state_vec: {self.state}")
 
-         # When should the barge move? Water movement, dynamics etc can be simulated here.
-        left_or_right_barge_movement = np.random.randint(0, 2)
-        epsilon = 0.05
-        if self.state[LEFT_GROUND_CONTACT] == 0 and self.state[RIGHT_GROUND_CONTACT] == 0:
-            self.move_barge_randomly(epsilon, left_or_right_barge_movement)
-            # Random Force on rocket to simulate wind.
-            self.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
-            self.apply_random_y_disturbance(epsilon=0.005)
+        # disabled
+        # When should the barge move? Water movement, dynamics etc can be simulated here.
+        #left_or_right_barge_movement = np.random.randint(0, 2)
+        #epsilon = 0.05
+        #if self.state[LEFT_GROUND_CONTACT] == 0 and self.state[RIGHT_GROUND_CONTACT] == 0:
+        #    self.move_barge_randomly(epsilon, left_or_right_barge_movement)
+        #    # Random Force on rocket to simulate wind.
+        #    self.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
+        #    self.apply_random_y_disturbance(epsilon=0.005)
         ##############3
 
         return np.array(state), reward, done, {}  # {} = info (required by parent class)

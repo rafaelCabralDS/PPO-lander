@@ -92,9 +92,11 @@ class RocketLander(gym.Env):
         self.dynamicLabels = {}
         self.staticLabels = {}
 
-        self.impulsePos = (0, 0)
+        self.wind_counter = 0    # aerodynamics randomness
+        self.wind_sample = FPS/2 # every half second
+        self.wind_disturbance = (0, 0) # process noise (wind variation)
 
-        self.action_space = spaces.Box(-np.inf, +np.inf, (3,)) # Main Engine, Nozzle Angle, Left/Right Engine
+        self.action_space = spaces.Box(-np.inf, +np.inf, (3,)) # Main Engine [0,1], Left/Right Engine [-1,1], Nozzle Angle [-1,1] -> Gradient -> \Delta(\delta)
 
         self.untransformed_state = [0] * 6  # Non-normalized state
 
@@ -187,7 +189,7 @@ class RocketLander(gym.Env):
 
         if self.settings.get('Vectorized Nozzle'):
             part = self.nozzle
-            part.angle = self.lander.angle + float(action[2])  # This works better than motorSpeed
+            part.angle = self.lander.angle + float(action[2])  # 
             if part.angle > NOZZLE_ANGLE_LIMIT:
                 part.angle = NOZZLE_ANGLE_LIMIT
             elif part.angle < -NOZZLE_ANGLE_LIMIT:
@@ -195,11 +197,12 @@ class RocketLander(gym.Env):
         else:
             part = self.lander
 
-        # Main Force Calculations
+        # Main Force Calculations -> Thrust and Aero
         if self.remaining_fuel == 0:
             logging.info("Strictly speaking, you're out of fuel, but act anyway.")
         m_power = self.__main_engines_force_computation(action, rocketPart=part)
         s_power, engine_dir = self.__side_engines_force_computation(action)
+        #self.__aerodynamic_force_computation()
 
         if self.settings.get('Gather Stats'):
             self.action_history.append([m_power, s_power * engine_dir, part.angle])
@@ -224,17 +227,21 @@ class RocketLander(gym.Env):
             abs(state[THETA]) > THETA_LIMIT]  # Rocket tilts greater than the "controllable" limit
         done = False
         if any(state_reset_conditions):
+            #print(f"done for state_reset_conditions.")
             done = True
             reward = -10
         if not self.lander.awake:
+            #print(f"done for self.lander.awake.")
             done = True
             reward = +10
         if self.CONTACT_FLAG:
             self.count_ticks_to_end += 1
             if self.count_ticks_to_end >= FPS: # 1 second
+                #print(f"done for count ticks to end.")
                 done = True
 
         self._update_particles()
+
 
         #print(f"state_vec: {self.state}")
 
@@ -262,8 +269,10 @@ class RocketLander(gym.Env):
         sin = math.sin(rocketPart.angle)
         cos = math.cos(rocketPart.angle)
 
-        # Random dispersion for the particles
-        dispersion = [self.np_random.uniform(-1.0, +1.0) / SCALE for _ in range(2)]
+        # Random dispersion for the particles -> Randomness nullified here
+        #dispersion = [self.np_random.uniform(-1.0, +1.0) / SCALE for _ in range(2)]
+        dispersion = [0.0, 0.0]
+
 
         # Main engine
         m_power = 0
@@ -281,16 +290,15 @@ class RocketLander(gym.Env):
 
                 # rocketParticles are just a decoration, 3.5 is here to make rocketParticle speed adequate
                 p = self._create_particle(3.5, impulse_pos[0], impulse_pos[1], m_power,
-                                          radius=7)
+                                          radius=1.5)
 
                 rocketParticleImpulse = (ox * MAIN_ENGINE_POWER * m_power, oy * MAIN_ENGINE_POWER * m_power)
                 bodyImpulse = (-ox * MAIN_ENGINE_POWER * m_power, -oy * MAIN_ENGINE_POWER * m_power)
                 point = impulse_pos
-                wake = True
 
                 # Force instead of impulse. This enables proper scaling and values in Newtons
-                p.ApplyForce(rocketParticleImpulse, point, wake)
-                rocketPart.ApplyForce(bodyImpulse, point, wake)
+                p.ApplyForce(rocketParticleImpulse, point, True)
+                rocketPart.ApplyForce(bodyImpulse, point, True)
         except:
             print("Error in main engine power.")
 
@@ -299,8 +307,9 @@ class RocketLander(gym.Env):
     # ----------------------------------------------------------------------------
     def __side_engines_force_computation(self, action):
         
-        # Side engines
-        dispersion = [self.np_random.uniform(-1.0, +1.0) / SCALE for _ in range(2)]
+        # Side engines -> no dispersion allowed
+        # dispersion = [self.np_random.uniform(-1.0, +1.0) / SCALE for _ in range(2)]
+        dispersion = [0.0, 0.0]
         sin = math.sin(self.lander.angle)  # for readability
         cos = math.cos(self.lander.angle)
         s_power = 0.0
@@ -334,11 +343,10 @@ class RocketLander(gym.Env):
                 impulse_pos = (self.lander.position[0] + dx,
                                self.lander.position[1] + dy)
 
-                # Plotting purposes only
-                self.impulsePos = (self.lander.position[0] + dx, self.lander.position[1] + dy)
+                impulsePos = (self.lander.position[0] + dx, self.lander.position[1] + dy)
 
                 try:
-                    p = self._create_particle(1, impulse_pos[0], impulse_pos[1], s_power, radius=3)
+                    p = self._create_particle(1, impulse_pos[0], impulse_pos[1], s_power, radius=1)
                     p.ApplyForce((ox * SIDE_ENGINE_POWER * s_power, oy * SIDE_ENGINE_POWER * s_power), impulse_pos,
                                  True)
                     self.lander.ApplyForce((-ox * SIDE_ENGINE_POWER * s_power, -oy * SIDE_ENGINE_POWER * s_power),
@@ -348,6 +356,33 @@ class RocketLander(gym.Env):
                                   "x^2 > l^2 due to approximations on the order of approximately 1e-15.")
 
         return s_power, engine_dir
+
+
+    def __aerodynamic_force_computation(self):
+
+        # Rocket Angle
+        sin_theta = math.sin(self.lander.angle)
+        cos_theta = math.cos(self.lander.angle)
+        # Angle of Attack (AoA)
+        
+        # AoA = get_AoA
+        # sin_alpha = math.sin(AoA)
+        # cos_alpha = math.cos(AoA)
+        
+        # Positioning
+        aerodynamic_position = (1,1)
+        # Magnitude
+        wind_drag = (0,0)
+        # Wind Randomness (Gusts and such)
+        self.wind_counter += 1
+        if self.wind_counter % self.wind_sample == 0:
+            self.wind_disturbance = (np.random.normal(0, (wind_drag[0]/2)**2 + RANDOM_DISTURBANCE_FORCE), np.random.normal(0, (wind_drag[1]/2)**2 + RANDOM_DISTURBANCE_FORCE/2)) # [N] conserves until next sample
+        # 
+        aerodynamic_magnitude = (wind_drag[0] + self.wind_disturbance[0], wind_drag[1] + self.wind_disturbance[1])
+        # Apply
+        self.lander.ApplyForce(aerodynamic_position, aerodynamic_magnitude, True)
+
+        return
 
     # ----------------------------------------------------------------------------
     def __generate_state(self):
@@ -410,12 +445,12 @@ class RocketLander(gym.Env):
         # Terrain Coordinates
         # self.helipad_x1 = W / 5
         # self.helipad_x2 = self.helipad_x1 + W / 5
-        divisor_constant = 20  # Control the height of the sea
+        divisor_constant = 50 # 8  # Control the height of the sea
         self.helipad_y = H / divisor_constant
 
         # Terrain
         # height = self.np_random.uniform(0, H / 6, size=(CHUNKS + 1,))
-        height = np.random.normal(H / divisor_constant, 0.5, size=(chunks + 1,))
+        height = np.random.normal(H / divisor_constant, 0.2, size=(chunks + 1,))
         chunk_x = [W / (chunks - 1) * i for i in range(chunks)]
         # self.helipad_x1 = chunk_x[CHUNKS // 2 - 1]
         # self.helipad_x2 = chunk_x[CHUNKS // 2 + 1]
@@ -428,7 +463,7 @@ class RocketLander(gym.Env):
         return [0.33 * (height[i - 1] + height[i + 0] + height[i + 1]) for i in range(chunks)], chunk_x  # smoothed Y
 
     # ----------------------------------------------------------------------------
-    def _create_rocket(self, initial_coordinates=(W / 2, H / 1.2)):
+    def _create_rocket(self, initial_coordinates=(W / 2, H * 0.95)):
         body_color = (1.0, 100.0 / 255.0 , 10.0 / 255.0) # new: bright orange
         second_color = (0, 0, 0) # black
         third_color = (1.0,0.2,0.1) # reddish
@@ -479,8 +514,8 @@ class RocketLander(gym.Env):
             rjd = revoluteJointDef(
                 bodyA=self.lander,
                 bodyB=leg,
-                localAnchorA=(-i*0.16, 0), # localAnchorA=(-i * 0.3, 0),
-                localAnchorB=(i * 0.4, LEG_DOWN), # localAnchorB=(i * 0.5, LEG_DOWN),
+                localAnchorA=(-i*0.07, 0), # (-i*0.16, 0), # localAnchorA=(-i * 0.3, 0),
+                localAnchorB=(i*0.17, LEG_DOWN), # (i * 0.4, LEG_DOWN), # localAnchorB=(i * 0.5, LEG_DOWN),
                 enableMotor=True,
                 enableLimit=True,
                 maxMotorTorque=LEG_SPRING_TORQUE,
@@ -513,14 +548,14 @@ class RocketLander(gym.Env):
             bodyA=self.lander,
             bodyB=self.nozzle,
             localAnchorA=(0, 0),
-            localAnchorB=(0, 0.2),
+            localAnchorB=(0, 0.05),
             enableMotor=True,
             enableLimit=True,
             maxMotorTorque=NOZZLE_TORQUE,
             motorSpeed=0,
             referenceAngle=0,
-            lowerAngle=-(NOZZLE_ANGLE_LIMIT-2) * DEGTORAD,  # +- 15 degrees limit applied in practice
-            upperAngle=(NOZZLE_ANGLE_LIMIT-2) * DEGTORAD
+            lowerAngle=-(NOZZLE_ANGLE_LIMIT-1) * DEGTORAD,  # +- 15 degrees limit applied in practice
+            upperAngle=(NOZZLE_ANGLE_LIMIT-1) * DEGTORAD
         )
         # The default behaviour of a revolute joint is to rotate without resistance.
         self.nozzle.joint = self.world.CreateJoint(rjd)
@@ -597,7 +632,7 @@ class RocketLander(gym.Env):
         return
 
     # ----------------------------------------------------------------------------
-    def _create_particle(self, mass, x, y, ttl, radius=3):
+    def _create_particle(self, mass, x, y, ttl, radius=1):
         '''
         Used for both the Main Engine and Side Engines
         '''
@@ -606,7 +641,7 @@ class RocketLander(gym.Env):
             angle=0.0,
             fixtures=fixtureDef(
                 shape=circleShape(radius=radius / SCALE, pos=(0, 0)),
-                density=mass,
+                density=mass*3,
                 friction=0.1,
                 categoryBits=0x0100,
                 maskBits=0x001,  # collide only with ground
@@ -780,9 +815,10 @@ class RocketLander(gym.Env):
         Draws '+' sign at the x and y coordinates.
         '''
         offset = 0.2
+        isBodyOffset = offset * LANDER_LENGTH / 120
         if isBody:
-            self.viewer.draw_polyline([(x, y - offset), (x, y + offset)], linewidth=2, color = (0.0, 0.0, 0.0))
-            self.viewer.draw_polyline([(x - offset, y), (x + offset, y)], linewidth=2, color= (0.0, 0.0, 0.0))
+            self.viewer.draw_polyline([(x, y - isBodyOffset), (x, y + isBodyOffset)], linewidth=2, color = (0.0, 0.0, 0.0))
+            self.viewer.draw_polyline([(x - isBodyOffset, y), (x + isBodyOffset, y)], linewidth=2, color= (0.0, 0.0, 0.0))
         else:
             self.viewer.draw_polyline([(x, y - offset), (x, y + offset)], linewidth=2, color = (1.0, 0.0, 0.0))
             self.viewer.draw_polyline([(x - offset, y), (x + offset, y)], linewidth=2, color= (1.0, 0.0, 0.0))

@@ -17,6 +17,7 @@ def get_args():
     #parser.add_argument('--load_critic_model', dest='load_critic_model', type=str, default='ppo/models/ppo_critic_0.pth')
     # other args
     parser.add_argument('--render', dest='render', action='store_true')
+    parser.add_argument('--profile', dest='profile', action='store_true')
 
     args = parser.parse_args()
 

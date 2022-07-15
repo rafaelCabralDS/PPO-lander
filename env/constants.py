@@ -18,7 +18,7 @@ SCALE = 30
 VIEWPORT_W = 1200 # 1600 
 VIEWPORT_H = 900 # 1000 # ~ 250 m
 
-SEA_CHUNKS = 25 # 25
+PIXELTOMETER = 900/50*3 # Viewport_H [PIXEL] / LANDER_LENGTH [PIXEL] * ROCKET_LENGTH [m] 
 
 DEGTORAD = math.pi/180.0
 
@@ -26,11 +26,14 @@ W = int(VIEWPORT_W / SCALE)
 H = int(VIEWPORT_H / SCALE)
 
 
+SEA_CHUNKS = 25 # 25
+HELIPAD_Y = H / 50
+BARGE_HEIGHT = HELIPAD_Y * 1.6
 
 # --------------------------------
 '''Rocket Relative Dimensions'''
 # changed name to something better
-INITIAL_RANDOM_FORCE = 1000.0 # remove this and insert randomness in initial conditions
+INITIAL_RANDOM_FORCE = 3000.0 # remove this and insert randomness in initial conditions
 
 RANDOM_DISTURBANCE_FORCE = 0.0 # proportional to altitude
 
@@ -86,24 +89,25 @@ class State(Enum):
 # --------------------------------
 '''Forces, Costs, Torque, Friction'''
 MAIN_ENGINE_LOWER = 0.3 # 30% of the maximum power # referenced in __main_engines_force_computation
-MAIN_ENGINE_POWER = FPS*LANDER_LENGTH / (8.0) #(2.1) # FPS IS A RELEVANTE PARAMETER TO CONTROL SIMULATION
+MAIN_ENGINE_POWER = FPS*LANDER_LENGTH / (1.5)  #(2.1) # FPS IS A RELEVANTE PARAMETER TO CONTROL SIMULATION
 
 SIDE_ENGINE_ACTIVATE = 0.5 # atleast 50% to enable side thrusters
 SIDE_ENGINE_POWER = MAIN_ENGINE_POWER / 50
 
-INITIAL_FUEL_MASS_PERCENTAGE = 0.2
+INITIAL_FUEL_MASS_PERCENTAGE = 0.23
 MAIN_ENGINE_FUEL_COST = MAIN_ENGINE_POWER/SIDE_ENGINE_POWER # 50
 SIDE_ENGINE_FUEL_COST = 1
 
 LEG_SPRING_TORQUE = LANDER_LENGTH
-NOZZLE_TORQUE = 200 # 500
+NOZZLE_TORQUE = 1000 # 250 # 500
 NOZZLE_ANGLE_LIMIT = 20*DEGTORAD # THETA + DELTA
 
 BARGE_FRICTION = 2 # ??
 
+ANGULAR_VELOCITY_AMPLIFIER = 20.0
+
 # --------------------------------
 '''Landing Calibration'''
-LANDING_VERTICAL_CALIBRATION = 0.005
 TERRAIN_CHUNKS = 22 # 0-20 calm seas, 20+ rough seas
 BARGE_LENGTH_X1_RATIO = 0.3 #
 BARGE_LENGTH_X2_RATIO = 0.7 #

@@ -9,7 +9,7 @@ from env.rocketlander import RocketLander
 from ppo.network import FeedForwardNN
 from ppo.eval_policy import eval_policy
 
-def test(env, actor_model, render):
+def test(env, actor_model, render, profile):
     ''' Tests the model '''
     print(f"Testing {actor_model}", flush=True)
 
@@ -27,7 +27,7 @@ def test(env, actor_model, render):
     # Load in the actor model saved by the PPO algorithm
     policy.load_state_dict(torch.load(actor_model))
 
-    eval_policy(policy=policy, env=env, render=render)
+    eval_policy(policy=policy, env=env, render=render, profile=profile)
 
 def main(args):
     settings = {'Side Engines': SIDE_ENGINES,
@@ -38,7 +38,7 @@ def main(args):
 
     env = RocketLander(settings)
 
-    test(env=env,actor_model=args.load_actor_model, render=args.render)
+    test(env=env,actor_model=args.load_actor_model, render=args.render, profile=args.profile)
 
 if __name__ == '__main__':
     args = get_args()

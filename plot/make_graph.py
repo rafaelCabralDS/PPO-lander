@@ -28,7 +28,7 @@ def extract_data(filepath):
             l = [e.strip() for e in l.split(':')]
             if 'Episodic Return' in l:
                 y.append(float(l[1]))
-            if 'Iteration' in l:
+            elif 'Iteration' in l:
                 x.append(int(l[1]))
     
     return x, y

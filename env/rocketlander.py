@@ -100,6 +100,12 @@ class RocketLander(gym.Env):
 
         self.untransformed_state = [0] * 6  # Non-normalized state
 
+
+        self.previous_main_engine_use = False
+        self.main_engine_use = False
+        self.previous_side_engine_use = False
+        self.side_engine_use = False
+
         self.reset()
 
     ''' INHERITED '''
@@ -179,6 +185,8 @@ class RocketLander(gym.Env):
 
         assert(len(action) == 3)  # Fe, Fs, psi
 
+        reward = 0
+
         # Check for contact with the ground
         if self.legs[0].ground_contact or self.legs[1].ground_contact:
             self.CONTACT_FLAG = True # will end shortly after touching
@@ -197,9 +205,13 @@ class RocketLander(gym.Env):
         else:
             part = self.lander
 
-        # Main Force Calculations -> Thrust and Aero
+        # if fuel is over
         if self.remaining_fuel == 0:
-            logging.info("Strictly speaking, you're out of fuel, but act anyway.")
+            logging.info("Oh nein, fuel ist over.")
+            action = [0, 0, action[2]]
+            reward += -2 # per tick
+
+        # Main Force Calculations -> Thrust and Aero
         m_power = self.__main_engines_force_computation(action, rocketPart=part)
         s_power, engine_dir = self.__side_engines_force_computation(action)
         #self.__aerodynamic_force_computation()
@@ -216,24 +228,24 @@ class RocketLander(gym.Env):
         self.state = state  # Keep a record of the new state
 
         # Rewards for reinforcement learning
-        reward = self.__compute_rewards(state, m_power, s_power,
+        reward += self.__compute_rewards(state, m_power, s_power,
                                         part.angle)  # part angle can be used as part of the reward
 
         # Check if the game is done, adjust reward based on the final state of the body
         state_reset_conditions = [
             self.game_over,  # Evaluated depending on body contact
             abs(state[XX]) >= 1.0,  # Rocket moves out of x-space
-            state[YY] < 0 or state[YY] > 1.6,  # Rocket moves out of y-space or below barge
+            state[YY] < 0 or state[YY] > 1.0,  # Rocket moves out of y-space or below barge
             abs(state[THETA]) > THETA_LIMIT]  # Rocket tilts greater than the "controllable" limit
         done = False
         if any(state_reset_conditions):
             #print(f"done for state_reset_conditions.")
             done = True
-            reward = -10
+            reward += -30
         if not self.lander.awake:
             #print(f"done for self.lander.awake.")
             done = True
-            reward = +10
+            reward += +10
         if self.CONTACT_FLAG:
             self.count_ticks_to_end += 1
             if self.count_ticks_to_end >= FPS: # 1 second
@@ -276,8 +288,11 @@ class RocketLander(gym.Env):
 
         # Main engine
         m_power = 0
+        self.previous_main_engine_use = self.main_engine_use
+        self.main_engine_use = False
         try:
-            if (action[0] > 0.0):
+            if (action[0] >= MAIN_ENGINE_LOWER):
+                self.main_engine_use = True
                 # Limits
                 #m_power = (np.clip(action[0], 0.0, 1.0) + 1.0) * 0.3  # WAS WRONG
                 m_power = np.clip(action[0], MAIN_ENGINE_LOWER, 1.0) # NOW CLIPPING CORRECTLY
@@ -312,10 +327,16 @@ class RocketLander(gym.Env):
         dispersion = [0.0, 0.0]
         sin = math.sin(self.lander.angle)  # for readability
         cos = math.cos(self.lander.angle)
+
+        # side engine
         s_power = 0.0
         y_dir = 1 # Positioning for the side Thrusters
         engine_dir = 0
+        self.previous_side_engine_use = self.side_engine_use
+        self.side_engine_use = False
+
         if (self.settings['Side Engines'] and np.abs(action[1]) > SIDE_ENGINE_ACTIVATE): # Have to be > 0.5
+                self.side_engine_use = True
                 # Orientation engines
                 engine_dir = np.sign(action[1])
                 s_power = np.clip(np.abs(action[1]), SIDE_ENGINE_ACTIVATE, 1.0)
@@ -396,15 +417,15 @@ class RocketLander(gym.Env):
         target = (self.initial_barge_coordinates[1][0] - self.initial_barge_coordinates[0][0]) / 2 + \
                  self.initial_barge_coordinates[0][0]
         state = [
-            (pos.x - target) / (W / 2),
-            (pos.y - (self.maximum_barge_height + (LEG_DOWN / SCALE))) / (W / 2) - LANDING_VERTICAL_CALIBRATION,
+            (pos.x - target) / (W),
+            (pos.y - (BARGE_HEIGHT + (LEG_DOWN / SCALE))) / (H),
             # affects controller
             # self.bargeHeight includes height of helipad
-            vel.x * (W / 2) / FPS,
-            vel.y * (H / 2) / FPS,
+            vel.x * (W) / FPS,
+            vel.y * (H) / FPS,
             self.lander.angle,
             # self.nozzle.angle,
-            20.0 * self.lander.angularVelocity / FPS,
+            ANGULAR_VELOCITY_AMPLIFIER * self.lander.angularVelocity / FPS,
             1.0 if self.legs[0].ground_contact else 0.0,
             1.0 if self.legs[1].ground_contact else 0.0
         ]
@@ -418,23 +439,26 @@ class RocketLander(gym.Env):
         reward = 0
         # ['dx','dy','x_vel','y_vel','theta','theta_dot','left_ground_contact','right_ground_contact']
         # *************************** WILL NEED CHANGES
-        shaping = -200 * np.sqrt(np.square(state[0]) + np.square(state[1])) \
-                  - 100 * np.sqrt(np.square(state[2]) + np.square(state[3])) \
-                  - 1000 * abs(state[4]) - 30 * abs(state[5]) \
-                  + 20 * state[6] + 20 * state[7]
+        shaping = -300 * np.sqrt(np.square(state[0]) + np.square(state[1])) \
+                  - 200 * np.sqrt(np.square(state[2]) + np.square(state[3])) \
+                  - 1000 * abs(state[4]) - 50 * abs(state[5]) \
+                  + 25 * state[6] + 25 * state[7]
 
         # penalize increase in altitude
         if state[3] > 0:
-            shaping = shaping - 1
+            shaping = shaping - 5
 
         if self.prev_shaping is not None:
             reward = shaping - self.prev_shaping
         self.prev_shaping = shaping
 
         # penalize the use of engines
-        reward += -main_engine_power * 0.3
+        reward += -main_engine_power * 0.2
         if self.settings['Side Engines']:
-            reward += -side_engine_power * 0.3
+            reward += -side_engine_power * 0.4
+        # penalize engine transition
+        reward += -(self.previous_main_engine_use==self.main_engine_use)*4
+        reward += -(self.previous_side_engine_use==self.side_engine_use)*2
 
         return reward / 10
 
@@ -446,7 +470,7 @@ class RocketLander(gym.Env):
         # self.helipad_x1 = W / 5
         # self.helipad_x2 = self.helipad_x1 + W / 5
         divisor_constant = 50 # 8  # Control the height of the sea
-        self.helipad_y = H / divisor_constant
+        self.helipad_y = HELIPAD_Y
 
         # Terrain
         # height = self.np_random.uniform(0, H / 6, size=(CHUNKS + 1,))
@@ -476,7 +500,7 @@ class RocketLander(gym.Env):
             angle=0,
             fixtures=fixtureDef(
                 shape=polygonShape(vertices=[(x / SCALE, y / SCALE) for x, y in LANDER_POLY]),
-                density=5.0,
+                density=12.0,
                 friction=0.1,
                 categoryBits=0x0010,
                 maskBits=0x001,  # collide only with ground
@@ -569,7 +593,7 @@ class RocketLander(gym.Env):
     # ----------------------------------------------------------------------------
     def _create_barge(self):
         # Landing Barge
-        self.bargeHeight = self.helipad_y * (1 + 0.6)
+        self.bargeHeight = BARGE_HEIGHT
 
         assert BARGE_LENGTH_X1_RATIO < BARGE_LENGTH_X2_RATIO, 'Barge Length X1 must be 0-1 and smaller than X2'
 
@@ -692,10 +716,11 @@ class RocketLander(gym.Env):
     def _decrease_mass(self, main_engine_power, side_engine_power):
         x = np.array([float(main_engine_power), float(side_engine_power)])
         # **************** -> Here, obviously need changes
-        consumed_fuel = 0.009 * np.sum(x * (MAIN_ENGINE_FUEL_COST, SIDE_ENGINE_FUEL_COST)) / SCALE
+        consumption_factor = 0.007
+        consumed_fuel = consumption_factor * np.sum(x * (MAIN_ENGINE_FUEL_COST, SIDE_ENGINE_FUEL_COST)) / SCALE
         self.lander.mass -= consumed_fuel
         self.remaining_fuel -= consumed_fuel
-        if self.remaining_fuel < 0:
+        if self.remaining_fuel < 0: # break condition ??
             self.remaining_fuel = 0
 
     # ----------------------------------------------------------------------------

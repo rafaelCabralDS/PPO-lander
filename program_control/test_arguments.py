@@ -12,12 +12,15 @@ def get_args():
 
     parser = argparse.ArgumentParser()
 
-    # models
+    # actor model
     parser.add_argument('--load_actor_model', dest='load_actor_model', type=str, default='./ppo/models/ppo_actor_1.pth')
-    #parser.add_argument('--load_critic_model', dest='load_critic_model', type=str, default='ppo/models/ppo_critic_0.pth')
-    # other args
+    # animation
     parser.add_argument('--render', dest='render', action='store_true')
+    ## plots
+    # a single run
     parser.add_argument('--profile', dest='profile', action='store_true')
+    # multiple runs -> zero means this is not a monte_carlo run
+    parser.add_argument('--monte_carlo', dest='monte_carlo', type=int, default=0, help='number of iterations')
 
     args = parser.parse_args()
 

@@ -38,7 +38,7 @@ def graph_data(filepath, args):
     
     x, y = extract_data(filepath)
 
-    plt.plot(x, y, 'b')
+    plt.plot(x, y, c=[0,0,1])
     
     plt.title(args.title)
     plt.xlabel('Iteration')
@@ -51,10 +51,6 @@ def graph_data(filepath, args):
     plt.show()
     plt.draw()
     
-
-
-
-
 
 def main(args):
     ''' Verifies File and Plots '''

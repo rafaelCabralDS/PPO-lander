@@ -33,7 +33,7 @@ BARGE_HEIGHT = HELIPAD_Y * 1.6
 # --------------------------------
 '''Rocket Relative Dimensions'''
 # changed name to something better
-INITIAL_RANDOM_FORCE = 3000.0 # remove this and insert randomness in initial conditions
+INITIAL_RANDOM_FORCE = 0.0 # remove this and insert randomness in initial conditions
 
 RANDOM_DISTURBANCE_FORCE = 0.0 # proportional to altitude
 
@@ -94,7 +94,7 @@ MAIN_ENGINE_POWER = FPS*LANDER_LENGTH / (1.5)  #(2.1) # FPS IS A RELEVANTE PARAM
 SIDE_ENGINE_ACTIVATE = 0.5 # atleast 50% to enable side thrusters
 SIDE_ENGINE_POWER = MAIN_ENGINE_POWER / 50
 
-INITIAL_FUEL_MASS_PERCENTAGE = 0.23
+INITIAL_FUEL_MASS_PERCENTAGE = 0.22
 MAIN_ENGINE_FUEL_COST = MAIN_ENGINE_POWER/SIDE_ENGINE_POWER # 50
 SIDE_ENGINE_FUEL_COST = 1
 

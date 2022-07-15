@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 
 import argparse
 
-import numpy as np
-
 sys.path.append("..") # quick hack -> search in the parent directory
 from env.constants import *
 
@@ -15,12 +13,11 @@ Shows one figure at a time.
 
 def get_args():
 
-    # example: python3 flight_profile.py --file test_data/profile_ppo_actor_1.dat --save
+    # example: python3 flight_profile.py --file test_data/profile_ppo_actor_1.dat
 
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--file', dest='file', type=str, default="test_data/profile_ppo_actor_1.dat")
-    parser.add_argument('--save', dest='save', action='store_true', help='data to figures/<title>.png')
 
     args = parser.parse_args()
 
@@ -123,7 +120,7 @@ def graph_data(filepath, args):
     plt.plot(step, T_m_clipped, 'r')
     plt.plot(step, T_s_clipped, 'b')
     plt.plot(step, Delta_delta_clipped, 'g')
-    plt.legend(['T_m','T_s','Delta(delta)$'])
+    plt.legend(['T_m','T_s',r'$\Delta(\delta)$'])
     plt.title('Applied Control Efforts in Time')
     plt.ylabel('Normalized Control Inputs')
     plt.xlabel('Time step [s/60]')
@@ -161,8 +158,8 @@ def graph_data(filepath, args):
     # TO DEG
     theta_deg = [theta_k / DEGTORAD for theta_k in theta]
     plt.plot(step, theta_deg, 'b')
-    plt.title('Theta Angle')
-    plt.ylabel('Theta [Deg]')
+    plt.title(r'$\theta$ Angle')
+    plt.ylabel(r'$\theta$ [°]')
     plt.xlabel('Time step [s/60]')
     plt.show()
     plt.draw()
@@ -171,8 +168,8 @@ def graph_data(filepath, args):
     # TO DEG
     q_deg = [q_k / DEGTORAD for q_k in q]
     plt.plot(step, q_deg, 'b')
-    plt.title('Theta Derivative')
-    plt.ylabel('q [Deg/s]')
+    plt.title(r'$\theta$ Derivative')
+    plt.ylabel('q [°/s]')
     plt.xlabel('Time step [s/60]')
     plt.show()
     plt.draw()

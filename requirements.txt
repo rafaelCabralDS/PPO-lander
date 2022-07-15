@@ -10,3 +10,4 @@ cvxpy
 #concurrent
 torch
 argparse
+latex

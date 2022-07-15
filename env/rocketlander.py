@@ -87,24 +87,14 @@ class RocketLander(gym.Env):
         self.lander_tilt_angle_limit = THETA_LIMIT
 
         self.game_over = False
-
+    
         self.settings = settings
         self.dynamicLabels = {}
         self.staticLabels = {}
 
-        self.wind_counter = 0    # aerodynamics randomness
-        self.wind_sample = FPS/2 # every half second
-        self.wind_disturbance = (0, 0) # process noise (wind variation)
-
         self.action_space = spaces.Box(-np.inf, +np.inf, (3,)) # Main Engine [0,1], Left/Right Engine [-1,1], Nozzle Angle [-1,1] -> Gradient -> \Delta(\delta)
 
         self.untransformed_state = [0] * 6  # Non-normalized state
-
-
-        self.previous_main_engine_use = False
-        self.main_engine_use = False
-        self.previous_side_engine_use = False
-        self.side_engine_use = False
 
         self.reset()
 
@@ -130,6 +120,17 @@ class RocketLander(gym.Env):
         self.prev_shaping = 0
         self.CONTACT_FLAG = False
 
+        self.successful_landing = False
+
+        self.previous_main_engine_use = False
+        self.main_engine_use = False
+        self.previous_side_engine_use = False
+        self.side_engine_use = False
+
+        self.wind_counter = 0    # aerodynamics randomness
+        self.wind_sample = FPS/2 # every half second
+        self.wind_disturbance = (0, 0) # process noise (wind variation)
+
         # Engine Stats
         self.action_history = []
 
@@ -145,24 +146,15 @@ class RocketLander(gym.Env):
         self._create_base_static_edges(TERRAIN_CHUNKS, smoothed_terrain_edges, terrain_divider_coordinates_x)
 
         # Adjust the initial coordinates of the rocket
-        # ************ CHANGES?
-        initial_coordinates = self.settings.get('Initial Coordinates')
-        if initial_coordinates is not None:
-            xx, yy, randomness_degree, normalized = initial_coordinates
-            x = xx * W + np.random.uniform(-randomness_degree, randomness_degree)
-            y = yy * H + np.random.uniform(-randomness_degree, randomness_degree)
-            if not normalized:
-                x = x / W
-                y = y / H
-        else:
-            x, y = W / 2 + np.random.uniform(-0.1, 0.1), H / self.settings['Starting Y-Pos Constant']
-        self.initial_coordinates = (x, y)
+        x = 0.5 + np.random.uniform(-0.12,0.12) # not dx
+        y = 0.96 # not dy
+        x_dot = np.random.uniform(-20/PIXELTOMETER,20/PIXELTOMETER)
+        y_dot = -120 /PIXELTOMETER + np.random.uniform(-30/PIXELTOMETER,+30/PIXELTOMETER) # METER TO PIXEL
+        theta = np.random.uniform(-8*DEGTORAD,8*DEGTORAD)
+        theta_dot = np.random.uniform(-4*DEGTORAD,4*DEGTORAD)
 
-        self._create_rocket(self.initial_coordinates)
-
-        if self.settings.get('Initial State'):
-            x, y, x_dot, y_dot, theta, theta_dot = self.settings.get('Initial State')
-            self.adjust_dynamics(y_dot=y_dot, x_dot=x_dot, theta=theta, theta_dot=theta_dot)
+        self._create_rocket((x*W, y*H))
+        self.adjust_dynamics(y_dot=y_dot, x_dot=x_dot, theta=theta, theta_dot=theta_dot)
 
         # Step through one action = [0, 0, 0] and return the state, reward etc.
         return self.step(np.array([0, 0, 0]))[0]
@@ -190,6 +182,8 @@ class RocketLander(gym.Env):
         # Check for contact with the ground
         if self.legs[0].ground_contact or self.legs[1].ground_contact:
             self.CONTACT_FLAG = True # will end shortly after touching
+            if abs(self.state[XX]) <= 0.04:
+                reward += 10
 
         # Shutdown all Engines upon contact with the ground
         if self.CONTACT_FLAG:
@@ -206,10 +200,13 @@ class RocketLander(gym.Env):
             part = self.lander
 
         # if fuel is over
+        done = False
         if self.remaining_fuel == 0:
-            logging.info("Oh nein, fuel ist over.")
             action = [0, 0, action[2]]
-            reward += -2 # per tick
+            if self.state[1] > 0.05: # approx 2 m
+                done = True
+                logging.info("Oh nein, fuel ist over. Und we are high.")
+                reward += -25
 
         # Main Force Calculations -> Thrust and Aero
         m_power = self.__main_engines_force_computation(action, rocketPart=part)
@@ -234,23 +231,19 @@ class RocketLander(gym.Env):
         # Check if the game is done, adjust reward based on the final state of the body
         state_reset_conditions = [
             self.game_over,  # Evaluated depending on body contact
-            abs(state[XX]) >= 1.0,  # Rocket moves out of x-space
-            state[YY] < 0 or state[YY] > 1.0,  # Rocket moves out of y-space or below barge
+            abs(state[XX]) >= 0.7,  # Rocket moves out of x-space
+            state[YY] < 0.008 or state[YY] > 1.0,  # Rocket moves out of y-space or below barge
             abs(state[THETA]) > THETA_LIMIT]  # Rocket tilts greater than the "controllable" limit
-        done = False
         if any(state_reset_conditions):
             #print(f"done for state_reset_conditions.")
             done = True
-            reward += -30
-        if not self.lander.awake:
-            #print(f"done for self.lander.awake.")
-            done = True
-            reward += +10
+            reward += -50
         if self.CONTACT_FLAG:
             self.count_ticks_to_end += 1
             if self.count_ticks_to_end >= FPS: # 1 second
-                #print(f"done for count ticks to end.")
                 done = True
+                reward += 15
+                self.successful_landing = True
 
         self._update_particles()
 
@@ -439,10 +432,10 @@ class RocketLander(gym.Env):
         reward = 0
         # ['dx','dy','x_vel','y_vel','theta','theta_dot','left_ground_contact','right_ground_contact']
         # *************************** WILL NEED CHANGES
-        shaping = -300 * np.sqrt(np.square(state[0]) + np.square(state[1])) \
-                  - 200 * np.sqrt(np.square(state[2]) + np.square(state[3])) \
+        shaping = - 700 * np.sqrt(np.square(state[0]) + np.square(state[1])) \
+                  - 100 * np.sqrt(np.square(state[2]) + np.square(state[3])) \
                   - 1000 * abs(state[4]) - 50 * abs(state[5]) \
-                  + 25 * state[6] + 25 * state[7]
+                  + 80 * state[6] + 80 * state[7]
 
         # penalize increase in altitude
         if state[3] > 0:
@@ -453,12 +446,12 @@ class RocketLander(gym.Env):
         self.prev_shaping = shaping
 
         # penalize the use of engines
-        reward += -main_engine_power * 0.2
+        reward += -main_engine_power**0.8 * 0.5 # penalize more low intensity, to be more bangy-bangy
         if self.settings['Side Engines']:
-            reward += -side_engine_power * 0.4
+            reward += -side_engine_power**0.8 * 0.8
         # penalize engine transition
-        reward += -(self.previous_main_engine_use==self.main_engine_use)*4
-        reward += -(self.previous_side_engine_use==self.side_engine_use)*2
+        reward += -(self.previous_main_engine_use==self.main_engine_use)*3
+        reward += -(self.previous_side_engine_use==self.side_engine_use)*1
 
         return reward / 10
 

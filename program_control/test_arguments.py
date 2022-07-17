@@ -13,7 +13,7 @@ def get_args():
     parser = argparse.ArgumentParser()
 
     # actor model
-    parser.add_argument('--load_actor_model', dest='load_actor_model', type=str, default='./ppo/models/ppo_actor_1.pth')
+    parser.add_argument('--load_actor_model', dest='load_actor_model', type=str, default='./ppo/models/ppo_actor_2.pth')
     # animation
     parser.add_argument('--render', dest='render', action='store_true')
     ## plots

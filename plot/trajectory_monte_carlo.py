@@ -5,7 +5,9 @@ import argparse
 
 from numpy import random
 
-from statistics import mean, stdev
+from statistics import mean
+
+from numpy import std
 
 sys.path.append("..") # quick hack -> search in the parent directory
 from env.constants import *
@@ -20,7 +22,7 @@ def get_args():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', dest='file', type=str, default="test_data/monte_carlo_ppo_actor_1.dat")
+    parser.add_argument('--file', dest='file', type=str, default="test_data/monte_carlo_ppo_actor_2.dat")
     parser.add_argument('--save', dest='save', action='store_true', help='data to figures/<title>.png')
 
     args = parser.parse_args()
@@ -109,9 +111,9 @@ def graph_data(filepath, args):
     ## stats -> fuel, success, reward
     fuel_percentage = [100 * fuel_k / fuel[0] for fuel_k in fuel_end]
     fuel_mean = mean(fuel_percentage)
-    fuel_std = stdev(fuel_percentage)
+    fuel_std = std(fuel_percentage) 
     reward_mean = mean(reward)
-    reward_std = stdev(fuel)
+    reward_std = std(fuel) # this here is outputting a wring value
     success_percentage = sum(success) / len(success) * 100
     print(f'''
     fuel_mean = {fuel_mean}

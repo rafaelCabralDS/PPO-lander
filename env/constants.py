@@ -16,7 +16,7 @@ SCALE = 30
 # width is somewaht free to adjust, height you can't vary too much
 
 VIEWPORT_W = 1200 # 1600 
-VIEWPORT_H = 900 # 1000 # ~ 250 m
+VIEWPORT_H = 900 # 900 # 1000 # ~ 250 m
 
 PIXELTOMETER = 900/50*3 # Viewport_H [PIXEL] / LANDER_LENGTH [PIXEL] * ROCKET_LENGTH [m] 
 

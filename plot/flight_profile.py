@@ -17,7 +17,7 @@ def get_args():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', dest='file', type=str, default="test_data/profile_ppo_actor_1.dat")
+    parser.add_argument('--file', dest='file', type=str, default="test_data/profile_ppo_actor_2.dat")
 
     args = parser.parse_args()
 
@@ -124,6 +124,7 @@ def graph_data(filepath, args):
     plt.title('Applied Control Efforts in Time')
     plt.ylabel('Normalized Control Inputs')
     plt.xlabel('Time step [s/60]')
+    plt.ylim(-1,1)
     plt.show()
     plt.draw()
 
@@ -142,15 +143,15 @@ def graph_data(filepath, args):
 
     # kinematic derivatives -> (\dot{x},\dot{h}) with time ---4
     # CONVERT TO M/S HERE -> invert state expression ignoring W and multiplying by PIXELTOMETER
-    vx_m = [vx_k * PIXELTOMETER for vx_k in vx]
-    vh_m = [vh_k * PIXELTOMETER for vh_k in vh]
+    vx_m = [vx_k * 2 * FPS / H for vx_k in vx] # * PIXELTOMETER 
+    vh_m = [vh_k * 2 * FPS / H for vh_k in vh]
     plt.plot(step, vx_m, 'r')
     plt.plot(step, vh_m, 'b')
     plt.legend(['Vx','Vh'])
     plt.title('Velocity States')
     plt.ylabel('Velocity [m/s]')
     plt.xlabel('Time step [s/60]')
-    plt.ylim(vh_m[0]*1.1,150)
+    plt.ylim(-15,5)
     plt.show()
     plt.draw()
 

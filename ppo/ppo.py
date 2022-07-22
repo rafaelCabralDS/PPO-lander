@@ -65,7 +65,7 @@ class PPO:
         # Miscellaneus parameters
         self.render = True
         self.render_every_i = 10
-        self.save_freq = 10
+        self.save_freq = 5
         self.seed = None
 
         for param, val in hyperparameters.items():

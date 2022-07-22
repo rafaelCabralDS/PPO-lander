@@ -13,7 +13,7 @@ A rocket landing simulation and control project, slightly based on Ferrante's ma
 
 ## How to start
 
-To work without hacking the code, you will need a screen which can contain a 1200x900 window. Else go into env/constants.py and change VIEWPORT_W and VIEWPORT_H to match your screen.
+To work without hacking the code, you will need a screen which can contain a 900x900 window. Else go into env/constants.py and change VIEWPORT_W and VIEWPORT_H to match your screen.
 
 Start by downloading the required libraries:
 

@@ -1,0 +1,824 @@
+Namespace(load_actor_model='./ppo/models/ppo_actor_0.pth', monte_carlo=0, profile=False, render=False)
+Testing ./ppo/models/ppo_actor_0.pth
+
+----------------------------------------
+Iteration: 0
+Episodic Length: 190
+Episodic Return: 9.48
+Success: 1
+
+----------------------------------------
+Iteration: 1
+Episodic Length: 127
+Episodic Return: -50.27
+Success: 0
+
+----------------------------------------
+Iteration: 2
+Episodic Length: 129
+Episodic Return: -50.19
+Success: 0
+
+----------------------------------------
+Iteration: 3
+Episodic Length: 129
+Episodic Return: -50.11
+Success: 0
+
+----------------------------------------
+Iteration: 4
+Episodic Length: 128
+Episodic Return: -51.01
+Success: 0
+
+----------------------------------------
+Iteration: 5
+Episodic Length: 129
+Episodic Return: -50.27
+Success: 0
+
+----------------------------------------
+Iteration: 6
+Episodic Length: 129
+Episodic Return: -50.21
+Success: 0
+
+----------------------------------------
+Iteration: 7
+Episodic Length: 130
+Episodic Return: -50.35
+Success: 0
+
+----------------------------------------
+Iteration: 8
+Episodic Length: 130
+Episodic Return: -50.1
+Success: 0
+
+----------------------------------------
+Iteration: 9
+Episodic Length: 127
+Episodic Return: -50.59
+Success: 0
+
+----------------------------------------
+Iteration: 10
+Episodic Length: 129
+Episodic Return: -50.66
+Success: 0
+
+----------------------------------------
+Iteration: 11
+Episodic Length: 130
+Episodic Return: -65.06
+Success: 0
+
+----------------------------------------
+Iteration: 12
+Episodic Length: 129
+Episodic Return: -50.32
+Success: 0
+
+----------------------------------------
+Iteration: 13
+Episodic Length: 129
+Episodic Return: -50.35
+Success: 0
+
+----------------------------------------
+Iteration: 14
+Episodic Length: 128
+Episodic Return: -65.17
+Success: 0
+
+----------------------------------------
+Iteration: 15
+Episodic Length: 126
+Episodic Return: -50.33
+Success: 0
+
+----------------------------------------
+Iteration: 16
+Episodic Length: 129
+Episodic Return: -50.32
+Success: 0
+
+----------------------------------------
+Iteration: 17
+Episodic Length: 129
+Episodic Return: -65.15
+Success: 0
+
+----------------------------------------
+Iteration: 18
+Episodic Length: 128
+Episodic Return: -50.63
+Success: 0
+
+----------------------------------------
+Iteration: 19
+Episodic Length: 187
+Episodic Return: -0.17
+Success: 1
+
+----------------------------------------
+Iteration: 20
+Episodic Length: 131
+Episodic Return: -51.04
+Success: 0
+
+----------------------------------------
+Iteration: 21
+Episodic Length: 128
+Episodic Return: -50.5
+Success: 0
+
+----------------------------------------
+Iteration: 22
+Episodic Length: 126
+Episodic Return: -50.59
+Success: 0
+
+----------------------------------------
+Iteration: 23
+Episodic Length: 128
+Episodic Return: -51.03
+Success: 0
+
+----------------------------------------
+Iteration: 24
+Episodic Length: 127
+Episodic Return: -50.11
+Success: 0
+
+----------------------------------------
+Iteration: 25
+Episodic Length: 130
+Episodic Return: -50.64
+Success: 0
+
+----------------------------------------
+Iteration: 26
+Episodic Length: 130
+Episodic Return: -50.3
+Success: 0
+
+----------------------------------------
+Iteration: 27
+Episodic Length: 131
+Episodic Return: -50.17
+Success: 0
+
+----------------------------------------
+Iteration: 28
+Episodic Length: 129
+Episodic Return: -50.12
+Success: 0
+
+----------------------------------------
+Iteration: 29
+Episodic Length: 131
+Episodic Return: -55.35
+Success: 0
+
+----------------------------------------
+Iteration: 30
+Episodic Length: 131
+Episodic Return: -56.1
+Success: 0
+
+----------------------------------------
+Iteration: 31
+Episodic Length: 128
+Episodic Return: -50.56
+Success: 0
+
+----------------------------------------
+Iteration: 32
+Episodic Length: 129
+Episodic Return: -50.39
+Success: 0
+
+----------------------------------------
+Iteration: 33
+Episodic Length: 129
+Episodic Return: -65.27
+Success: 0
+
+----------------------------------------
+Iteration: 34
+Episodic Length: 126
+Episodic Return: -50.55
+Success: 0
+
+----------------------------------------
+Iteration: 35
+Episodic Length: 131
+Episodic Return: -50.67
+Success: 0
+
+----------------------------------------
+Iteration: 36
+Episodic Length: 127
+Episodic Return: -50.19
+Success: 0
+
+----------------------------------------
+Iteration: 37
+Episodic Length: 131
+Episodic Return: -50.12
+Success: 0
+
+----------------------------------------
+Iteration: 38
+Episodic Length: 130
+Episodic Return: -55.39
+Success: 0
+
+----------------------------------------
+Iteration: 39
+Episodic Length: 131
+Episodic Return: -51.03
+Success: 0
+
+----------------------------------------
+Iteration: 40
+Episodic Length: 131
+Episodic Return: -50.17
+Success: 0
+
+----------------------------------------
+Iteration: 41
+Episodic Length: 130
+Episodic Return: -50.15
+Success: 0
+
+----------------------------------------
+Iteration: 42
+Episodic Length: 128
+Episodic Return: -50.67
+Success: 0
+
+----------------------------------------
+Iteration: 43
+Episodic Length: 129
+Episodic Return: -50.32
+Success: 0
+
+----------------------------------------
+Iteration: 44
+Episodic Length: 127
+Episodic Return: -50.22
+Success: 0
+
+----------------------------------------
+Iteration: 45
+Episodic Length: 128
+Episodic Return: -65.55
+Success: 0
+
+----------------------------------------
+Iteration: 46
+Episodic Length: 129
+Episodic Return: -65.89
+Success: 0
+
+----------------------------------------
+Iteration: 47
+Episodic Length: 130
+Episodic Return: -50.24
+Success: 0
+
+----------------------------------------
+Iteration: 48
+Episodic Length: 127
+Episodic Return: -51.15
+Success: 0
+
+----------------------------------------
+Iteration: 49
+Episodic Length: 127
+Episodic Return: -50.59
+Success: 0
+
+----------------------------------------
+Iteration: 50
+Episodic Length: 126
+Episodic Return: -50.21
+Success: 0
+
+----------------------------------------
+Iteration: 51
+Episodic Length: 129
+Episodic Return: -50.44
+Success: 0
+
+----------------------------------------
+Iteration: 52
+Episodic Length: 129
+Episodic Return: -50.8
+Success: 0
+
+----------------------------------------
+Iteration: 53
+Episodic Length: 131
+Episodic Return: -50.15
+Success: 0
+
+----------------------------------------
+Iteration: 54
+Episodic Length: 189
+Episodic Return: -1.15
+Success: 1
+
+----------------------------------------
+Iteration: 55
+Episodic Length: 131
+Episodic Return: -55.62
+Success: 0
+
+----------------------------------------
+Iteration: 56
+Episodic Length: 129
+Episodic Return: -50.69
+Success: 0
+
+----------------------------------------
+Iteration: 57
+Episodic Length: 185
+Episodic Return: -65.87
+Success: 0
+
+----------------------------------------
+Iteration: 58
+Episodic Length: 128
+Episodic Return: -50.64
+Success: 0
+
+----------------------------------------
+Iteration: 59
+Episodic Length: 130
+Episodic Return: -50.49
+Success: 0
+
+----------------------------------------
+Iteration: 60
+Episodic Length: 129
+Episodic Return: -65.22
+Success: 0
+
+----------------------------------------
+Iteration: 61
+Episodic Length: 129
+Episodic Return: -65.25
+Success: 0
+
+----------------------------------------
+Iteration: 62
+Episodic Length: 127
+Episodic Return: -50.52
+Success: 0
+
+----------------------------------------
+Iteration: 63
+Episodic Length: 131
+Episodic Return: -50.71
+Success: 0
+
+----------------------------------------
+Iteration: 64
+Episodic Length: 126
+Episodic Return: -51.03
+Success: 0
+
+----------------------------------------
+Iteration: 65
+Episodic Length: 128
+Episodic Return: -55.84
+Success: 0
+
+----------------------------------------
+Iteration: 66
+Episodic Length: 132
+Episodic Return: -65.44
+Success: 0
+
+----------------------------------------
+Iteration: 67
+Episodic Length: 128
+Episodic Return: -50.26
+Success: 0
+
+----------------------------------------
+Iteration: 68
+Episodic Length: 130
+Episodic Return: -50.97
+Success: 0
+
+----------------------------------------
+Iteration: 69
+Episodic Length: 129
+Episodic Return: -51.15
+Success: 0
+
+----------------------------------------
+Iteration: 70
+Episodic Length: 131
+Episodic Return: -55.74
+Success: 0
+
+----------------------------------------
+Iteration: 71
+Episodic Length: 187
+Episodic Return: -0.96
+Success: 1
+
+----------------------------------------
+Iteration: 72
+Episodic Length: 131
+Episodic Return: -50.69
+Success: 0
+
+----------------------------------------
+Iteration: 73
+Episodic Length: 131
+Episodic Return: -50.92
+Success: 0
+
+----------------------------------------
+Iteration: 74
+Episodic Length: 131
+Episodic Return: -50.23
+Success: 0
+
+----------------------------------------
+Iteration: 75
+Episodic Length: 129
+Episodic Return: -50.09
+Success: 0
+
+----------------------------------------
+Iteration: 76
+Episodic Length: 127
+Episodic Return: -50.68
+Success: 0
+
+----------------------------------------
+Iteration: 77
+Episodic Length: 129
+Episodic Return: -51.09
+Success: 0
+
+----------------------------------------
+Iteration: 78
+Episodic Length: 129
+Episodic Return: -51.12
+Success: 0
+
+----------------------------------------
+Iteration: 79
+Episodic Length: 131
+Episodic Return: -50.47
+Success: 0
+
+----------------------------------------
+Iteration: 80
+Episodic Length: 131
+Episodic Return: -66.06
+Success: 0
+
+----------------------------------------
+Iteration: 81
+Episodic Length: 130
+Episodic Return: -50.19
+Success: 0
+
+----------------------------------------
+Iteration: 82
+Episodic Length: 130
+Episodic Return: -50.8
+Success: 0
+
+----------------------------------------
+Iteration: 83
+Episodic Length: 127
+Episodic Return: -50.65
+Success: 0
+
+----------------------------------------
+Iteration: 84
+Episodic Length: 128
+Episodic Return: -50.09
+Success: 0
+
+----------------------------------------
+Iteration: 85
+Episodic Length: 127
+Episodic Return: -56.14
+Success: 0
+
+----------------------------------------
+Iteration: 86
+Episodic Length: 127
+Episodic Return: -50.26
+Success: 0
+
+----------------------------------------
+Iteration: 87
+Episodic Length: 179
+Episodic Return: -65.8
+Success: 0
+
+----------------------------------------
+Iteration: 88
+Episodic Length: 128
+Episodic Return: -50.21
+Success: 0
+
+----------------------------------------
+Iteration: 89
+Episodic Length: 129
+Episodic Return: -55.36
+Success: 0
+
+----------------------------------------
+Iteration: 90
+Episodic Length: 188
+Episodic Return: -0.54
+Success: 1
+
+----------------------------------------
+Iteration: 91
+Episodic Length: 131
+Episodic Return: -50.08
+Success: 0
+
+----------------------------------------
+Iteration: 92
+Episodic Length: 127
+Episodic Return: -65.69
+Success: 0
+
+----------------------------------------
+Iteration: 93
+Episodic Length: 129
+Episodic Return: -50.7
+Success: 0
+
+----------------------------------------
+Iteration: 94
+Episodic Length: 126
+Episodic Return: -50.66
+Success: 0
+
+----------------------------------------
+Iteration: 95
+Episodic Length: 130
+Episodic Return: -50.76
+Success: 0
+
+----------------------------------------
+Iteration: 96
+Episodic Length: 127
+Episodic Return: -50.29
+Success: 0
+
+----------------------------------------
+Iteration: 97
+Episodic Length: 130
+Episodic Return: -50.2
+Success: 0
+
+----------------------------------------
+Iteration: 98
+Episodic Length: 129
+Episodic Return: -66.12
+Success: 0
+
+----------------------------------------
+Iteration: 99
+Episodic Length: 128
+Episodic Return: -65.18
+Success: 0
+
+----------------------------------------
+Iteration: 100
+Episodic Length: 127
+Episodic Return: -50.61
+Success: 0
+
+----------------------------------------
+Iteration: 101
+Episodic Length: 130
+Episodic Return: -65.45
+Success: 0
+
+----------------------------------------
+Iteration: 102
+Episodic Length: 128
+Episodic Return: -50.29
+Success: 0
+
+----------------------------------------
+Iteration: 103
+Episodic Length: 126
+Episodic Return: -50.2
+Success: 0
+
+----------------------------------------
+Iteration: 104
+Episodic Length: 130
+Episodic Return: -50.51
+Success: 0
+
+----------------------------------------
+Iteration: 105
+Episodic Length: 127
+Episodic Return: -50.15
+Success: 0
+
+----------------------------------------
+Iteration: 106
+Episodic Length: 190
+Episodic Return: -0.16
+Success: 1
+
+----------------------------------------
+Iteration: 107
+Episodic Length: 128
+Episodic Return: -65.85
+Success: 0
+
+----------------------------------------
+Iteration: 108
+Episodic Length: 127
+Episodic Return: -50.05
+Success: 0
+
+----------------------------------------
+Iteration: 109
+Episodic Length: 128
+Episodic Return: -65.84
+Success: 0
+
+----------------------------------------
+Iteration: 110
+Episodic Length: 128
+Episodic Return: -50.22
+Success: 0
+
+----------------------------------------
+Iteration: 111
+Episodic Length: 128
+Episodic Return: -50.78
+Success: 0
+
+----------------------------------------
+Iteration: 112
+Episodic Length: 130
+Episodic Return: -50.79
+Success: 0
+
+----------------------------------------
+Iteration: 113
+Episodic Length: 181
+Episodic Return: -65.85
+Success: 0
+
+----------------------------------------
+Iteration: 114
+Episodic Length: 131
+Episodic Return: -56.04
+Success: 0
+
+----------------------------------------
+Iteration: 115
+Episodic Length: 127
+Episodic Return: -50.47
+Success: 0
+
+----------------------------------------
+Iteration: 116
+Episodic Length: 127
+Episodic Return: -50.07
+Success: 0
+
+----------------------------------------
+Iteration: 117
+Episodic Length: 127
+Episodic Return: -50.66
+Success: 0
+
+----------------------------------------
+Iteration: 118
+Episodic Length: 130
+Episodic Return: -50.96
+Success: 0
+
+----------------------------------------
+Iteration: 119
+Episodic Length: 128
+Episodic Return: -50.33
+Success: 0
+
+----------------------------------------
+Iteration: 120
+Episodic Length: 127
+Episodic Return: -50.68
+Success: 0
+
+----------------------------------------
+Iteration: 121
+Episodic Length: 131
+Episodic Return: -50.43
+Success: 0
+
+----------------------------------------
+Iteration: 122
+Episodic Length: 130
+Episodic Return: -50.5
+Success: 0
+
+----------------------------------------
+Iteration: 123
+Episodic Length: 130
+Episodic Return: -65.33
+Success: 0
+
+----------------------------------------
+Iteration: 124
+Episodic Length: 131
+Episodic Return: -50.7
+Success: 0
+
+----------------------------------------
+Iteration: 125
+Episodic Length: 128
+Episodic Return: -55.82
+Success: 0
+
+----------------------------------------
+Iteration: 126
+Episodic Length: 129
+Episodic Return: -51.11
+Success: 0
+
+----------------------------------------
+Iteration: 127
+Episodic Length: 127
+Episodic Return: -50.71
+Success: 0
+
+----------------------------------------
+Iteration: 128
+Episodic Length: 128
+Episodic Return: -50.22
+Success: 0
+
+----------------------------------------
+Iteration: 129
+Episodic Length: 131
+Episodic Return: -65.62
+Success: 0
+
+----------------------------------------
+Iteration: 130
+Episodic Length: 131
+Episodic Return: -65.53
+Success: 0
+
+----------------------------------------
+Iteration: 131
+Episodic Length: 127
+Episodic Return: -65.81
+Success: 0
+
+----------------------------------------
+Iteration: 132
+Episodic Length: 131
+Episodic Return: -50.55
+Success: 0
+
+----------------------------------------
+Iteration: 133
+Episodic Length: 186
+Episodic Return: -0.69
+Success: 1
+
+----------------------------------------
+Iteration: 134
+Episodic Length: 127
+Episodic Return: -65.77
+Success: 0
+
+----------------------------------------
+Iteration: 135
+Episodic Length: 129
+Episodic Return: -55.79
+Success: 0
+
+----------------------------------------
+Iteration: 136
+Episodic Length: 128
+Episodic Return: -51.01
+Success: 0

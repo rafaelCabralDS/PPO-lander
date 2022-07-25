@@ -128,8 +128,8 @@ ANGULAR_VELOCITY_AMPLIFIER = 20.0
 INITIAL_RANDOM_FORCE = 0.0 # remove this and insert randomness in initial conditions
 
 RANDOM_DISTURBANCE_FORCE = 0.0 # RANDOM
-RANDOM_WIND_FORCE_X = 100 # ADDITIONAL VARIANCE IN GAUSSIAN IN X
-RANDOM_WIND_FORCE_Y = 49  # IN Y
+RANDOM_WIND_X = 1 # [m/s] ADDITIONAL VARIANCE IN GAUSSIAN IN X
+RANDOM_WIND_Y = 0.5  # [m/s] IN Y
 
 # --------------------------------
 '''Landing Calibration'''
@@ -143,6 +143,8 @@ BARGE_LENGTH_X2_RATIO = 0.7 #
 MASS = 23.32 # [Kg] # = density*area/SCALE^2 #25.222
 INERTIA = 73.05 # [Kg^2/m^2] # approx result #482.2956
 GRAVITY = 9.80665 #9.81
+
+XCG_NOSE = 1.5
 
 # below are not explicitly required, keeping only for reference (ARE WRONG)
 L1 = 3.8677

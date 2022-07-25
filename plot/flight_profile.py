@@ -2,7 +2,6 @@
 TODO: EXTRACT FILTERED ACTIONS (STATE[8],STATE[9]) AND PLOT STATE[10]
 '''
 
-
 import sys
 import matplotlib.pyplot as plt
 
@@ -14,7 +13,6 @@ from env.constants import *
 '''
 Shows one figure at a time.
 '''
-
 
 def get_args():
 

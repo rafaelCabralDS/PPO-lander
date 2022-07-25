@@ -1,16 +1,18 @@
 '''
 TODO: 
 - CHANGE FUNCTIONS: (IMPROVE PHYSICS AND ADEQUATE REWARD SHAPING)
-    1 - __main_engines_force_computation
-    2 - __side_engines_force_computation
-    3 - __aerodynamic_force_computation
+    1 - _main_engines_force_computation
+    2 - _side_engines_force_computation
+    3 - _aerodynamic_force_computation
     4 - _create_rocket
     5 - _decrease_mass
 '''
 
 import numpy as np
-
+from numpy import linalg as LA
+import pandas as pd
 from scipy import interpolate
+
 import os
 
 import Box2D
@@ -97,11 +99,12 @@ class RocketLander(gym.Env):
 
         self.untransformed_state = [0] * 6  # Non-normalized state
 
-        # aerodynamic tables of params
+        # aerodynamic table of params, capture, and interpolation
         dirname = os.path.dirname(__file__)
-        self.table_AED = np.loadtxt(dirname+'/tables/AED_coeff_datcom_ct_213_lander.csv', delimiter=',', skiprows=1)
-        self.table_atmosphere = np.loadtxt(dirname+'/tables/atmosphere_properties.csv', delimiter=',', skiprows=1)
-        self.table_wind_model = np.loadtxt(dirname+'/tables/wind_models_until_1200m.csv', delimiter=',', skiprows=1)
+        self.table_AED = pd.read_csv(dirname+'/tables/AED_coeff_datcom_ct_213_lander.csv')
+        self.table_atmosphere = pd.read_csv(dirname+'/tables/atmosphere_properties.csv')
+        self.table_wind_model = pd.read_csv(dirname+'/tables/wind_models.csv')
+        self._get_aed_tables()
         #
 
         self.reset()
@@ -131,7 +134,7 @@ class RocketLander(gym.Env):
         self.successful_landing = False
 
         self.wind_counter = 0    # aerodynamics randomness
-        self.wind_sample = FPS/2 # every half second
+        self.wind_sample = FPS/4 # every quarter second
         self.wind_disturbance = (0, 0) # process noise (wind variation)
 
         # Engine Stats
@@ -159,8 +162,9 @@ class RocketLander(gym.Env):
         self._create_rocket((x*W, y*H))
         self.adjust_dynamics(y_dot=y_dot, x_dot=x_dot, theta=theta, theta_dot=theta_dot)
 
-        # quickly check params for mass and inertia (keep your sanity)
         '''
+        # quickly check params for mass and inertia (keep your sanity)
+
         ##print(f"self.lander.fixtures: {self.lander.fixtures}") # big stats
         print(f"self.lander.mass: {self.lander.mass}")
         print(f"self.lander.inertia: {self.lander.inertia}")
@@ -170,7 +174,7 @@ class RocketLander(gym.Env):
         print(f"self.nozzle.inertia: {self.nozzle.inertia}")
         print(f"Total mass: {self.lander.mass+self.legs[0].mass+self.legs[1].mass+self.nozzle.mass}")
         print(f"(Approx) Rocket pitch inertia relativo to CG: {self.lander.inertia+self.legs[0].inertia+self.legs[1].inertia+self.nozzle.inertia+(self.legs[0].mass+self.legs[1].mass)*(1.55)**2 + self.nozzle.mass*(1.5)**2}") # teorema de steiner
-        #exit(0)
+        exit(0)
         '''
 
         # Step through one action = [0, 0, 0] and return the state, reward etc.
@@ -222,16 +226,16 @@ class RocketLander(gym.Env):
         done = False
         if self.remaining_fuel == 0:
             action = [0, 0, action[2]]
-            if self.state[1] > 0.05: # approx 2 m
+            if self.state[YY] > 0.05: # approx 2 m
                 done = True
                 #logging.info("Oh nein, fuel ist over. Und we are hoch.")
                 reward += -25
 
         # Main Force Calculations -> Thrust and Aero
-        m_power = self.__main_engines_force_computation(action, rocketPart=part)
-        s_power, engine_dir = self.__side_engines_force_computation(action)
+        m_power = self._main_engines_force_computation(action, rocketPart=part)
+        s_power, engine_dir = self._side_engines_force_computation(action)
         ### aerodynamics
-        #self.__aerodynamic_force_computation()
+        self._aerodynamic_force_computation()
 
         # Gather Stats and feedback last control                  # total delta
         self.action_history.append([m_power, s_power * engine_dir, part.angle - self.lander.angle])
@@ -241,10 +245,10 @@ class RocketLander(gym.Env):
 
         # State Vector
         self.previous_state = self.state  # Keep a record of the previous state
-        self.state, self.untransformed_state = self.__generate_state()  # Generate state
+        self.state, self.untransformed_state = self._generate_state()  # Generate state
         
         # Rewards for reinforcement learning
-        reward += self.__compute_rewards(self.state, self.previous_state)  # part angle can be used as part of the reward
+        reward += self._compute_rewards(self.state, self.previous_state)  # part angle can be used as part of the reward
 
         # Check if the game is done, adjust reward based on the final state of the body
         state_reset_conditions = [
@@ -266,15 +270,12 @@ class RocketLander(gym.Env):
 
         self._update_particles()
 
-        # Update additional 
-
-
         return np.array(self.state), reward, done, {}  # {} = info (required by parent class)
 
     ''' PROBLEM SPECIFIC -> PHYSICS, STATES, REWARDS'''
 
     # ----------------------------------------------------------------------------
-    def __main_engines_force_computation(self, action, rocketPart, *args):
+    def _main_engines_force_computation(self, action, rocketPart, *args):
         
         # Nozzle Angle Adjustment
 
@@ -313,7 +314,7 @@ class RocketLander(gym.Env):
         return m_power
 
     # ----------------------------------------------------------------------------
-    def __side_engines_force_computation(self, action):
+    def _side_engines_force_computation(self, action):
         
         # Side engines
         sin = math.sin(self.lander.angle)  # for readability
@@ -359,52 +360,112 @@ class RocketLander(gym.Env):
 
         return s_power, engine_dir
 
+    # ----------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------
+    def _aerodynamic_force_computation(self):
 
-    def __aerodynamic_force_computation(self):
-
-        # Rocket Angle
         sin_theta = math.sin(self.lander.angle)
         cos_theta = math.cos(self.lander.angle)
-        # Angle of Attack (AoA)
-        
-        # AoA = get_AoA
-        # sin_alpha = math.sin(AoA)
-        # cos_alpha = math.cos(AoA)
-        
-        # f4 = interpolate.interp1d(T_alt[:, 0], T_alt[:, 1], fill_value="extrapolate", assume_sorted=True)
-
-        # Positioning
-        dl = 0 # [m] TODO: change value. distance from center of pressure to center of mass
-        dx = dl*sin_theta # rotate distance 
-        dy = dl*cos_theta
-        aerodynamic_position = (self.lander.position[0]+dx,self.lander.position[1]+dy)
-        # Magnitude
-        # atmospheric wind (how to?)
-        wind = (0,0) # from table and random variable set at reset??
-        # DRAG in x and y C_D*A*\rho*V^2/2 == coeff*rho*(Vx**2,Vy**2)
-        coeff_drag = 1 # TODO: calculate value
-        rho = 1 # TODO: get_from_table
-        Vx = self.lander.linearVelocity.x - wind[0]
-        Vy = self.lander.linearVelocity.y - wind[1]
-        wind_drag = (np.sign(Vx)*coeff_drag*rho*Vx**2, np.sign(Vy)*coeff_drag*rho*Vy**2)
-        # LIFT ?
-        coeff_lift = 1 # TODO: change value. C_L*A*\rho*V^2/2 == coeff*rho*(Vx**2,Vy**2)
-        wind_lift = (-np.sign(Vy)*coeff_lift*rho*Vy**2, -np.sign(Vx)*coeff_lift*rho*Vx**2) # carteei
-        wind_total = wind_drag + wind_lift
+        # height
+        h_agl = self.state[YY] * PIXELTOMETER
+        # ground speed
+        vx = self.state[X_DOT] * FPS / H
+        vh = self.state[Y_DOT] * FPS / H
+        v_in = np.array([vx,vh])
+        # wind
+        wind = self.__compute_wind(h_agl)
         # Wind Process Noise Randomness (Gusts and such disturbances) -> will remain the same value until next if true
         self.wind_counter += 1
         if self.wind_counter % self.wind_sample == 0:
-            self.wind_disturbance = (np.random.normal(0, (wind_total[0]/2)**2 + RANDOM_WIND_FORCE_X), 
-            np.random.normal(0, (wind_total[1]/2)**2 + RANDOM_WIND_FORCE_Y)) # [N] conserves until next sample
-        # 
-        aerodynamic_magnitude = (wind_total[0] + self.wind_disturbance[0], wind_total[1] + self.wind_disturbance[1])
+            self.wind_disturbance = (np.random.normal(0, (wind/4)**2 + RANDOM_WIND_X), 
+                                np.random.normal(0, RANDOM_WIND_Y)) # [N] conserves until next sample
+            self.wind_counter = 0
+        wind_in = np.array([wind + self.wind_disturbance[0], 0 + self.wind_disturbance[1]])
+        # aerodynamic speed
+        v_tas = v_in - wind_in
+        # get atmosphere properties
+        a_sound, rho = self.__get_atm_properties(h_agl)
+        # rocket dimensions for efforts
+        L_ref = LANDER_RADIUS / PIXELTOMETER
+        S_ref = np.pi * (L_ref)**2
+        # mach
+        norm_v_tas = LA.norm(v_tas)
+        mach = v_tas/a_sound
+        # to get v_tas in body frame
+        v_tas_b_x = vx * sin_theta + vh * cos_theta
+        v_tas_b_z = vx * cos_theta - vh * sin_theta
+        # get aoa
+        alpha_deg = (np.arctan(v_tas_b_z/v_tas_b_x)) # [rad]
+        # compute aerodynamic forces using alpha_deg
+        ca, cn, xcp = self.__compute_aed_coeff(mach, alpha_deg)
+        # CP to CG
+        center_of_pressure_to_cg = xcp - XCG_NOSE # is this right?
+        aed_impulse_pos = (self.lander.position[0] + center_of_pressure_to_cg * sin_theta,
+                        self.lander.position[1] + center_of_pressure_to_cg * cos_theta)
+        # forces
+        axial_force_datcom = 0.5 * rho * S_ref * norm_v_tas**2 * ca
+        normal_force_datcom = 0.5 * rho * S_ref * norm_v_tas**2 * cn
+        # body frame forces
+        f_bx = -axial_force_datcom
+        f_bz = -normal_force_datcom
+        # aerodynamic forces in inertial frame
+        f_aed_x = sin_theta*f_bx + cos_theta*f_bz# ----------------------------------------------------------------------------
+    
+        f_aed_h = cos_theta*f_bx - sin_theta*f_bz
+        aed_force = (f_aed_x, f_aed_h)
         # Apply
-        self.lander.ApplyForce(aerodynamic_position, aerodynamic_magnitude, True) # ([m],[m]), ([N],[N])
+        self.lander.ApplyForce(aed_impulse_pos, aed_force, True) # ([m],[m]), ([N],[N])
 
         return
-
     # ----------------------------------------------------------------------------
-    def __generate_state(self):
+    def __compute_wind(self, h_agl):
+        
+        wind_curr = np.interp(h_agl, self.h_agl_wind_vec, self.wind_shear_vec)
+        
+        return wind_curr
+    # ----------------------------------------------------------------------------
+    def __get_atm_properties(self, h_agl):
+        
+        a_sound = np.interp(h_agl, self.h_agl_atm_vec, self.a_sound_vec)
+        rho = np.interp(h_agl, self.h_agl_atm_vec, self.rho_vec)
+        
+        return a_sound, rho
+    # ----------------------------------------------------------------------------
+    def __compute_aed_coeff(self, mach, alpha):
+
+        ca = self.f_ca(alpha, mach)
+        cn = self.f_cn(alpha, mach)
+        xcp = self.f_xcp(alpha, mach)
+
+        return float(ca[0]), float(cn[0]), float(xcp[0])
+    # ----------------------------------------------------------------------------
+    def _get_aed_tables(self):
+        '''Loaded in Init: Tables and Interpolation'''
+
+        # compute wind
+        self.h_agl_wind_vec = self.table_wind_model['h_AGL'].tolist()
+        self.wind_shear_vec = self.table_wind_model['w_shear'].tolist()
+
+        # atm properties
+        self.h_agl_atm_vec = self.table_atmosphere['h_AGL'].tolist()
+        self.a_sound_vec = self.table_atmosphere['a_m_s2'].tolist()
+        self.rho_vec = self.table_atmosphere['rho_kg_m3'].tolist()
+        
+        # compute_aed_coeff
+        aoa_vec = self.table_AED['AOA'].tolist()
+        mach_vec = self.table_AED['Mach'].tolist()
+        ca_vec = self.table_AED['CA'].tolist()
+        cn_vec = self.table_AED['CN'].tolist()
+        xcp_vec = self.table_AED['XCP_m'].tolist()
+        #
+        self.f_ca = interpolate.interp2d(aoa_vec, mach_vec, ca_vec, kind='linear')
+        self.f_cn = interpolate.interp2d(aoa_vec, mach_vec, cn_vec, kind='linear')
+        self.f_xcp = interpolate.interp2d(aoa_vec, mach_vec, xcp_vec, kind='linear')
+
+        return
+    # ----------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------
+    def _generate_state(self):
         
         # Update
         self.world.Step(1.0 / FPS, 6 * 30, 6 * 30)
@@ -433,10 +494,10 @@ class RocketLander(gym.Env):
         return state, untransformed_state
 
     # ----------------------------------------------------------------------------
-    def __compute_rewards(self, state, previous_state): # part_angle left if useful
+    def _compute_rewards(self, state, previous_state): # part_angle left if useful
+        
         reward = 0
-        # ['dx','dy','x_vel','y_vel','theta','theta_dot','left_ground_contact','right_ground_contact']
-        # *************************** WILL NEED CHANGES
+        
         shaping = - 800 * (abs(state[0]) + abs(state[1])) \
                   - 200 * (abs(state[2]) + abs(state[3])) \
                   - 1100 * abs(state[4]) - 50 * abs(state[5]) \
@@ -984,10 +1045,11 @@ class RocketLander(gym.Env):
         if kwargs.get('theta_dot'):
             self.lander.angularVelocity = kwargs['theta_dot']
 
-        self.state, self.untransformed_state = self.__generate_state()
+        self.state, self.untransformed_state = self._generate_state()
 
     # ----------------------------------------------------------------------------
-    def apply_disturbance(self, force, *args):
+    def apply_disturbance(self, force, *args):# AWAIT OBLIVION
+
         if force is not None:
             if isinstance(force, str):
                 x, y = args
@@ -1115,3 +1177,9 @@ def swap_array_values(array, indices_to_swap):
 
 # ----------------------------------------------------------------------------
 # ----------------------------------------------------------------------------
+
+
+
+############################################
+
+# FUNCTIONS WAITING OBLIVION

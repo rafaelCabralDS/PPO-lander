@@ -1,6 +1,6 @@
 '''
 TODO: 
-- CHANGE FUNCTIONS: (IMPROVE PHYSICS AND ADEQUATE REWARD SHAPING)
+- CHANGE FUNCTIONS:
     1 - _main_engines_force_computation
     2 - _side_engines_force_computation
     3 - _aerodynamic_force_computation
@@ -12,6 +12,8 @@ import numpy as np
 from numpy import linalg as LA
 import pandas as pd
 from scipy import interpolate
+
+import random
 
 import os
 
@@ -133,6 +135,8 @@ class RocketLander(gym.Env):
 
         self.successful_landing = False
 
+        # Wind
+        self.wind_direction = random.choice([True, False]) # left or rigt wind
         self.wind_counter = 0    # aerodynamics randomness
         self.wind_sample = FPS/4 # every quarter second
         self.wind_disturbance = (0, 0) # process noise (wind variation)
@@ -371,9 +375,9 @@ class RocketLander(gym.Env):
         # ground speed
         vx = self.state[X_DOT] * FPS / H
         vh = self.state[Y_DOT] * FPS / H
-        v_in = np.array([vx,vh])
+        v_in = np.array([vx, vh])
         # wind
-        wind = self.__compute_wind(h_agl)
+        wind = self.wind_direction*self.__compute_wind(h_agl)
         # Wind Process Noise Randomness (Gusts and such disturbances) -> will remain the same value until next if true
         self.wind_counter += 1
         if self.wind_counter % self.wind_sample == 0:

@@ -4,7 +4,7 @@
 
 # TRAINING
 TIMESTEPS_PER_BATCH = 6000
-MAX_TIMESTEPS_PER_EPISODE = 600 # 10 secs of in simulation time if fps = 60
+MAX_TIMESTEPS_PER_EPISODE = 900 # 15 secs of in simulation time if fps = 60
 N_UPDATES_PER_ITERATION = 10
 # PPO ALGORITHM
 GAMMA = 0.99

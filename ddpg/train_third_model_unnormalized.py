@@ -8,11 +8,16 @@ import sys
 import os
 import shutil
 import argparse
-sys.path.append('C://Users//REUBS_LEN//PycharmProjects//RocketLanding')
+
+import numpy as np
+
+from utils import Utils
+
+sys.path.append('..')
 from env.rocketlander import get_state_sample
 from env.constants import *
-from .utils import Utils
-import numpy as np
+
+
 
 
 def train(env, agent, FLAGS):

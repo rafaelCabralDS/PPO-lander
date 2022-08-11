@@ -11,3 +11,5 @@ cvxpy
 torch
 argparse
 latex
+
+# sudo apt install nvidia-cuda-toolkit # if you want to use GPU with ddpg

@@ -1,0 +1,76 @@
+Namespace(load_actor_model='', load_critic_model='', render=False, save_actor_model="'./ppo/models/ppo_actor_1.pth'", save_critic_model="'./ppo/models/ppo_critic_1.pth'")
+Training Selected
+Training from scratch.
+Set to Learn 
+Running 900 timesteps per 
+6000 timesteps per batch for a total of 10000000.0 timesteps
+
+----------------------------------------
+Iteration: 1
+Average Episodic Length: 47.71
+Episodic Return: -120.2
+Average Loss: -0.006693
+Timesteps So Far: 6012
+Took: 18.62 seconds
+Total Time: 18.619251338
+----------------------------------------
+
+----------------------------------------
+Iteration: 2
+Average Episodic Length: 43.25
+Episodic Return: -111.4
+Average Loss: -0.00302
+Timesteps So Far: 12024
+Took: 32.45 seconds
+Total Time: 51.065542886
+----------------------------------------
+
+----------------------------------------
+Iteration: 3
+Average Episodic Length: 44.64
+Episodic Return: -105.68
+Average Loss: -0.004676
+Timesteps So Far: 18050
+Took: 47.05 seconds
+Total Time: 98.11113298
+----------------------------------------
+
+----------------------------------------
+Iteration: 4
+Average Episodic Length: 45.89
+Episodic Return: -98.64
+Average Loss: -0.006527
+Timesteps So Far: 24108
+Took: 63.1 seconds
+Total Time: 161.210036984
+----------------------------------------
+
+----------------------------------------
+Iteration: 5
+Average Episodic Length: 47.4
+Episodic Return: -88.34
+Average Loss: -0.003928
+Timesteps So Far: 30128
+Took: 83.07 seconds
+Total Time: 244.28478297
+----------------------------------------
+
+----------------------------------------
+Iteration: 6
+Average Episodic Length: 47.59
+Episodic Return: -81.95
+Average Loss: -0.001855
+Timesteps So Far: 36172
+Took: 102.24 seconds
+Total Time: 346.526368596
+----------------------------------------
+
+----------------------------------------
+Iteration: 7
+Average Episodic Length: 50.84
+Episodic Return: -78.72
+Average Loss: -0.00322
+Timesteps So Far: 42222
+Took: 102.52 seconds
+Total Time: 449.045066378
+----------------------------------------

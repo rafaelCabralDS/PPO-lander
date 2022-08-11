@@ -376,8 +376,8 @@ class RocketLander(gym.Env):
         vx = self.state[X_DOT] * FPS / H
         vh = self.state[Y_DOT] * FPS / H
         v_in = np.array([vx, vh])
-        # wind
-        wind = self.wind_direction*self.__compute_wind(h_agl)
+        # wind # this 0.1 is to make wind much less relevant
+        wind = 0.1*self.wind_direction*self.__compute_wind(h_agl)
         # Wind Process Noise Randomness (Gusts and such disturbances) -> will remain the same value until next if true
         self.wind_counter += 1
         if self.wind_counter % self.wind_sample == 0:
@@ -961,10 +961,11 @@ class RocketLander(gym.Env):
             state = self.untransformed_state
         else:
             state = self.state
-        return flatten_array([state, [self.remaining_fuel,
-                                      self.lander.mass],
-                                      self.get_barge_top_edge_points(),
-                                      self.get_landing_coordinates()])
+        return state
+        #return flatten_array([state, [self.remaining_fuel,
+        #                              self.lander.mass],
+        #                              self.get_barge_top_edge_points(),
+        #                              self.get_landing_coordinates()])
 
     # ----------------------------------------------------------------------------
     def get_barge_to_ground_distance(self):

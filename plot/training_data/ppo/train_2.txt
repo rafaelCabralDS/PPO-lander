@@ -1,0 +1,56 @@
+Namespace(load_actor_model='', load_critic_model='', render=False, save_actor_model="'./ppo/models/ppo_actor_2.pth'", save_critic_model="'./ppo/models/ppo_critic_2.pth'")
+Training Selected
+Training from scratch.
+Set to Learn 
+Running 900 timesteps per 
+6000 timesteps per batch for a total of 10000000.0 timesteps
+
+----------------------------------------
+Iteration: 1
+Average Episodic Length: 42.54
+Episodic Return: -107.02
+Average Loss: -0.006688
+Timesteps So Far: 6041
+Took: 22.99 seconds
+Total Time: 22.993750518
+----------------------------------------
+
+----------------------------------------
+Iteration: 2
+Average Episodic Length: 42.56
+Episodic Return: -104.41
+Average Loss: -0.004524
+Timesteps So Far: 12042
+Took: 38.75 seconds
+Total Time: 61.746682629
+----------------------------------------
+
+----------------------------------------
+Iteration: 3
+Average Episodic Length: 45.04
+Episodic Return: -98.82
+Average Loss: -0.005102
+Timesteps So Far: 18078
+Took: 54.8 seconds
+Total Time: 116.558021288
+----------------------------------------
+
+----------------------------------------
+Iteration: 4
+Average Episodic Length: 44.6
+Episodic Return: -90.86
+Average Loss: -0.006277
+Timesteps So Far: 24099
+Took: 68.88 seconds
+Total Time: 185.438432925
+----------------------------------------
+
+----------------------------------------
+Iteration: 5
+Average Episodic Length: 48.36
+Episodic Return: -84.15
+Average Loss: -0.003441
+Timesteps So Far: 30144
+Took: 81.2 seconds
+Total Time: 266.639791668
+----------------------------------------

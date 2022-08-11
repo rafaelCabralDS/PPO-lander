@@ -12,13 +12,16 @@ import numpy as np
 
 from utils import Utils
 
+import tensorflow as tf
+
 sys.path.append('..')
 from env.rocketlander import get_state_sample
 from env.constants import *
 
 
 def train(env, agent, FLAGS):
-    print("Fuel Cost = 0, Max Steps = 500, Episode Training = 2000, RANDOM FORCE = 20000, RANDOM X_FORCE = 0.2*RANDOM FORCE")
+    print(f"Im here - 23")
+    #print("Fuel Cost = 0, Max Steps = 500, Episode Training = 2000, RANDOM FORCE = 20000, RANDOM X_FORCE = 0.2*RANDOM FORCE")
     #print("Fuel Cost = 0, Max Steps = Unlimited, Episode Training = 2000")
     obs_size = env.observation_space.shape[0]
 
@@ -66,13 +69,18 @@ def train(env, agent, FLAGS):
 
         agent.log_data(total_reward, episode)
 
-        if episode % 20 == 0 and not FLAGS.test:
+        if episode % 100 == 0 and not FLAGS.test:
             print('Saved model at episode', episode)
             agent.save_model(episode)
         print("Episode:\t{0}Reward:\t{1}".format(episode, total_reward))
 
 # Left here from the original code repo reference
 def set_up():
+    #print(f"Im here - 23")
+
+    # Hide GPU from visible devices
+    tf.config.set_visible_devices([], 'GPU')
+
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -96,18 +104,20 @@ def set_up():
         help='Wipe logs or not'
     )
 
-    parser.add_argument(
-        '--log_dir',
-        default='logs',
-        help='Where to store logs'
-    )
+    # not working correctly
 
-    parser.add_argument(
-        '--retrain',
-        default=False,
-        action='store_true',
-        help='Whether to start training from scratch again or not'
-    )
+    # parser.add_argument(
+    #     '--log_dir',
+    #     default='./logs',
+    #     help='Where to store logs'
+    # )
+
+    # parser.add_argument(
+    #     '--retrain',
+    #     default=True, # changed to retrain
+    #     action='store_true',
+    #     help='Whether to start training from scratch again or not'
+    # )
 
     parser.add_argument(
         '--test',

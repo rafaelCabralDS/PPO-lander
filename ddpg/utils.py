@@ -13,8 +13,8 @@ def layer(input_layer, num_next_neurons, is_output=False, activation=tf.nn.relu)
     num_prev_neurons = int(input_layer.shape[1])
     shape = [num_prev_neurons, num_next_neurons]
 
-    weights = tf.get_variable("weights", shape, initializer=tf.contrib.layers.xavier_initializer())
-    biases = tf.get_variable("biases", [num_next_neurons], initializer=tf.contrib.layers.xavier_initializer())
+    weights = tf.compat.v1.get_variable("weights", shape, initializer=tf.compat.v1.keras.initializers.VarianceScaling(scale=1.0, mode="fan_avg", distribution="uniform"))
+    biases = tf.compat.v1.get_variable("biases", [num_next_neurons], initializer=tf.compat.v1.keras.initializers.VarianceScaling(scale=1.0, mode="fan_avg", distribution="uniform"))
 
     dot = tf.matmul(input_layer, weights) + biases
 
@@ -26,12 +26,12 @@ def layer(input_layer, num_next_neurons, is_output=False, activation=tf.nn.relu)
 
 
 def batch_layer(inputs, input_dim, output_dim, phase, layernumber, nonlinearity=tf.nn.tanh):
-    with tf.variable_scope(layernumber):
+    with tf.compat.v1.variable_scope(layernumber):
         output = tf.contrib.layers.fully_connected(inputs, output_dim,
                                                    activation_fn=nonlinearity,
-                                                   weights_initializer=tf.contrib.layers.xavier_initializer())
+                                                   weights_initializer=tf.compat.v1.keras.initializers.VarianceScaling(scale=1.0, mode="fan_avg", distribution="uniform"))
 
-        _batchOutput = tf.layers.batch_normalization(output,
+        _batchOutput = tf.compat.v1.layers.batch_normalization(output,
                                                     center=True, scale=True,
                                                     training=phase,
                                                     name=layernumber)  # Are we training or not?

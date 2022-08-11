@@ -8,10 +8,10 @@ import sys
 import os
 import shutil
 import argparse
-sys.path.append('C://Users//REUBS_LEN//PycharmProjects//RocketLanding')
+sys.path.append('..')
 from env.rocketlander import get_state_sample
 from env.constants import *
-from .utils import Utils
+from utils import Utils
 import numpy as np
 
 
@@ -23,7 +23,7 @@ def train(env, agent, FLAGS):
     obs_size = env.observation_space.shape[0]
 
     util = Utils()
-    state_samples = get_state_sample(samples=5000, normal_state=False, untransformed_state=False)
+    state_samples = get_state_sample(samples=6000, normal_state=False, untransformed_state=False)
     util.create_normalizer(state_sample=state_samples)
 
     for episode in range(1, FLAGS.num_episodes + 1):
@@ -32,12 +32,15 @@ def train(env, agent, FLAGS):
         total_reward = 0
 
         s = env.reset()
-        state = env.get_state_with_barge_and_landing_coordinates(untransformed_state=False)
-        state = util.normalize(np.array(state))
-        max_steps = 1000
+        state = s
+        
+        #state = env.get_state_with_barge_and_landing_coordinates(untransformed_state=False)
+        #state = util.normalize(np.array(state))
+        
+        max_steps = 600
 
-        left_or_right_barge_movement = np.random.randint(0, 2)
-        epsilon = 0.05
+        #left_or_right_barge_movement = np.random.randint(0, 2)
+        #epsilon = 0.05
 
         for t in range(max_steps): # env.spec.max_episode_steps
             if FLAGS.show or episode % 10 == 0:
@@ -50,14 +53,17 @@ def train(env, agent, FLAGS):
 
             # take it
             s, reward, done, _ = env.step(action[0])
-            state = env.get_state_with_barge_and_landing_coordinates(untransformed_state=False)
-            state = util.normalize(np.array(state))
+            state = s
+            
+            #state = env.get_state_with_barge_and_landing_coordinates(untransformed_state=False)
+            #state = util.normalize(np.array(state))
+            
             total_reward += reward
 
-            if s[LEFT_GROUND_CONTACT] == 0 and s[RIGHT_GROUND_CONTACT] == 0:
-                env.move_barge_randomly(epsilon, left_or_right_barge_movement)
-                env.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
-                env.apply_random_y_disturbance(epsilon=0.005)
+            # if s[LEFT_GROUND_CONTACT] == 0 and s[RIGHT_GROUND_CONTACT] == 0:
+            #     env.move_barge_randomly(epsilon, left_or_right_barge_movement)
+            #     env.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
+            #     env.apply_random_y_disturbance(epsilon=0.005)
 
             if not FLAGS.test:
                 # update q vals

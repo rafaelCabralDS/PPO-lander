@@ -1,0 +1,408 @@
+
+----------------------------------------
+Iteration: 1
+Average Episodic Length: 29
+Episodic Return: -50.2430122203463
+Timesteps So Far: 29
+Took: 0.996383092 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 2
+Average Episodic Length: 22
+Episodic Return: -50.2621267064698
+Timesteps So Far: 51
+Took: 0.403839594 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 3
+Average Episodic Length: 37
+Episodic Return: -50.566600928723226
+Timesteps So Far: 88
+Took: 0.832546274 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 4
+Average Episodic Length: 24
+Episodic Return: -50.29365669810705
+Timesteps So Far: 112
+Took: 1.042981156 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 5
+Average Episodic Length: 126
+Episodic Return: -50.30676671802998
+Timesteps So Far: 238
+Took: 5.839160212 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 6
+Average Episodic Length: 19
+Episodic Return: -50.60699254572391
+Timesteps So Far: 257
+Took: 0.850067389 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 7
+Average Episodic Length: 40
+Episodic Return: -50.30767804503441
+Timesteps So Far: 297
+Took: 1.825283613 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 8
+Average Episodic Length: 26
+Episodic Return: -50.281711910775016
+Timesteps So Far: 323
+Took: 1.351195933 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 9
+Average Episodic Length: 52
+Episodic Return: -50.30763907074928
+Timesteps So Far: 375
+Took: 2.609780542 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 10
+Average Episodic Length: 53
+Episodic Return: -50.25955844175938
+Timesteps So Far: 428
+Took: 2.231379774 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 11
+Average Episodic Length: 25
+Episodic Return: -50.30240116863714
+Timesteps So Far: 453
+Took: 1.529145154 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 12
+Average Episodic Length: 23
+Episodic Return: -50.007853981852534
+Timesteps So Far: 476
+Took: 0.994399298 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 13
+Average Episodic Length: 36
+Episodic Return: -50.00735253572464
+Timesteps So Far: 512
+Took: 1.362742003 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 14
+Average Episodic Length: 53
+Episodic Return: -50.30785398185253
+Timesteps So Far: 565
+Took: 2.249338707 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 15
+Average Episodic Length: 54
+Episodic Return: -50.30654131412506
+Timesteps So Far: 619
+Took: 2.095923862 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 16
+Average Episodic Length: 63
+Episodic Return: -50.30785398185253
+Timesteps So Far: 682
+Took: 3.284142227 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 17
+Average Episodic Length: 29
+Episodic Return: -50.288155214681616
+Timesteps So Far: 711
+Took: 1.28584413 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 18
+Average Episodic Length: 32
+Episodic Return: -50.30785398185253
+Timesteps So Far: 743
+Took: 1.248874023 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 19
+Average Episodic Length: 21
+Episodic Return: -50.007853981852534
+Timesteps So Far: 764
+Took: 1.018736425 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 20
+Average Episodic Length: 31
+Episodic Return: -50.307297115921976
+Timesteps So Far: 795
+Took: 1.958636469 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 21
+Average Episodic Length: 22
+Episodic Return: -50.307221536636355
+Timesteps So Far: 817
+Took: 1.141158741 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 22
+Average Episodic Length: 23
+Episodic Return: -50.26656913093502
+Timesteps So Far: 840
+Took: 1.516208797 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 23
+Average Episodic Length: 32
+Episodic Return: -50.30737943291664
+Timesteps So Far: 872
+Took: 2.471642892 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 24
+Average Episodic Length: 91
+Episodic Return: -50.30164185201535
+Timesteps So Far: 963
+Took: 3.73129548 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 25
+Average Episodic Length: 67
+Episodic Return: -50.554717862149936
+Timesteps So Far: 1030
+Took: 3.306962101 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 26
+Average Episodic Length: 33
+Episodic Return: -50.3071243083477
+Timesteps So Far: 1063
+Took: 1.697738077 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 27
+Average Episodic Length: 43
+Episodic Return: -50.25495714986881
+Timesteps So Far: 1106
+Took: 2.366521191 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 28
+Average Episodic Length: 69
+Episodic Return: -50.00686843454838
+Timesteps So Far: 1175
+Took: 3.426810682 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 29
+Average Episodic Length: 27
+Episodic Return: -50.60711343467236
+Timesteps So Far: 1202
+Took: 1.264494232 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 30
+Average Episodic Length: 59
+Episodic Return: -50.53175683482848
+Timesteps So Far: 1261
+Took: 2.630406418 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 31
+Average Episodic Length: 48
+Episodic Return: -50.00703322410583
+Timesteps So Far: 1309
+Took: 1.984858274 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 32
+Average Episodic Length: 52
+Episodic Return: -50.58662182886817
+Timesteps So Far: 1361
+Took: 1.968074638 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 33
+Average Episodic Length: 43
+Episodic Return: -50.60785398185253
+Timesteps So Far: 1404
+Took: 2.226631009 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 34
+Average Episodic Length: 34
+Episodic Return: -50.0069605755806
+Timesteps So Far: 1438
+Took: 1.44005129 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 35
+Average Episodic Length: 70
+Episodic Return: -50.007853981852534
+Timesteps So Far: 1508
+Took: 2.817320623 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 36
+Average Episodic Length: 53
+Episodic Return: -50.007853981852534
+Timesteps So Far: 1561
+Took: 2.535215561 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 37
+Average Episodic Length: 114
+Episodic Return: -50.007853981852534
+Timesteps So Far: 1675
+Took: 4.478707568 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 38
+Average Episodic Length: 128
+Episodic Return: -50.00779531300068
+Timesteps So Far: 1803
+Took: 8.246353222 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 39
+Average Episodic Length: 57
+Episodic Return: -50.60785398185253
+Timesteps So Far: 1860
+Took: 2.877141373 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 40
+Average Episodic Length: 63
+Episodic Return: -50.00634755313396
+Timesteps So Far: 1923
+Took: 3.322845036 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 41
+Average Episodic Length: 26
+Episodic Return: -50.30785398185253
+Timesteps So Far: 1949
+Took: 1.711742969 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 42
+Average Episodic Length: 45
+Episodic Return: -50.30785398185253
+Timesteps So Far: 1994
+Took: 3.092600492 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 43
+Average Episodic Length: 20
+Episodic Return: -50.00762992441654
+Timesteps So Far: 2014
+Took: 1.648347993 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 44
+Average Episodic Length: 33
+Episodic Return: -50.007853981852534
+Timesteps So Far: 2047
+Took: 2.343429068 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 45
+Average Episodic Length: 82
+Episodic Return: -50.007853981852534
+Timesteps So Far: 2129
+Took: 4.341773001 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 46
+Average Episodic Length: 46
+Episodic Return: -50.56374385007083
+Timesteps So Far: 2175
+Took: 2.472383949 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 47
+Average Episodic Length: 100
+Episodic Return: -50.574111983599636
+Timesteps So Far: 2275
+Took: 5.8225432 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 48
+Average Episodic Length: 23
+Episodic Return: -50.2800225334558
+Timesteps So Far: 2298
+Took: 1.025588659 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 49
+Average Episodic Length: 39
+Episodic Return: -50.30785398185253
+Timesteps So Far: 2337
+Took: 1.660318156 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 50
+Average Episodic Length: 52
+Episodic Return: -50.60785398185253
+Timesteps So Far: 2389
+Took: 3.487594728 seconds
+----------------------------------------
+
+----------------------------------------
+Iteration: 51
+Average Episodic Length: 45
+Episodic Return: -50.007195941209794
+Timesteps So Far: 2434
+Took: 3.413879235 seconds
+----------------------------------------

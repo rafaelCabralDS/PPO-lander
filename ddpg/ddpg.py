@@ -1,15 +1,14 @@
 """
-Author: Reuben Ferrante
-Date:   10/05/2017
-Description: Experience buffer.
+Author: Gabriel de A S
 """
 
 # replication of the deep deterministic policy gradient paper by Lillicrap et al.
 import tensorflow as tf
 import numpy as np
 import os
-from .actor import Actor
-from .critic import Critic
+
+from actor import Actor
+from critic import Critic
 
 class ExperienceBuffer():
 
@@ -55,22 +54,22 @@ class DDPG():
             log_dir=None,
             model_dir=None):
 
-        self.sess = tf.Session() 
+        self.sess = tf.compat.v1.Session() 
 
         self.experience_buffer = ExperienceBuffer(buffer_size)
         self.batch_size = batch_size
-        self.actor = Actor(self.sess, action_space_bounds, exploration_policies, env_space_size, actor_learning_rate, optimizer=tf.train.AdamOptimizer)
-        self.critic = Critic(self.sess, len(action_space_bounds), env_space_size, critic_learning_rate, gamma, optimizer=tf.train.AdamOptimizer)
+        self.actor = Actor(self.sess, action_space_bounds, exploration_policies, env_space_size, actor_learning_rate, optimizer=tf.compat.v1.train.AdamOptimizer(learning_rate=actor_learning_rate))
+        self.critic = Critic(self.sess, len(action_space_bounds), env_space_size, critic_learning_rate, gamma, optimizer=tf.compat.v1.train.AdamOptimizer(learning_rate=critic_learning_rate))
 
-        model_vars = tf.trainable_variables()
-        self.saver = tf.train.Saver(model_vars)
+        model_vars = tf.compat.v1.trainable_variables()
+        self.saver = tf.compat.v1.train.Saver(model_vars)
 
         # directories for saving models, etc
         if model_dir is None:
-            model_dir = os.getcwd() + '/models'
+            model_dir = './model'
         self.model_dir = model_dir
         self.model_loc = self.model_dir + '/DDPG.ckpt'
-        self.log_dir = os.getcwd() + '/' + log_dir
+        self.log_dir = log_dir
 
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
@@ -78,13 +77,15 @@ class DDPG():
         if not os.path.exists(self.log_dir):
             os.makedirs(self.log_dir)
 
-        self.writer = tf.summary.FileWriter(self.log_dir, graph=tf.get_default_graph())
+        self.writer = tf.compat.v1.summary.FileWriter(self.log_dir, graph=tf.compat.v1.get_default_graph())
 
-        self.sess.run(tf.global_variables_initializer())
+        self.sess.run(tf.compat.v1.global_variables_initializer())
+
+        
 
         # if we are not retraining from scratch, just restore weights
         if retrain == False:
-            self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_dir))
+            self.saver.restore(self.sess, tf.train.latest_checkpoint(self.model_dir)) # error here
 
     def get_action(self, state, explore=True):
         return self.actor.get_action(state, explore)
@@ -104,8 +105,8 @@ class DDPG():
 
     def log_data(self, episode_reward, episode):
         def val_to_summary(tag, value):
-            return tf.Summary(value=[
-                tf.Summary.Value(tag=tag, simple_value=value), 
+            return tf.compat.v1.Summary(value=[
+                tf.compat.v1.Summary.Value(tag=tag, simple_value=value), 
             ])
 
         self.writer.add_summary(val_to_summary('reward', episode_reward), episode)

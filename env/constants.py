@@ -128,8 +128,8 @@ ANGULAR_VELOCITY_AMPLIFIER = 20.0
 INITIAL_RANDOM_FORCE = 0.0 # remove this and insert randomness in initial conditions
 
 RANDOM_DISTURBANCE_FORCE = 0.0 # RANDOM
-RANDOM_WIND_X = 1 # [m/s] ADDITIONAL VARIANCE IN GAUSSIAN IN X
-RANDOM_WIND_Y = 0.5  # [m/s] IN Y
+RANDOM_WIND_X = 0.1 # [m/s] ADDITIONAL VARIANCE IN GAUSSIAN IN X
+RANDOM_WIND_Y = 0.01  # [m/s] IN Y
 
 # --------------------------------
 '''Landing Calibration'''

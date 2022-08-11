@@ -1,11 +1,9 @@
 """
-Author: Reuben Ferrante
-Date:   10/05/2017
-Description: Not a unit test, simple run test.
+Author: Gabriel de A S
 """
 
 import numpy as np
-from ddpg.train import Utils
+from utils import Utils
 
 import sys
 sys.path.append('..')

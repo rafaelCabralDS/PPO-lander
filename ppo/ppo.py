@@ -36,6 +36,8 @@ class PPO:
         self.cov_var = torch.full(size=(self.act_dim,), fill_value=0.15) # 0.15 carteado -> could do a schedule
         self.cov_mat = torch.diag(self.cov_var)
 
+        self.initial_t = time.time_ns()
+
         self.logger = {
             'delta_t' : time.time_ns(),
             't_so_far' : 0,
@@ -278,6 +280,7 @@ class PPO:
         print(f"Average Loss: {avg_actor_loss}", flush=True)
         print(f"Timesteps So Far: {t_so_far}", flush=True)
         print(f"Took: {delta_t} seconds", flush=True)
+        print(f"Total Time: {(time.time_ns()-self.initial_t)/1e9}", flush=True)
         print(f"----------------------------------------", flush=True)
 
         # Reset batch-specific logging data

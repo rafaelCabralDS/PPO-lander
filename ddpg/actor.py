@@ -1,7 +1,3 @@
-"""
-Author: Gabriel de A S
-"""
-
 import tensorflow as tf
 
 from utils import layer, batch_layer
@@ -24,7 +20,7 @@ class Actor():
         self.exploration_policies = exploration_policies
         self.tau = tau
 
-        self.phase = tf.compat.v1.placeholder(tf.bool, name='phase')  # Are we trianing or not?
+        self.phase = tf.compat.v1.placeholder(tf.bool, name='phase')  # Are we training or not?
 
         self.state_ph = tf.compat.v1.placeholder(tf.float32, shape=(None, env_space_size))
 

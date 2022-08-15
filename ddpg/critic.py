@@ -1,9 +1,3 @@
-"""
-Author: Reuben Ferrante
-Date:   10/05/2017
-Description: Critic network definition using Tensorflow.
-"""
-
 import tensorflow as tf
 import numpy as np
 

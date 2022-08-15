@@ -1,7 +1,3 @@
-"""
-Author: Gabriel de A S
-"""
-
 import numpy as np
 from utils import Utils
 

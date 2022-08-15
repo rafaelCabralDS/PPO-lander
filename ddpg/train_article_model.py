@@ -1,8 +1,3 @@
-"""
-Author: Gabriel de A S.
--- DDPG is updating the policy in each step, not in batches, so we will put t_so_far in the x_axis
-"""
-
 import sys
 import os
 import shutil

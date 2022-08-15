@@ -1,6 +1,6 @@
 '''
 TODO: 
-- CHANGE FUNCTIONS:
+- FURTHER IMPROVE FUNCTIONS:
     1 - _main_engines_force_computation
     2 - _side_engines_force_computation
     3 - _aerodynamic_force_computation
@@ -103,7 +103,7 @@ class RocketLander(gym.Env):
 
         # aerodynamic table of params, capture, and interpolation
         dirname = os.path.dirname(__file__)
-        self.table_AED = pd.read_csv(dirname+'/tables/AED_coeff_datcom_ct_213_lander.csv')
+        self.table_AED = pd.read_csv(dirname+'/tables/AED_coeff_datcom.csv')
         self.table_atmosphere = pd.read_csv(dirname+'/tables/atmosphere_properties.csv')
         self.table_wind_model = pd.read_csv(dirname+'/tables/wind_models.csv')
         self._get_aed_tables()
@@ -1182,9 +1182,3 @@ def swap_array_values(array, indices_to_swap):
 
 # ----------------------------------------------------------------------------
 # ----------------------------------------------------------------------------
-
-
-
-############################################
-
-# FUNCTIONS WAITING OBLIVION

@@ -1,9 +1,3 @@
-"""
-Author: Reuben Ferrante
-Date:   10/05/2017
-Description: Train DDPG network.
-"""
-
 import tensorflow as tf
 
 import sys

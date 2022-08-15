@@ -1114,10 +1114,6 @@ def swap_array_values(array, indices_to_swap):
         array[i], array[j] = array[j], array[i]
     return array
 
-#def state_to_meters(input):
-#    return input*
-
-
 
 # ----------------------------------------------------------------------------
 # ----------------------------------------------------------------------------

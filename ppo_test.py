@@ -1,7 +1,3 @@
-"""
-Authors: Gabriel S and Octávio M
-Date: 05/07/2022
-"""
 from env.rocketlander import RocketLander
 
 from program_control.hyperparameter_constants import *

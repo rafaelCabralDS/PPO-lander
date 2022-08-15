@@ -13,5 +13,6 @@ argparse
 latex
 pandas
 sklearn
+seaborn
 
 # sudo apt install nvidia-cuda-toolkit # if you want to use GPU with ddpg

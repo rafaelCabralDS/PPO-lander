@@ -10,15 +10,13 @@ from env.constants import *
 Shows one figure at a time.
 '''
 
-
 def get_args():
 
     # example: python3 flight_profile.py --file test_data/profile_ppo_actor_1.dat
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', dest='file', type=str, default="test_data/profile_ppo_actor_2.dat")
-    # used "./test_data/ppo/profile_3_9.dat" for article
+    parser.add_argument('--file', dest='file', type=str, default="test_data/profile_0.dat")
 
     args = parser.parse_args()
 
@@ -70,15 +68,20 @@ def graph_data(filepath, args):
     vh = [float(element[3]) for element in state]
     theta = [float(element[4]) for element in state]
     q = [float(element[5]) for element in state]
-    T_m = [float(element[0]) for element in action]
-    T_s = [float(element[1]) for element in action]
+    
+    T_m_filtered = [float(element[8]) for element in state]
+    T_s_filtered = [float(element[9]) for element in state]
+    delta_Total = [float(element[10]) for element in state]
+
+    T_m_output = [float(element[0]) for element in action]
+    T_s_output = [float(element[1]) for element in action]
     Delta_delta = [float(element[2]) for element in action]
     ## plots
     #plt.rcParams['text.usetex'] = True
     plt.rcParams["legend.loc"] = 'upper right' 
 
     plt.rcParams.update({'font.family':'serif'})
-    plt.rcParams.update({'font.size': 11})
+    plt.rcParams.update({'font.size': 12})
 
     # fuel with time ---1
     fuel_percentage = [100 * fuel_k / fuel[0] for fuel_k in fuel]
@@ -93,41 +96,9 @@ def graph_data(filepath, args):
     plt.draw()
 
     # controls with time ---2
-    # APPLY CLIP FILTERS HERE AND FUEL CHECK
-    T_m_clipped, T_s_clipped, Delta_delta_clipped  = [], [], []
-    for idk, k in enumerate(T_m):
-        if fuel[idk] == 0:
-            T_m_clipped.append(0.0)
-        else:
-            if k > 1.0:
-                T_m_clipped.append(1.0)
-            elif k < MAIN_ENGINE_LOWER:
-                T_m_clipped.append(0.0)
-            else:
-                T_m_clipped.append(k)
-    for idk, k in enumerate(T_s):
-        if fuel[idk] == 0:
-            T_s_clipped.append(0.0)
-        else:
-            if k > 1.0:
-                T_s_clipped.append(1.0)
-            elif k < -1.0:
-                T_s_clipped.append(-1.0)
-            elif k > -SIDE_ENGINE_ACTIVATE and k < SIDE_ENGINE_ACTIVATE:
-                T_s_clipped.append(0.0)
-            else:
-                T_s_clipped.append(k)
-    for k in Delta_delta:
-        if k > 1.0:
-            Delta_delta_clipped.append(1.0)
-        elif k < -1.0:
-            Delta_delta_clipped.append(-1.0)
-        else:
-            Delta_delta_clipped.append(k)
-    plt.plot(step, T_m_clipped, 'r.')
-    plt.plot(step, T_s_clipped, 'b')
-    plt.plot(step, Delta_delta_clipped, 'g')
-    plt.legend(['T_m','T_s',r'$\Delta(\delta)$'])
+    plt.plot(step, T_m_filtered, 'r')
+    plt.plot(step, T_s_filtered, 'b')
+    plt.legend(['T_m', 'T_s'])  # r'$\Delta(\delta)$']
     plt.title('Applied Control Efforts in Time')
     plt.ylabel('Normalized Control Inputs')
     plt.xlabel('Time step [s/60]')
@@ -137,7 +108,41 @@ def graph_data(filepath, args):
     plt.show()
     plt.draw()
 
-    # kinematic states -> (x,h) with time ---3
+    # commanded controls with time ---3
+    Delta_delta_clipped = []
+    for k in Delta_delta:
+        if k > 1.0:
+            Delta_delta_clipped.append(1.0)
+        elif k < -1.0:
+            Delta_delta_clipped.append(-1.0)
+        else:
+            Delta_delta_clipped.append(k)
+    plt.plot(step, T_m_output, 'r')
+    plt.plot(step, T_s_output, 'b')
+    plt.plot(step, Delta_delta_clipped, 'g')
+    plt.legend(['T_m', 'T_s', r'$\Delta(\delta)$'])
+    plt.title('Neural Network Output Efforts in Time')
+    plt.ylabel('Prefiltered Normalized Control Inputs')
+    plt.xlabel('Time step [s/60]')
+    plt.ylim(-1,1)
+    plt.grid()
+    plt.tight_layout()
+    plt.show()
+    plt.draw()
+
+    # delta total with time --4
+    delta_Total_deg = [delta_Total_k / DEGTORAD for delta_Total_k in delta_Total]
+    plt.plot(step, delta_Total_deg, 'g')
+    plt.title(r'Total thrust deflection $\delta$')
+    plt.ylabel(r'Angle $\delta$ [°]')
+    plt.xlabel('Time step [s/60]')
+    plt.ylim(-15,+15)
+    plt.grid()
+    plt.tight_layout()
+    plt.show()
+    plt.draw()
+
+    # kinematic states -> (x,h) with time ---5
     # CONVERT TO METERS HERE -> invert state expression ignoring W and multiplying by PIXELTOMETER
     dx_m = [dx_k * PIXELTOMETER for dx_k in dx]
     dh_m = [dh_k * PIXELTOMETER for dh_k in dh]
@@ -152,23 +157,23 @@ def graph_data(filepath, args):
     plt.show()
     plt.draw()
 
-    # kinematic derivatives -> (\dot{x},\dot{h}) with time ---4
+    # kinematic derivatives -> (\dot{x},\dot{h}) with time ---6
     # CONVERT TO M/S HERE -> invert state expression ignoring W and multiplying by PIXELTOMETER
-    vx_m = [vx_k * 2 * FPS / H for vx_k in vx] # * PIXELTOMETER 
-    vh_m = [vh_k * 2 * FPS / H for vh_k in vh]
+    vx_m = [vx_k * FPS / H for vx_k in vx] # * PIXELTOMETER 
+    vh_m = [vh_k * FPS / H for vh_k in vh]
     plt.plot(step, vx_m, 'r')
     plt.plot(step, vh_m, 'b')
     plt.legend(['Vx','Vh'])
     plt.title('Velocity States')
     plt.ylabel('Velocity [m/s]')
     plt.xlabel('Time step [s/60]')
-    plt.ylim(-15,5)
+    plt.ylim(-20,5)
     plt.grid()
     plt.tight_layout()
     plt.show()
     plt.draw()
 
-    # theta with time ---5
+    # theta with time ---7
     # TO DEG
     theta_deg = [theta_k / DEGTORAD for theta_k in theta]
     plt.plot(step, theta_deg, 'b')
@@ -180,7 +185,7 @@ def graph_data(filepath, args):
     plt.show()
     plt.draw()
 
-    # \dot{theta} with time ---6
+    # \dot{theta} with time ---8
     # TO DEG
     q_deg = [q_k / DEGTORAD for q_k in q]
     plt.plot(step, q_deg, 'b')
@@ -192,7 +197,7 @@ def graph_data(filepath, args):
     plt.show()
     plt.draw()
 
-    # plot (dx,dh) -> trajectory ---7
+    # plot (dx,dh) -> trajectory ---9
     plt.plot(dx_m, dh_m, 'b')
     plt.title('Trajectory')
     plt.ylabel(r'$\Delta$h [m]')

@@ -94,9 +94,11 @@ def train(env, agent, FLAGS):
             print_train_output(episode, length, episodic_return, t_so_far, delta_t, initial_t)
         else:
             print_test_output(episode, length, episodic_return, env.successful_landing)
+        if episode >= 10001:
+            exit()
 
-def print_train_output(iteration, length, episodic_return, t_so_far, delta_t, initial_t):
-    
+
+def print_train_output(iteration, length, episodic_return, t_so_far, delta_t, initial_t):    
     # Print train logging statements
     print(flush=True)
     print(f"----------------------------------------", flush=True)

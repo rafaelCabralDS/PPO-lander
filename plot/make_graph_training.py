@@ -43,7 +43,6 @@ def graph_data(filepath, args):
 
     _, ax1 = plt.subplots()
 
-
     # first plot
     ln1 = ax1.plot(x, y1, c=[0,0,1], label='Average Episodic Reward')
     ax1.set_title(args.title)

@@ -22,7 +22,7 @@ def get_args():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', dest='file', type=str, default="test_data/monte_carlo_ppo_actor_2.dat")
+    parser.add_argument('--file', dest='file', type=str, default="test_data/ppo/test_3_2.dat")
     parser.add_argument('--save', dest='save', action='store_true', help='data to figures/<title>.png')
 
     args = parser.parse_args()
@@ -101,11 +101,18 @@ def graph_data(filepath, args):
 
     # end for
     
+    plt.rcParams.update({'font.family':'serif'})
+    plt.rcParams.update({'font.size': 10})
+
     plt.title(f'Monte Carlo Trajectory for {iteration[-1]} iterations')
-    plt.ylabel('dh [m]')
-    plt.xlabel('dx [m]')
+    plt.ylabel(r'$\Delta(h)$ [m]')
+    plt.xlabel(r'$\Delta(x)$ [m]')
     plt.xlim(-10,+10)
     plt.ylim(0,55)
+
+    plt.grid()
+    plt.tight_layout()
+
     plt.show()
 
     ## stats -> fuel, success, reward

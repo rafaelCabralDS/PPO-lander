@@ -1,5 +1,3 @@
-# TODO: INSERT A MOVING AVERAGE FILTER WITH WINDOW 10
-
 import sys
 import matplotlib.pyplot as plt
 
@@ -12,7 +10,8 @@ def get_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--file', dest='file', type=str, default='')
-    parser.add_argument('--title', dest='title', type=str, default='Testing Results')
+    #parser.add_argument('--title', dest='title', type=str, default='DDPG Testing Results') # best: model 3
+    parser.add_argument('--title', dest='title', type=str, default='PPO Testing Results') # best: model 3
     parser.add_argument('--save', dest='save', action='store_true', help='data to figures/<title>.png')
 
     args = parser.parse_args()
@@ -21,8 +20,12 @@ def get_args():
 
 def extract_data(filepath):
     '''Extract the iteration and episodic return from the logging data '''
-    # x is iterations so far, y is average episodic reward
-    x, y = [], []
+    # x is iterations so far, y is average episodic reward, success is for successful landings
+    x, y, success = [], [], []
+
+
+    # goHorse go!
+    cut_point = 5000 # plot until here
 
     # extract out x's and y's
     with open(filepath, 'r') as f:
@@ -32,15 +35,23 @@ def extract_data(filepath):
                 y.append(float(l[1]))
             elif 'Iteration' in l:
                 x.append(int(l[1]))
+            elif 'Success' in l:
+                success.append(int(l[1]))
+                if len(success) >= cut_point: # Iteration appears before episodic return
+                    return x, y, success
     
-    return x, y
+    return x, y, success
 
 def graph_data(filepath, args):
     ''' Plots Data '''
     
-    x, y = extract_data(filepath)
+    x, y, success = extract_data(filepath)
 
-    plt.plot(x, y, c=[0,0,1])
+    plt.rcParams.update({'font.family':'serif'})
+    plt.rcParams.update({'font.size': 10})
+
+
+    plt.plot(x, y, 'o', c=[0,0,1])
     
     plt.title(args.title)
     plt.xlabel('Episode') # TODO: Iteration Window
@@ -50,6 +61,15 @@ def graph_data(filepath, args):
     if args.save:
         plt.savefig(f'figures/{args.title}.png')
     
+    plt.grid()
+    plt.tight_layout()
+    
+    # give success results, before plotting data
+
+    success_percentage = sum(success) / len(success) * 100
+
+    print(f"success_percentage = {success_percentage}%")
+
     plt.show()
     plt.draw()
     

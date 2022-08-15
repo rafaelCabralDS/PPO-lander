@@ -7,50 +7,3490 @@ Running 900 timesteps per
 
 ----------------------------------------
 Iteration: 1
-Average Episodic Length: 42.54
-Episodic Return: -107.02
-Average Loss: -0.006688
-Timesteps So Far: 6041
-Took: 22.99 seconds
-Total Time: 22.993750518
+Average Episodic Length: 39.82
+Episodic Return: -123.92
+Average Loss: -0.003514
+Timesteps So Far: 6053
+Took: 246.72 seconds
+Total Time: 246.717114543
 ----------------------------------------
 
 ----------------------------------------
 Iteration: 2
-Average Episodic Length: 42.56
-Episodic Return: -104.41
-Average Loss: -0.004524
-Timesteps So Far: 12042
-Took: 38.75 seconds
-Total Time: 61.746682629
+Average Episodic Length: 39.05
+Episodic Return: -122.26
+Average Loss: -0.001008
+Timesteps So Far: 12067
+Took: 444.91 seconds
+Total Time: 691.63033536
 ----------------------------------------
 
 ----------------------------------------
 Iteration: 3
-Average Episodic Length: 45.04
-Episodic Return: -98.82
-Average Loss: -0.005102
-Timesteps So Far: 18078
-Took: 54.8 seconds
-Total Time: 116.558021288
+Average Episodic Length: 39.36
+Episodic Return: -120.16
+Average Loss: -0.001489
+Timesteps So Far: 18089
+Took: 471.88 seconds
+Total Time: 1163.514666591
 ----------------------------------------
 
 ----------------------------------------
 Iteration: 4
-Average Episodic Length: 44.6
-Episodic Return: -90.86
-Average Loss: -0.006277
-Timesteps So Far: 24099
-Took: 68.88 seconds
-Total Time: 185.438432925
+Average Episodic Length: 43.17
+Episodic Return: -120.28
+Average Loss: -0.002717
+Timesteps So Far: 24089
+Took: 490.53 seconds
+Total Time: 1654.046773074
 ----------------------------------------
 
 ----------------------------------------
 Iteration: 5
-Average Episodic Length: 48.36
-Episodic Return: -84.15
-Average Loss: -0.003441
-Timesteps So Far: 30144
-Took: 81.2 seconds
-Total Time: 266.639791668
+Average Episodic Length: 47.56
+Episodic Return: -122.84
+Average Loss: -0.001962
+Timesteps So Far: 30129
+Took: 498.51 seconds
+Total Time: 2152.551417063
+----------------------------------------
+
+----------------------------------------
+Iteration: 6
+Average Episodic Length: 51.37
+Episodic Return: -122.58
+Average Loss: -0.001023
+Timesteps So Far: 36139
+Took: 497.67 seconds
+Total Time: 2650.230645131
+----------------------------------------
+
+----------------------------------------
+Iteration: 7
+Average Episodic Length: 46.64
+Episodic Return: -121.93
+Average Loss: -0.000281
+Timesteps So Far: 42155
+Took: 516.08 seconds
+Total Time: 3166.31073478
+----------------------------------------
+
+----------------------------------------
+Iteration: 8
+Average Episodic Length: 46.6
+Episodic Return: -123.05
+Average Loss: -0.001281
+Timesteps So Far: 48166
+Took: 516.28 seconds
+Total Time: 3682.589713212
+----------------------------------------
+
+----------------------------------------
+Iteration: 9
+Average Episodic Length: 49.69
+Episodic Return: -120.79
+Average Loss: -0.001158
+Timesteps So Far: 54178
+Took: 515.74 seconds
+Total Time: 4198.334647063
+----------------------------------------
+
+----------------------------------------
+Iteration: 10
+Average Episodic Length: 46.88
+Episodic Return: -119.87
+Average Loss: -0.000931
+Timesteps So Far: 60178
+Took: 514.59 seconds
+Total Time: 4712.920966952
+----------------------------------------
+
+----------------------------------------
+Iteration: 11
+Average Episodic Length: 51.49
+Episodic Return: -120.77
+Average Loss: -0.001395
+Timesteps So Far: 66202
+Took: 519.3 seconds
+Total Time: 5232.220935079
+----------------------------------------
+
+----------------------------------------
+Iteration: 12
+Average Episodic Length: 49.66
+Episodic Return: -119.95
+Average Loss: -0.000455
+Timesteps So Far: 72211
+Took: 516.24 seconds
+Total Time: 5748.46380406
+----------------------------------------
+
+----------------------------------------
+Iteration: 13
+Average Episodic Length: 49.54
+Episodic Return: -120.0
+Average Loss: -0.001247
+Timesteps So Far: 78255
+Took: 527.86 seconds
+Total Time: 6276.319901129
+----------------------------------------
+
+----------------------------------------
+Iteration: 14
+Average Episodic Length: 47.88
+Episodic Return: -118.4
+Average Loss: -0.00136
+Timesteps So Far: 84288
+Took: 563.94 seconds
+Total Time: 6840.255651936
+----------------------------------------
+
+----------------------------------------
+Iteration: 15
+Average Episodic Length: 48.79
+Episodic Return: -117.99
+Average Loss: -0.001333
+Timesteps So Far: 90289
+Took: 546.14 seconds
+Total Time: 7386.391037163
+----------------------------------------
+
+----------------------------------------
+Iteration: 16
+Average Episodic Length: 51.49
+Episodic Return: -121.37
+Average Loss: -0.001869
+Timesteps So Far: 96313
+Took: 553.05 seconds
+Total Time: 7939.442271069
+----------------------------------------
+
+----------------------------------------
+Iteration: 17
+Average Episodic Length: 54.61
+Episodic Return: -119.79
+Average Loss: -0.000743
+Timesteps So Far: 102320
+Took: 533.82 seconds
+Total Time: 8473.257184408
+----------------------------------------
+
+----------------------------------------
+Iteration: 18
+Average Episodic Length: 50.67
+Episodic Return: -119.39
+Average Loss: -0.001393
+Timesteps So Far: 108350
+Took: 567.16 seconds
+Total Time: 9040.416889579
+----------------------------------------
+
+----------------------------------------
+Iteration: 19
+Average Episodic Length: 58.8
+Episodic Return: -123.43
+Average Loss: -0.001514
+Timesteps So Far: 114406
+Took: 561.5 seconds
+Total Time: 9601.928924502
+----------------------------------------
+
+----------------------------------------
+Iteration: 20
+Average Episodic Length: 58.5
+Episodic Return: -122.26
+Average Loss: -0.001458
+Timesteps So Far: 120432
+Took: 575.47 seconds
+Total Time: 10177.3862724
+----------------------------------------
+
+----------------------------------------
+Iteration: 21
+Average Episodic Length: 61.17
+Episodic Return: -122.72
+Average Loss: -0.001172
+Timesteps So Far: 126488
+Took: 567.49 seconds
+Total Time: 10744.878668426
+----------------------------------------
+
+----------------------------------------
+Iteration: 22
+Average Episodic Length: 54.49
+Episodic Return: -121.57
+Average Loss: -0.001733
+Timesteps So Far: 132536
+Took: 612.7 seconds
+Total Time: 11357.586743086
+----------------------------------------
+
+----------------------------------------
+Iteration: 23
+Average Episodic Length: 60.63
+Episodic Return: -124.01
+Average Loss: -0.001188
+Timesteps So Far: 138599
+Took: 622.5 seconds
+Total Time: 11980.074643302
+----------------------------------------
+
+----------------------------------------
+Iteration: 24
+Average Episodic Length: 64.07
+Episodic Return: -122.9
+Average Loss: -0.000996
+Timesteps So Far: 144622
+Took: 612.86 seconds
+Total Time: 12592.929738066
+----------------------------------------
+
+----------------------------------------
+Iteration: 25
+Average Episodic Length: 63.94
+Episodic Return: -123.22
+Average Loss: -0.002128
+Timesteps So Far: 150632
+Took: 634.35 seconds
+Total Time: 13227.281617852
+----------------------------------------
+
+----------------------------------------
+Iteration: 26
+Average Episodic Length: 69.81
+Episodic Return: -126.43
+Average Loss: -0.001358
+Timesteps So Far: 156636
+Took: 606.62 seconds
+Total Time: 13833.891038667
+----------------------------------------
+
+----------------------------------------
+Iteration: 27
+Average Episodic Length: 76.04
+Episodic Return: -126.41
+Average Loss: -0.001353
+Timesteps So Far: 162643
+Took: 600.79 seconds
+Total Time: 14434.694621942
+----------------------------------------
+
+----------------------------------------
+Iteration: 28
+Average Episodic Length: 76.99
+Episodic Return: -126.02
+Average Loss: -0.001747
+Timesteps So Far: 168648
+Took: 607.02 seconds
+Total Time: 15041.708321301
+----------------------------------------
+
+----------------------------------------
+Iteration: 29
+Average Episodic Length: 87.61
+Episodic Return: -128.78
+Average Loss: -0.001522
+Timesteps So Far: 174693
+Took: 593.48 seconds
+Total Time: 15635.19456253
+----------------------------------------
+
+----------------------------------------
+Iteration: 30
+Average Episodic Length: 86.96
+Episodic Return: -129.07
+Average Loss: -0.001469
+Timesteps So Far: 180693
+Took: 589.11 seconds
+Total Time: 16224.298592748
+----------------------------------------
+
+----------------------------------------
+Iteration: 31
+Average Episodic Length: 100.32
+Episodic Return: -130.85
+Average Loss: -0.00215
+Timesteps So Far: 186712
+Took: 577.1 seconds
+Total Time: 16801.396076218
+----------------------------------------
+
+----------------------------------------
+Iteration: 32
+Average Episodic Length: 120.04
+Episodic Return: -135.54
+Average Loss: -0.001967
+Timesteps So Far: 192714
+Took: 546.93 seconds
+Total Time: 17348.327715961
+----------------------------------------
+
+----------------------------------------
+Iteration: 33
+Average Episodic Length: 116.58
+Episodic Return: -135.73
+Average Loss: -0.001598
+Timesteps So Far: 198893
+Took: 564.74 seconds
+Total Time: 17913.06438375
+----------------------------------------
+
+----------------------------------------
+Iteration: 34
+Average Episodic Length: 133.42
+Episodic Return: -139.54
+Average Loss: -0.002713
+Timesteps So Far: 204897
+Took: 529.57 seconds
+Total Time: 18442.636490802
+----------------------------------------
+
+----------------------------------------
+Iteration: 35
+Average Episodic Length: 123.26
+Episodic Return: -138.05
+Average Loss: -0.00124
+Timesteps So Far: 211060
+Took: 554.33 seconds
+Total Time: 18996.97603388
+----------------------------------------
+
+----------------------------------------
+Iteration: 36
+Average Episodic Length: 143.63
+Episodic Return: -140.27
+Average Loss: -0.002473
+Timesteps So Far: 217236
+Took: 535.79 seconds
+Total Time: 19532.758644273
+----------------------------------------
+
+----------------------------------------
+Iteration: 37
+Average Episodic Length: 142.86
+Episodic Return: -137.03
+Average Loss: -0.001331
+Timesteps So Far: 223379
+Took: 535.49 seconds
+Total Time: 20068.247602616
+----------------------------------------
+
+----------------------------------------
+Iteration: 38
+Average Episodic Length: 165.73
+Episodic Return: -144.08
+Average Loss: -0.002379
+Timesteps So Far: 229511
+Took: 513.81 seconds
+Total Time: 20582.048684086
+----------------------------------------
+
+----------------------------------------
+Iteration: 39
+Average Episodic Length: 198.26
+Episodic Return: -148.67
+Average Loss: -0.001325
+Timesteps So Far: 235657
+Took: 485.69 seconds
+Total Time: 21067.745418387
+----------------------------------------
+
+----------------------------------------
+Iteration: 40
+Average Episodic Length: 240.6
+Episodic Return: -155.75
+Average Loss: -0.001256
+Timesteps So Far: 241672
+Took: 466.23 seconds
+Total Time: 21533.974634272
+----------------------------------------
+
+----------------------------------------
+Iteration: 41
+Average Episodic Length: 192.34
+Episodic Return: -150.83
+Average Loss: -0.001937
+Timesteps So Far: 247827
+Took: 505.09 seconds
+Total Time: 22039.056238359
+----------------------------------------
+
+----------------------------------------
+Iteration: 42
+Average Episodic Length: 208.76
+Episodic Return: -148.41
+Average Loss: -0.001603
+Timesteps So Far: 253881
+Took: 486.25 seconds
+Total Time: 22525.308267034
+----------------------------------------
+
+----------------------------------------
+Iteration: 43
+Average Episodic Length: 219.83
+Episodic Return: -153.56
+Average Loss: -0.000835
+Timesteps So Far: 260256
+Took: 508.34 seconds
+Total Time: 23033.644810392
+----------------------------------------
+
+----------------------------------------
+Iteration: 44
+Average Episodic Length: 274.26
+Episodic Return: -159.92
+Average Loss: -0.00122
+Timesteps So Far: 266564
+Took: 482.19 seconds
+Total Time: 23515.837878473
+----------------------------------------
+
+----------------------------------------
+Iteration: 45
+Average Episodic Length: 272.87
+Episodic Return: -158.74
+Average Loss: -0.001585
+Timesteps So Far: 272840
+Took: 485.91 seconds
+Total Time: 24001.753570638
+----------------------------------------
+
+----------------------------------------
+Iteration: 46
+Average Episodic Length: 227.04
+Episodic Return: -150.5
+Average Loss: -0.002379
+Timesteps So Far: 278970
+Took: 487.41 seconds
+Total Time: 24489.153470636
+----------------------------------------
+
+----------------------------------------
+Iteration: 47
+Average Episodic Length: 245.08
+Episodic Return: -159.16
+Average Loss: -0.001116
+Timesteps So Far: 285097
+Took: 491.35 seconds
+Total Time: 24980.508120457
+----------------------------------------
+
+----------------------------------------
+Iteration: 48
+Average Episodic Length: 359.71
+Episodic Return: -160.23
+Average Loss: -0.001709
+Timesteps So Far: 291212
+Took: 461.2 seconds
+Total Time: 25441.709737207
+----------------------------------------
+
+----------------------------------------
+Iteration: 49
+Average Episodic Length: 282.14
+Episodic Return: -168.87
+Average Loss: -0.001556
+Timesteps So Far: 297419
+Took: 488.58 seconds
+Total Time: 25930.292559812
+----------------------------------------
+
+----------------------------------------
+Iteration: 50
+Average Episodic Length: 312.8
+Episodic Return: -145.89
+Average Loss: -0.001584
+Timesteps So Far: 303675
+Took: 472.7 seconds
+Total Time: 26402.988315509
+----------------------------------------
+
+----------------------------------------
+Iteration: 51
+Average Episodic Length: 338.21
+Episodic Return: -142.04
+Average Loss: -0.001417
+Timesteps So Far: 310101
+Took: 486.5 seconds
+Total Time: 26889.485773928
+----------------------------------------
+
+----------------------------------------
+Iteration: 52
+Average Episodic Length: 354.59
+Episodic Return: -168.79
+Average Loss: -0.001562
+Timesteps So Far: 316129
+Took: 462.19 seconds
+Total Time: 27351.683434922
+----------------------------------------
+
+----------------------------------------
+Iteration: 53
+Average Episodic Length: 346.28
+Episodic Return: -162.61
+Average Loss: -0.002206
+Timesteps So Far: 322362
+Took: 481.25 seconds
+Total Time: 27832.924556279
+----------------------------------------
+
+----------------------------------------
+Iteration: 54
+Average Episodic Length: 358.35
+Episodic Return: -169.23
+Average Loss: -0.001608
+Timesteps So Far: 328454
+Took: 469.71 seconds
+Total Time: 28302.642796838
+----------------------------------------
+
+----------------------------------------
+Iteration: 55
+Average Episodic Length: 385.5
+Episodic Return: -141.18
+Average Loss: -0.001207
+Timesteps So Far: 334622
+Took: 452.92 seconds
+Total Time: 28755.561699723
+----------------------------------------
+
+----------------------------------------
+Iteration: 56
+Average Episodic Length: 335.89
+Episodic Return: -159.04
+Average Loss: -0.001915
+Timesteps So Far: 340668
+Took: 471.54 seconds
+Total Time: 29227.107432299
+----------------------------------------
+
+----------------------------------------
+Iteration: 57
+Average Episodic Length: 401.07
+Episodic Return: -148.42
+Average Loss: -0.002348
+Timesteps So Far: 346684
+Took: 458.25 seconds
+Total Time: 29685.343872986
+----------------------------------------
+
+----------------------------------------
+Iteration: 58
+Average Episodic Length: 407.87
+Episodic Return: -149.56
+Average Loss: -0.000795
+Timesteps So Far: 352802
+Took: 484.63 seconds
+Total Time: 30169.97138055
+----------------------------------------
+
+----------------------------------------
+Iteration: 59
+Average Episodic Length: 382.75
+Episodic Return: -152.77
+Average Loss: -0.001499
+Timesteps So Far: 358926
+Took: 459.52 seconds
+Total Time: 30629.492257121
+----------------------------------------
+
+----------------------------------------
+Iteration: 60
+Average Episodic Length: 395.75
+Episodic Return: -146.55
+Average Loss: -0.001606
+Timesteps So Far: 365258
+Took: 472.7 seconds
+Total Time: 31102.203268406
+----------------------------------------
+
+----------------------------------------
+Iteration: 61
+Average Episodic Length: 402.38
+Episodic Return: -135.03
+Average Loss: -0.001156
+Timesteps So Far: 371696
+Took: 474.52 seconds
+Total Time: 31576.712220116
+----------------------------------------
+
+----------------------------------------
+Iteration: 62
+Average Episodic Length: 378.19
+Episodic Return: -134.87
+Average Loss: -0.001665
+Timesteps So Far: 377747
+Took: 463.92 seconds
+Total Time: 32040.63602799
+----------------------------------------
+
+----------------------------------------
+Iteration: 63
+Average Episodic Length: 354.59
+Episodic Return: -135.93
+Average Loss: -0.001308
+Timesteps So Far: 383775
+Took: 459.46 seconds
+Total Time: 32500.096404358
+----------------------------------------
+
+----------------------------------------
+Iteration: 64
+Average Episodic Length: 460.07
+Episodic Return: -116.4
+Average Loss: -0.002006
+Timesteps So Far: 390216
+Took: 469.87 seconds
+Total Time: 32969.966654472
+----------------------------------------
+
+----------------------------------------
+Iteration: 65
+Average Episodic Length: 402.87
+Episodic Return: -156.52
+Average Loss: -0.000992
+Timesteps So Far: 396259
+Took: 437.29 seconds
+Total Time: 33407.255316039
+----------------------------------------
+
+----------------------------------------
+Iteration: 66
+Average Episodic Length: 456.79
+Episodic Return: -89.32
+Average Loss: -0.001535
+Timesteps So Far: 402654
+Took: 474.94 seconds
+Total Time: 33882.198844806
+----------------------------------------
+
+----------------------------------------
+Iteration: 67
+Average Episodic Length: 450.71
+Episodic Return: -149.7
+Average Loss: -0.001777
+Timesteps So Far: 408964
+Took: 471.7 seconds
+Total Time: 34353.906638806
+----------------------------------------
+
+----------------------------------------
+Iteration: 68
+Average Episodic Length: 358.5
+Episodic Return: -106.74
+Average Loss: -0.001809
+Timesteps So Far: 415417
+Took: 485.93 seconds
+Total Time: 34839.834013792
+----------------------------------------
+
+----------------------------------------
+Iteration: 69
+Average Episodic Length: 442.93
+Episodic Return: -16.23
+Average Loss: -0.00241
+Timesteps So Far: 421618
+Took: 462.54 seconds
+Total Time: 35302.376133029
+----------------------------------------
+
+----------------------------------------
+Iteration: 70
+Average Episodic Length: 381.12
+Episodic Return: -160.22
+Average Loss: -0.001693
+Timesteps So Far: 428097
+Took: 487.69 seconds
+Total Time: 35790.064106485
+----------------------------------------
+
+----------------------------------------
+Iteration: 71
+Average Episodic Length: 418.73
+Episodic Return: -96.28
+Average Loss: -0.001681
+Timesteps So Far: 434378
+Took: 471.84 seconds
+Total Time: 36261.90011944
+----------------------------------------
+
+----------------------------------------
+Iteration: 72
+Average Episodic Length: 391.81
+Episodic Return: -92.82
+Average Loss: -0.001579
+Timesteps So Far: 440647
+Took: 472.0 seconds
+Total Time: 36733.902276975
+----------------------------------------
+
+----------------------------------------
+Iteration: 73
+Average Episodic Length: 451.0
+Episodic Return: -79.88
+Average Loss: -0.000809
+Timesteps So Far: 446961
+Took: 471.32 seconds
+Total Time: 37205.221427232
+----------------------------------------
+
+----------------------------------------
+Iteration: 74
+Average Episodic Length: 401.12
+Episodic Return: -124.32
+Average Loss: -0.001551
+Timesteps So Far: 453379
+Took: 481.77 seconds
+Total Time: 37686.996276054
+----------------------------------------
+
+----------------------------------------
+Iteration: 75
+Average Episodic Length: 446.07
+Episodic Return: -74.66
+Average Loss: -0.001614
+Timesteps So Far: 459624
+Took: 469.79 seconds
+Total Time: 38156.788286826
+----------------------------------------
+
+----------------------------------------
+Iteration: 76
+Average Episodic Length: 428.8
+Episodic Return: 28.25
+Average Loss: -0.001585
+Timesteps So Far: 466056
+Took: 478.45 seconds
+Total Time: 38635.246556093
+----------------------------------------
+
+----------------------------------------
+Iteration: 77
+Average Episodic Length: 448.57
+Episodic Return: 107.54
+Average Loss: -0.001556
+Timesteps So Far: 472336
+Took: 471.08 seconds
+Total Time: 39106.32010673
+----------------------------------------
+
+----------------------------------------
+Iteration: 78
+Average Episodic Length: 411.2
+Episodic Return: -10.5
+Average Loss: -0.001519
+Timesteps So Far: 478504
+Took: 459.26 seconds
+Total Time: 39565.583768694
+----------------------------------------
+
+----------------------------------------
+Iteration: 79
+Average Episodic Length: 389.75
+Episodic Return: 43.22
+Average Loss: -0.001974
+Timesteps So Far: 484740
+Took: 488.66 seconds
+Total Time: 40054.244125806
+----------------------------------------
+
+----------------------------------------
+Iteration: 80
+Average Episodic Length: 377.19
+Episodic Return: -2.79
+Average Loss: -0.000889
+Timesteps So Far: 490775
+Took: 455.72 seconds
+Total Time: 40509.960754378
+----------------------------------------
+
+----------------------------------------
+Iteration: 81
+Average Episodic Length: 457.36
+Episodic Return: 5.32
+Average Loss: -0.001515
+Timesteps So Far: 497178
+Took: 476.54 seconds
+Total Time: 40986.51065812
+----------------------------------------
+
+----------------------------------------
+Iteration: 82
+Average Episodic Length: 469.77
+Episodic Return: 107.83
+Average Loss: -0.002307
+Timesteps So Far: 503285
+Took: 430.63 seconds
+Total Time: 41417.136159094
+----------------------------------------
+
+----------------------------------------
+Iteration: 83
+Average Episodic Length: 438.29
+Episodic Return: 77.51
+Average Loss: -0.000612
+Timesteps So Far: 509421
+Took: 457.43 seconds
+Total Time: 41874.567015363
+----------------------------------------
+
+----------------------------------------
+Iteration: 84
+Average Episodic Length: 422.87
+Episodic Return: 72.1
+Average Loss: -0.000938
+Timesteps So Far: 515764
+Took: 451.64 seconds
+Total Time: 42326.212598858
+----------------------------------------
+
+----------------------------------------
+Iteration: 85
+Average Episodic Length: 449.71
+Episodic Return: 137.49
+Average Loss: -0.000966
+Timesteps So Far: 522060
+Took: 468.21 seconds
+Total Time: 42794.415477505
+----------------------------------------
+
+----------------------------------------
+Iteration: 86
+Average Episodic Length: 419.53
+Episodic Return: 12.07
+Average Loss: -0.00042
+Timesteps So Far: 528353
+Took: 476.07 seconds
+Total Time: 43270.485076839
+----------------------------------------
+
+----------------------------------------
+Iteration: 87
+Average Episodic Length: 441.79
+Episodic Return: -38.9
+Average Loss: -0.00143
+Timesteps So Far: 534538
+Took: 453.74 seconds
+Total Time: 43724.225364741
+----------------------------------------
+
+----------------------------------------
+Iteration: 88
+Average Episodic Length: 433.43
+Episodic Return: 72.2
+Average Loss: -0.001891
+Timesteps So Far: 540606
+Took: 447.09 seconds
+Total Time: 44171.318761089
+----------------------------------------
+
+----------------------------------------
+Iteration: 89
+Average Episodic Length: 383.19
+Episodic Return: -37.39
+Average Loss: -0.002034
+Timesteps So Far: 546737
+Took: 471.55 seconds
+Total Time: 44642.864297155
+----------------------------------------
+
+----------------------------------------
+Iteration: 90
+Average Episodic Length: 411.0
+Episodic Return: 228.0
+Average Loss: -0.002088
+Timesteps So Far: 552902
+Took: 457.89 seconds
+Total Time: 45100.755667749
+----------------------------------------
+
+----------------------------------------
+Iteration: 91
+Average Episodic Length: 478.23
+Episodic Return: 115.12
+Average Loss: -0.001743
+Timesteps So Far: 559119
+Took: 459.37 seconds
+Total Time: 45560.126632355
+----------------------------------------
+
+----------------------------------------
+Iteration: 92
+Average Episodic Length: 446.21
+Episodic Return: 146.47
+Average Loss: -0.000866
+Timesteps So Far: 565366
+Took: 483.44 seconds
+Total Time: 46043.570565032
+----------------------------------------
+
+----------------------------------------
+Iteration: 93
+Average Episodic Length: 425.73
+Episodic Return: 142.34
+Average Loss: -0.001769
+Timesteps So Far: 571752
+Took: 485.18 seconds
+Total Time: 46528.7404999
+----------------------------------------
+
+----------------------------------------
+Iteration: 94
+Average Episodic Length: 418.47
+Episodic Return: 153.43
+Average Loss: -0.001389
+Timesteps So Far: 578029
+Took: 475.72 seconds
+Total Time: 47004.456300807
+----------------------------------------
+
+----------------------------------------
+Iteration: 95
+Average Episodic Length: 404.27
+Episodic Return: 84.98
+Average Loss: -0.000706
+Timesteps So Far: 584093
+Took: 462.23 seconds
+Total Time: 47466.694997037
+----------------------------------------
+
+----------------------------------------
+Iteration: 96
+Average Episodic Length: 384.69
+Episodic Return: 64.85
+Average Loss: -0.001212
+Timesteps So Far: 590248
+Took: 470.38 seconds
+Total Time: 47937.074647114
+----------------------------------------
+
+----------------------------------------
+Iteration: 97
+Average Episodic Length: 376.19
+Episodic Return: 100.76
+Average Loss: -0.001036
+Timesteps So Far: 596267
+Took: 468.34 seconds
+Total Time: 48405.40864872
+----------------------------------------
+
+----------------------------------------
+Iteration: 98
+Average Episodic Length: 348.39
+Episodic Return: 193.34
+Average Loss: -0.00237
+Timesteps So Far: 602538
+Took: 493.35 seconds
+Total Time: 48898.756333621
+----------------------------------------
+
+----------------------------------------
+Iteration: 99
+Average Episodic Length: 387.94
+Episodic Return: 40.24
+Average Loss: -0.002092
+Timesteps So Far: 608745
+Took: 474.05 seconds
+Total Time: 49372.804203608
+----------------------------------------
+
+----------------------------------------
+Iteration: 100
+Average Episodic Length: 378.0
+Episodic Return: 121.67
+Average Loss: -0.001054
+Timesteps So Far: 614793
+Took: 459.21 seconds
+Total Time: 49832.015327922
+----------------------------------------
+
+----------------------------------------
+Iteration: 101
+Average Episodic Length: 384.31
+Episodic Return: 112.45
+Average Loss: -0.001279
+Timesteps So Far: 620942
+Took: 474.98 seconds
+Total Time: 50306.991724876
+----------------------------------------
+
+----------------------------------------
+Iteration: 102
+Average Episodic Length: 410.73
+Episodic Return: 212.27
+Average Loss: -0.001464
+Timesteps So Far: 627103
+Took: 479.7 seconds
+Total Time: 50786.696803532
+----------------------------------------
+
+----------------------------------------
+Iteration: 103
+Average Episodic Length: 394.25
+Episodic Return: 53.41
+Average Loss: -0.001232
+Timesteps So Far: 633411
+Took: 480.33 seconds
+Total Time: 51267.034762797
+----------------------------------------
+
+----------------------------------------
+Iteration: 104
+Average Episodic Length: 335.47
+Episodic Return: -9.3
+Average Loss: -0.001499
+Timesteps So Far: 639785
+Took: 499.84 seconds
+Total Time: 51766.864160074
+----------------------------------------
+
+----------------------------------------
+Iteration: 105
+Average Episodic Length: 396.94
+Episodic Return: 106.13
+Average Loss: -0.001588
+Timesteps So Far: 646136
+Took: 471.66 seconds
+Total Time: 52238.519573265
+----------------------------------------
+
+----------------------------------------
+Iteration: 106
+Average Episodic Length: 404.06
+Episodic Return: 42.03
+Average Loss: -0.001812
+Timesteps So Far: 652601
+Took: 485.04 seconds
+Total Time: 52723.560035964
+----------------------------------------
+
+----------------------------------------
+Iteration: 107
+Average Episodic Length: 405.33
+Episodic Return: 166.16
+Average Loss: -0.000835
+Timesteps So Far: 658681
+Took: 475.11 seconds
+Total Time: 53198.668197757
+----------------------------------------
+
+----------------------------------------
+Iteration: 108
+Average Episodic Length: 389.12
+Episodic Return: 92.9
+Average Loss: -0.001501
+Timesteps So Far: 664907
+Took: 469.13 seconds
+Total Time: 53667.796581134
+----------------------------------------
+
+----------------------------------------
+Iteration: 109
+Average Episodic Length: 359.82
+Episodic Return: 157.17
+Average Loss: -0.001593
+Timesteps So Far: 671024
+Took: 479.52 seconds
+Total Time: 54147.311795877
+----------------------------------------
+
+----------------------------------------
+Iteration: 110
+Average Episodic Length: 376.56
+Episodic Return: 222.64
+Average Loss: -0.0015
+Timesteps So Far: 677049
+Took: 455.33 seconds
+Total Time: 54602.644556505
+----------------------------------------
+
+----------------------------------------
+Iteration: 111
+Average Episodic Length: 348.5
+Episodic Return: 166.8
+Average Loss: -0.00106
+Timesteps So Far: 683322
+Took: 493.21 seconds
+Total Time: 55095.866641519
+----------------------------------------
+
+----------------------------------------
+Iteration: 112
+Average Episodic Length: 341.61
+Episodic Return: 100.43
+Average Loss: -0.000955
+Timesteps So Far: 689471
+Took: 492.25 seconds
+Total Time: 55588.10686302
+----------------------------------------
+
+----------------------------------------
+Iteration: 113
+Average Episodic Length: 348.11
+Episodic Return: 101.22
+Average Loss: -0.001584
+Timesteps So Far: 695737
+Took: 493.71 seconds
+Total Time: 56081.81232569
+----------------------------------------
+
+----------------------------------------
+Iteration: 114
+Average Episodic Length: 336.61
+Episodic Return: 65.88
+Average Loss: -0.001277
+Timesteps So Far: 701796
+Took: 478.43 seconds
+Total Time: 56560.241625569
+----------------------------------------
+
+----------------------------------------
+Iteration: 115
+Average Episodic Length: 394.94
+Episodic Return: 50.87
+Average Loss: -0.000916
+Timesteps So Far: 708115
+Took: 482.39 seconds
+Total Time: 57042.638628072
+----------------------------------------
+
+----------------------------------------
+Iteration: 116
+Average Episodic Length: 386.88
+Episodic Return: 219.67
+Average Loss: -0.001606
+Timesteps So Far: 714305
+Took: 485.17 seconds
+Total Time: 57527.807609468
+----------------------------------------
+
+----------------------------------------
+Iteration: 117
+Average Episodic Length: 397.56
+Episodic Return: 205.84
+Average Loss: -0.001335
+Timesteps So Far: 720666
+Took: 492.82 seconds
+Total Time: 58020.61837344
+----------------------------------------
+
+----------------------------------------
+Iteration: 118
+Average Episodic Length: 365.88
+Episodic Return: 142.8
+Average Loss: -0.002428
+Timesteps So Far: 726886
+Took: 473.86 seconds
+Total Time: 58494.472731455
+----------------------------------------
+
+----------------------------------------
+Iteration: 119
+Average Episodic Length: 360.76
+Episodic Return: 223.24
+Average Loss: -0.001724
+Timesteps So Far: 733019
+Took: 474.99 seconds
+Total Time: 58969.466407499
+----------------------------------------
+
+----------------------------------------
+Iteration: 120
+Average Episodic Length: 400.47
+Episodic Return: 176.55
+Average Loss: -0.000831
+Timesteps So Far: 739026
+Took: 440.3 seconds
+Total Time: 59409.764130265
+----------------------------------------
+
+----------------------------------------
+Iteration: 121
+Average Episodic Length: 354.56
+Episodic Return: 170.21
+Average Loss: -0.001966
+Timesteps So Far: 745408
+Took: 508.69 seconds
+Total Time: 59918.455302204
+----------------------------------------
+
+----------------------------------------
+Iteration: 122
+Average Episodic Length: 347.56
+Episodic Return: 92.87
+Average Loss: -0.001676
+Timesteps So Far: 751664
+Took: 514.66 seconds
+Total Time: 60433.116226755
+----------------------------------------
+
+----------------------------------------
+Iteration: 123
+Average Episodic Length: 383.88
+Episodic Return: 213.97
+Average Loss: -0.001378
+Timesteps So Far: 757806
+Took: 480.48 seconds
+Total Time: 60913.595370825
+----------------------------------------
+
+----------------------------------------
+Iteration: 124
+Average Episodic Length: 392.88
+Episodic Return: 135.58
+Average Loss: -0.001751
+Timesteps So Far: 764092
+Took: 497.8 seconds
+Total Time: 61411.400544985
+----------------------------------------
+
+----------------------------------------
+Iteration: 125
+Average Episodic Length: 403.33
+Episodic Return: 128.44
+Average Loss: -0.001444
+Timesteps So Far: 770142
+Took: 474.19 seconds
+Total Time: 61885.589624137
+----------------------------------------
+
+----------------------------------------
+Iteration: 126
+Average Episodic Length: 390.75
+Episodic Return: 269.05
+Average Loss: -0.001416
+Timesteps So Far: 776394
+Took: 499.14 seconds
+Total Time: 62384.73227429
+----------------------------------------
+
+----------------------------------------
+Iteration: 127
+Average Episodic Length: 402.53
+Episodic Return: 181.33
+Average Loss: -0.000981
+Timesteps So Far: 782432
+Took: 456.68 seconds
+Total Time: 62841.413473311
+----------------------------------------
+
+----------------------------------------
+Iteration: 128
+Average Episodic Length: 409.33
+Episodic Return: 373.46
+Average Loss: -0.000902
+Timesteps So Far: 788572
+Took: 481.84 seconds
+Total Time: 63323.257621686
+----------------------------------------
+
+----------------------------------------
+Iteration: 129
+Average Episodic Length: 423.13
+Episodic Return: 173.37
+Average Loss: -0.000683
+Timesteps So Far: 794919
+Took: 494.74 seconds
+Total Time: 63817.99254685
+----------------------------------------
+
+----------------------------------------
+Iteration: 130
+Average Episodic Length: 415.13
+Episodic Return: 260.66
+Average Loss: -0.000625
+Timesteps So Far: 801146
+Took: 471.59 seconds
+Total Time: 64289.583767136
+----------------------------------------
+
+----------------------------------------
+Iteration: 131
+Average Episodic Length: 429.79
+Episodic Return: 42.38
+Average Loss: -0.002135
+Timesteps So Far: 807163
+Took: 446.91 seconds
+Total Time: 64736.4960145
+----------------------------------------
+
+----------------------------------------
+Iteration: 132
+Average Episodic Length: 411.13
+Episodic Return: 171.22
+Average Loss: -0.000838
+Timesteps So Far: 813330
+Took: 481.35 seconds
+Total Time: 65217.845039649
+----------------------------------------
+
+----------------------------------------
+Iteration: 133
+Average Episodic Length: 420.8
+Episodic Return: 97.01
+Average Loss: -0.001234
+Timesteps So Far: 819642
+Took: 487.55 seconds
+Total Time: 65705.398435949
+----------------------------------------
+
+----------------------------------------
+Iteration: 134
+Average Episodic Length: 473.85
+Episodic Return: 52.03
+Average Loss: -0.001445
+Timesteps So Far: 825802
+Took: 444.12 seconds
+Total Time: 66149.520232332
+----------------------------------------
+
+----------------------------------------
+Iteration: 135
+Average Episodic Length: 427.87
+Episodic Return: 175.61
+Average Loss: -0.00212
+Timesteps So Far: 832220
+Took: 500.4 seconds
+Total Time: 66649.924776691
+----------------------------------------
+
+----------------------------------------
+Iteration: 136
+Average Episodic Length: 447.93
+Episodic Return: 95.18
+Average Loss: -0.001721
+Timesteps So Far: 838491
+Took: 476.7 seconds
+Total Time: 67126.624718308
+----------------------------------------
+
+----------------------------------------
+Iteration: 137
+Average Episodic Length: 454.71
+Episodic Return: 162.76
+Average Loss: -0.001074
+Timesteps So Far: 844857
+Took: 487.83 seconds
+Total Time: 67614.456293882
+----------------------------------------
+
+----------------------------------------
+Iteration: 138
+Average Episodic Length: 471.62
+Episodic Return: 128.62
+Average Loss: -0.001623
+Timesteps So Far: 850988
+Took: 454.59 seconds
+Total Time: 68069.044222659
+----------------------------------------
+
+----------------------------------------
+Iteration: 139
+Average Episodic Length: 510.08
+Episodic Return: 35.19
+Average Loss: -0.001699
+Timesteps So Far: 857109
+Took: 460.66 seconds
+Total Time: 68529.704158385
+----------------------------------------
+
+----------------------------------------
+Iteration: 140
+Average Episodic Length: 465.31
+Episodic Return: 62.64
+Average Loss: -0.001706
+Timesteps So Far: 863158
+Took: 453.81 seconds
+Total Time: 68983.531278568
+----------------------------------------
+
+----------------------------------------
+Iteration: 141
+Average Episodic Length: 492.92
+Episodic Return: 78.2
+Average Loss: -0.001395
+Timesteps So Far: 869566
+Took: 470.31 seconds
+Total Time: 69453.834557552
+----------------------------------------
+
+----------------------------------------
+Iteration: 142
+Average Episodic Length: 531.25
+Episodic Return: 69.05
+Average Loss: -0.001104
+Timesteps So Far: 875941
+Took: 476.33 seconds
+Total Time: 69930.157892082
+----------------------------------------
+
+----------------------------------------
+Iteration: 143
+Average Episodic Length: 526.17
+Episodic Return: 36.64
+Average Loss: -0.000982
+Timesteps So Far: 882255
+Took: 437.46 seconds
+Total Time: 70367.619327631
+----------------------------------------
+
+----------------------------------------
+Iteration: 144
+Average Episodic Length: 502.08
+Episodic Return: 12.22
+Average Loss: -0.001047
+Timesteps So Far: 888280
+Took: 464.54 seconds
+Total Time: 70832.152640239
+----------------------------------------
+
+----------------------------------------
+Iteration: 145
+Average Episodic Length: 514.42
+Episodic Return: -74.06
+Average Loss: -0.000836
+Timesteps So Far: 894453
+Took: 477.94 seconds
+Total Time: 71310.088085607
+----------------------------------------
+
+----------------------------------------
+Iteration: 146
+Average Episodic Length: 525.17
+Episodic Return: 31.37
+Average Loss: -0.000833
+Timesteps So Far: 900755
+Took: 484.08 seconds
+Total Time: 71794.172628871
+----------------------------------------
+
+----------------------------------------
+Iteration: 147
+Average Episodic Length: 488.38
+Episodic Return: -48.51
+Average Loss: -0.001076
+Timesteps So Far: 907104
+Took: 489.8 seconds
+Total Time: 72283.97616051
+----------------------------------------
+
+----------------------------------------
+Iteration: 148
+Average Episodic Length: 495.85
+Episodic Return: 264.09
+Average Loss: -0.001651
+Timesteps So Far: 913550
+Took: 495.47 seconds
+Total Time: 72779.44179571
+----------------------------------------
+
+----------------------------------------
+Iteration: 149
+Average Episodic Length: 521.0
+Episodic Return: -14.22
+Average Loss: -0.002062
+Timesteps So Far: 919802
+Took: 480.04 seconds
+Total Time: 73259.481593919
+----------------------------------------
+
+----------------------------------------
+Iteration: 150
+Average Episodic Length: 500.17
+Episodic Return: 207.67
+Average Loss: -0.001515
+Timesteps So Far: 925804
+Took: 448.55 seconds
+Total Time: 73708.028090934
+----------------------------------------
+
+----------------------------------------
+Iteration: 151
+Average Episodic Length: 473.23
+Episodic Return: 94.39
+Average Loss: -0.001897
+Timesteps So Far: 931956
+Took: 472.9 seconds
+Total Time: 74180.932247274
+----------------------------------------
+
+----------------------------------------
+Iteration: 152
+Average Episodic Length: 485.54
+Episodic Return: 187.19
+Average Loss: -0.001214
+Timesteps So Far: 938268
+Took: 467.52 seconds
+Total Time: 74648.457325546
+----------------------------------------
+
+----------------------------------------
+Iteration: 153
+Average Episodic Length: 470.77
+Episodic Return: 136.95
+Average Loss: -0.001459
+Timesteps So Far: 944388
+Took: 454.66 seconds
+Total Time: 75103.119886561
+----------------------------------------
+
+----------------------------------------
+Iteration: 154
+Average Episodic Length: 512.92
+Episodic Return: 294.96
+Average Loss: -0.000709
+Timesteps So Far: 950543
+Took: 473.19 seconds
+Total Time: 75576.311570704
+----------------------------------------
+
+----------------------------------------
+Iteration: 155
+Average Episodic Length: 491.31
+Episodic Return: 239.3
+Average Loss: -0.001429
+Timesteps So Far: 956930
+Took: 482.11 seconds
+Total Time: 76058.419967684
+----------------------------------------
+
+----------------------------------------
+Iteration: 156
+Average Episodic Length: 477.31
+Episodic Return: 177.08
+Average Loss: -0.00086
+Timesteps So Far: 963135
+Took: 469.46 seconds
+Total Time: 76527.884402374
+----------------------------------------
+
+----------------------------------------
+Iteration: 157
+Average Episodic Length: 483.77
+Episodic Return: 245.17
+Average Loss: -0.000858
+Timesteps So Far: 969424
+Took: 485.63 seconds
+Total Time: 77013.517930204
+----------------------------------------
+
+----------------------------------------
+Iteration: 158
+Average Episodic Length: 456.43
+Episodic Return: 180.99
+Average Loss: -0.000618
+Timesteps So Far: 975814
+Took: 482.93 seconds
+Total Time: 77496.454645841
+----------------------------------------
+
+----------------------------------------
+Iteration: 159
+Average Episodic Length: 474.54
+Episodic Return: 230.6
+Average Loss: -0.001519
+Timesteps So Far: 981983
+Took: 427.1 seconds
+Total Time: 77923.550626242
+----------------------------------------
+
+----------------------------------------
+Iteration: 160
+Average Episodic Length: 467.08
+Episodic Return: 237.37
+Average Loss: -0.001382
+Timesteps So Far: 988055
+Took: 460.29 seconds
+Total Time: 78383.861201263
+----------------------------------------
+
+----------------------------------------
+Iteration: 161
+Average Episodic Length: 464.92
+Episodic Return: 189.64
+Average Loss: -0.001634
+Timesteps So Far: 994099
+Took: 452.26 seconds
+Total Time: 78836.104695737
+----------------------------------------
+
+----------------------------------------
+Iteration: 162
+Average Episodic Length: 496.08
+Episodic Return: 93.28
+Average Loss: -0.001785
+Timesteps So Far: 1000548
+Took: 497.16 seconds
+Total Time: 79333.259413528
+----------------------------------------
+
+----------------------------------------
+Iteration: 163
+Average Episodic Length: 521.75
+Episodic Return: 98.39
+Average Loss: -0.000704
+Timesteps So Far: 1006809
+Took: 481.76 seconds
+Total Time: 79815.02040962
+----------------------------------------
+
+----------------------------------------
+Iteration: 164
+Average Episodic Length: 493.69
+Episodic Return: 16.3
+Average Loss: -0.001723
+Timesteps So Far: 1013227
+Took: 484.64 seconds
+Total Time: 80299.65629569
+----------------------------------------
+
+----------------------------------------
+Iteration: 165
+Average Episodic Length: 526.25
+Episodic Return: 45.32
+Average Loss: -0.000839
+Timesteps So Far: 1019542
+Took: 474.99 seconds
+Total Time: 80774.658642089
+----------------------------------------
+
+----------------------------------------
+Iteration: 166
+Average Episodic Length: 515.42
+Episodic Return: 72.93
+Average Loss: -0.001016
+Timesteps So Far: 1025727
+Took: 470.9 seconds
+Total Time: 81245.539313079
+----------------------------------------
+
+----------------------------------------
+Iteration: 167
+Average Episodic Length: 522.25
+Episodic Return: 45.62
+Average Loss: -0.000947
+Timesteps So Far: 1031994
+Took: 449.94 seconds
+Total Time: 81695.484200451
+----------------------------------------
+
+----------------------------------------
+Iteration: 168
+Average Episodic Length: 514.17
+Episodic Return: 79.74
+Average Loss: -0.001453
+Timesteps So Far: 1038164
+Took: 456.34 seconds
+Total Time: 82151.824603568
+----------------------------------------
+
+----------------------------------------
+Iteration: 169
+Average Episodic Length: 510.67
+Episodic Return: 20.3
+Average Loss: -0.001203
+Timesteps So Far: 1044292
+Took: 462.26 seconds
+Total Time: 82614.088095353
+----------------------------------------
+
+----------------------------------------
+Iteration: 170
+Average Episodic Length: 522.92
+Episodic Return: -41.88
+Average Loss: -0.000614
+Timesteps So Far: 1050567
+Took: 466.2 seconds
+Total Time: 83080.292757682
+----------------------------------------
+
+----------------------------------------
+Iteration: 171
+Average Episodic Length: 501.33
+Episodic Return: 150.05
+Average Loss: -0.002403
+Timesteps So Far: 1056583
+Took: 464.98 seconds
+Total Time: 83545.276032929
+----------------------------------------
+
+----------------------------------------
+Iteration: 172
+Average Episodic Length: 489.62
+Episodic Return: 90.36
+Average Loss: -0.000621
+Timesteps So Far: 1062948
+Took: 481.25 seconds
+Total Time: 84026.528416746
+----------------------------------------
+
+----------------------------------------
+Iteration: 173
+Average Episodic Length: 501.0
+Episodic Return: 139.32
+Average Loss: -0.001314
+Timesteps So Far: 1068960
+Took: 459.08 seconds
+Total Time: 84485.614470865
+----------------------------------------
+
+----------------------------------------
+Iteration: 174
+Average Episodic Length: 501.58
+Episodic Return: 108.99
+Average Loss: -0.001559
+Timesteps So Far: 1074979
+Took: 466.52 seconds
+Total Time: 84952.132087558
+----------------------------------------
+
+----------------------------------------
+Iteration: 175
+Average Episodic Length: 476.62
+Episodic Return: 140.59
+Average Loss: -0.001003
+Timesteps So Far: 1081175
+Took: 471.68 seconds
+Total Time: 85423.812170737
+----------------------------------------
+
+----------------------------------------
+Iteration: 176
+Average Episodic Length: 434.57
+Episodic Return: 191.04
+Average Loss: -0.001515
+Timesteps So Far: 1087259
+Took: 482.51 seconds
+Total Time: 85906.322636001
+----------------------------------------
+
+----------------------------------------
+Iteration: 177
+Average Episodic Length: 415.47
+Episodic Return: 56.44
+Average Loss: -0.001607
+Timesteps So Far: 1093491
+Took: 505.68 seconds
+Total Time: 86411.995358696
+----------------------------------------
+
+----------------------------------------
+Iteration: 178
+Average Episodic Length: 390.5
+Episodic Return: 192.99
+Average Loss: -0.001061
+Timesteps So Far: 1099739
+Took: 502.57 seconds
+Total Time: 86914.578599069
+----------------------------------------
+
+----------------------------------------
+Iteration: 179
+Average Episodic Length: 400.06
+Episodic Return: 119.88
+Average Loss: -0.001247
+Timesteps So Far: 1106140
+Took: 507.9 seconds
+Total Time: 87422.462589349
+----------------------------------------
+
+----------------------------------------
+Iteration: 180
+Average Episodic Length: 459.86
+Episodic Return: 185.8
+Average Loss: -0.001917
+Timesteps So Far: 1112578
+Took: 495.14 seconds
+Total Time: 87917.598170403
+----------------------------------------
+
+----------------------------------------
+Iteration: 181
+Average Episodic Length: 466.54
+Episodic Return: 149.35
+Average Loss: -0.001085
+Timesteps So Far: 1118643
+Took: 464.39 seconds
+Total Time: 88381.989661995
+----------------------------------------
+
+----------------------------------------
+Iteration: 182
+Average Episodic Length: 445.93
+Episodic Return: 226.61
+Average Loss: -0.000533
+Timesteps So Far: 1124886
+Took: 491.61 seconds
+Total Time: 88873.594613482
+----------------------------------------
+
+----------------------------------------
+Iteration: 183
+Average Episodic Length: 457.93
+Episodic Return: 320.97
+Average Loss: -0.002448
+Timesteps So Far: 1131297
+Took: 515.21 seconds
+Total Time: 89388.802353146
+----------------------------------------
+
+----------------------------------------
+Iteration: 184
+Average Episodic Length: 445.93
+Episodic Return: 187.93
+Average Loss: -0.001598
+Timesteps So Far: 1137540
+Took: 472.21 seconds
+Total Time: 89861.008354378
+----------------------------------------
+
+----------------------------------------
+Iteration: 185
+Average Episodic Length: 438.14
+Episodic Return: 312.28
+Average Loss: -0.000829
+Timesteps So Far: 1143674
+Took: 439.63 seconds
+Total Time: 90300.635204224
+----------------------------------------
+
+----------------------------------------
+Iteration: 186
+Average Episodic Length: 456.71
+Episodic Return: 267.01
+Average Loss: -0.001055
+Timesteps So Far: 1150068
+Took: 491.07 seconds
+Total Time: 90791.704321468
+----------------------------------------
+
+----------------------------------------
+Iteration: 187
+Average Episodic Length: 446.71
+Episodic Return: 241.48
+Average Loss: -0.001313
+Timesteps So Far: 1156322
+Took: 486.18 seconds
+Total Time: 91277.888361023
+----------------------------------------
+
+----------------------------------------
+Iteration: 188
+Average Episodic Length: 443.93
+Episodic Return: 242.11
+Average Loss: -0.001647
+Timesteps So Far: 1162537
+Took: 487.91 seconds
+Total Time: 91765.796700345
+----------------------------------------
+
+----------------------------------------
+Iteration: 189
+Average Episodic Length: 429.86
+Episodic Return: 228.4
+Average Loss: -0.001163
+Timesteps So Far: 1168555
+Took: 463.36 seconds
+Total Time: 92229.153741022
+----------------------------------------
+
+----------------------------------------
+Iteration: 190
+Average Episodic Length: 484.08
+Episodic Return: 295.37
+Average Loss: -0.000636
+Timesteps So Far: 1174848
+Took: 462.9 seconds
+Total Time: 92692.0546456
+----------------------------------------
+
+----------------------------------------
+Iteration: 191
+Average Episodic Length: 476.0
+Episodic Return: 249.28
+Average Loss: -0.001093
+Timesteps So Far: 1181036
+Took: 479.83 seconds
+Total Time: 93171.887397052
+----------------------------------------
+
+----------------------------------------
+Iteration: 192
+Average Episodic Length: 447.36
+Episodic Return: 258.89
+Average Loss: -0.001078
+Timesteps So Far: 1187299
+Took: 482.74 seconds
+Total Time: 93654.618348299
+----------------------------------------
+
+----------------------------------------
+Iteration: 193
+Average Episodic Length: 474.62
+Episodic Return: 157.65
+Average Loss: -0.000768
+Timesteps So Far: 1193469
+Took: 474.3 seconds
+Total Time: 94128.916681338
+----------------------------------------
+
+----------------------------------------
+Iteration: 194
+Average Episodic Length: 462.08
+Episodic Return: 115.78
+Average Loss: -0.001685
+Timesteps So Far: 1199476
+Took: 473.91 seconds
+Total Time: 94602.82472987
+----------------------------------------
+
+----------------------------------------
+Iteration: 195
+Average Episodic Length: 479.31
+Episodic Return: 388.6
+Average Loss: -0.000864
+Timesteps So Far: 1205707
+Took: 482.71 seconds
+Total Time: 95085.535825537
+----------------------------------------
+
+----------------------------------------
+Iteration: 196
+Average Episodic Length: 500.0
+Episodic Return: 179.54
+Average Loss: -0.001215
+Timesteps So Far: 1212207
+Took: 483.2 seconds
+Total Time: 95568.734079416
+----------------------------------------
+
+----------------------------------------
+Iteration: 197
+Average Episodic Length: 502.42
+Episodic Return: 166.83
+Average Loss: -0.000692
+Timesteps So Far: 1218236
+Took: 460.69 seconds
+Total Time: 96029.428259757
+----------------------------------------
+
+----------------------------------------
+Iteration: 198
+Average Episodic Length: 448.07
+Episodic Return: 360.78
+Average Loss: -0.001254
+Timesteps So Far: 1224509
+Took: 492.45 seconds
+Total Time: 96521.876182522
+----------------------------------------
+
+----------------------------------------
+Iteration: 199
+Average Episodic Length: 453.71
+Episodic Return: 223.71
+Average Loss: -0.001067
+Timesteps So Far: 1230861
+Took: 500.03 seconds
+Total Time: 97021.904134762
+----------------------------------------
+
+----------------------------------------
+Iteration: 200
+Average Episodic Length: 431.43
+Episodic Return: 189.63
+Average Loss: -0.001406
+Timesteps So Far: 1236901
+Took: 483.35 seconds
+Total Time: 97505.252219831
+----------------------------------------
+
+----------------------------------------
+Iteration: 201
+Average Episodic Length: 406.33
+Episodic Return: 171.41
+Average Loss: -0.001992
+Timesteps So Far: 1242996
+Took: 483.82 seconds
+Total Time: 97989.076284856
+----------------------------------------
+
+----------------------------------------
+Iteration: 202
+Average Episodic Length: 408.53
+Episodic Return: 259.36
+Average Loss: -0.002425
+Timesteps So Far: 1249124
+Took: 480.02 seconds
+Total Time: 98469.0920975
+----------------------------------------
+
+----------------------------------------
+Iteration: 203
+Average Episodic Length: 420.07
+Episodic Return: 158.26
+Average Loss: -0.001053
+Timesteps So Far: 1255425
+Took: 495.96 seconds
+Total Time: 98965.048509754
+----------------------------------------
+
+----------------------------------------
+Iteration: 204
+Average Episodic Length: 417.27
+Episodic Return: 299.55
+Average Loss: -0.000793
+Timesteps So Far: 1261684
+Took: 496.63 seconds
+Total Time: 99461.683268196
+----------------------------------------
+
+----------------------------------------
+Iteration: 205
+Average Episodic Length: 414.93
+Episodic Return: 389.08
+Average Loss: -0.001628
+Timesteps So Far: 1267908
+Took: 463.55 seconds
+Total Time: 99925.230440895
+----------------------------------------
+
+----------------------------------------
+Iteration: 206
+Average Episodic Length: 408.73
+Episodic Return: 143.4
+Average Loss: -0.001661
+Timesteps So Far: 1274039
+Took: 480.49 seconds
+Total Time: 100405.726634367
+----------------------------------------
+
+----------------------------------------
+Iteration: 207
+Average Episodic Length: 375.18
+Episodic Return: 228.11
+Average Loss: -0.000578
+Timesteps So Far: 1280417
+Took: 495.37 seconds
+Total Time: 100901.096666332
+----------------------------------------
+
+----------------------------------------
+Iteration: 208
+Average Episodic Length: 376.19
+Episodic Return: 354.32
+Average Loss: -0.002219
+Timesteps So Far: 1286436
+Took: 472.05 seconds
+Total Time: 101373.134941552
+----------------------------------------
+
+----------------------------------------
+Iteration: 209
+Average Episodic Length: 376.0
+Episodic Return: 291.47
+Average Loss: -0.001739
+Timesteps So Far: 1292452
+Took: 498.71 seconds
+Total Time: 101871.844362811
+----------------------------------------
+
+----------------------------------------
+Iteration: 210
+Average Episodic Length: 393.38
+Episodic Return: 221.14
+Average Loss: -0.001529
+Timesteps So Far: 1298746
+Took: 484.98 seconds
+Total Time: 102356.834646458
+----------------------------------------
+
+----------------------------------------
+Iteration: 211
+Average Episodic Length: 373.94
+Episodic Return: 266.38
+Average Loss: -0.00037
+Timesteps So Far: 1305103
+Took: 525.69 seconds
+Total Time: 102882.522661537
+----------------------------------------
+
+----------------------------------------
+Iteration: 212
+Average Episodic Length: 380.5
+Episodic Return: 292.45
+Average Loss: -0.001833
+Timesteps So Far: 1311191
+Took: 491.73 seconds
+Total Time: 103374.250204081
+----------------------------------------
+
+----------------------------------------
+Iteration: 213
+Average Episodic Length: 360.29
+Episodic Return: 226.27
+Average Loss: -0.000829
+Timesteps So Far: 1317316
+Took: 523.16 seconds
+Total Time: 103897.410647224
+----------------------------------------
+
+----------------------------------------
+Iteration: 214
+Average Episodic Length: 355.0
+Episodic Return: 192.29
+Average Loss: -0.001262
+Timesteps So Far: 1323351
+Took: 464.35 seconds
+Total Time: 104361.748311084
+----------------------------------------
+
+----------------------------------------
+Iteration: 215
+Average Episodic Length: 386.12
+Episodic Return: 332.3
+Average Loss: -0.00107
+Timesteps So Far: 1329529
+Took: 483.77 seconds
+Total Time: 104845.515149493
+----------------------------------------
+
+----------------------------------------
+Iteration: 216
+Average Episodic Length: 365.53
+Episodic Return: 306.67
+Average Loss: -0.001062
+Timesteps So Far: 1335743
+Took: 513.88 seconds
+Total Time: 105359.39216465
+----------------------------------------
+
+----------------------------------------
+Iteration: 217
+Average Episodic Length: 358.0
+Episodic Return: 196.59
+Average Loss: -0.001382
+Timesteps So Far: 1341829
+Took: 501.25 seconds
+Total Time: 105860.65093196
+----------------------------------------
+
+----------------------------------------
+Iteration: 218
+Average Episodic Length: 383.19
+Episodic Return: 292.76
+Average Loss: -0.001593
+Timesteps So Far: 1347960
+Took: 498.7 seconds
+Total Time: 106359.346634132
+----------------------------------------
+
+----------------------------------------
+Iteration: 219
+Average Episodic Length: 388.44
+Episodic Return: 206.75
+Average Loss: -0.001207
+Timesteps So Far: 1354175
+Took: 495.94 seconds
+Total Time: 106855.280313477
+----------------------------------------
+
+----------------------------------------
+Iteration: 220
+Average Episodic Length: 415.33
+Episodic Return: 385.45
+Average Loss: -0.001623
+Timesteps So Far: 1360405
+Took: 478.4 seconds
+Total Time: 107333.681793574
+----------------------------------------
+
+----------------------------------------
+Iteration: 221
+Average Episodic Length: 421.73
+Episodic Return: 349.34
+Average Loss: -0.000945
+Timesteps So Far: 1366731
+Took: 512.2 seconds
+Total Time: 107845.883852787
+----------------------------------------
+
+----------------------------------------
+Iteration: 222
+Average Episodic Length: 437.29
+Episodic Return: 403.76
+Average Loss: -0.00117
+Timesteps So Far: 1372853
+Took: 475.1 seconds
+Total Time: 108320.986641746
+----------------------------------------
+
+----------------------------------------
+Iteration: 223
+Average Episodic Length: 415.27
+Episodic Return: 216.24
+Average Loss: -0.001561
+Timesteps So Far: 1379082
+Took: 504.36 seconds
+Total Time: 108825.340111178
+----------------------------------------
+
+----------------------------------------
+Iteration: 224
+Average Episodic Length: 445.36
+Episodic Return: 347.84
+Average Loss: -0.000967
+Timesteps So Far: 1385317
+Took: 502.79 seconds
+Total Time: 109328.139170202
+----------------------------------------
+
+----------------------------------------
+Iteration: 225
+Average Episodic Length: 444.07
+Episodic Return: 370.1
+Average Loss: -0.001853
+Timesteps So Far: 1391534
+Took: 485.71 seconds
+Total Time: 109813.840163334
+----------------------------------------
+
+----------------------------------------
+Iteration: 226
+Average Episodic Length: 407.67
+Episodic Return: 302.45
+Average Loss: -0.001378
+Timesteps So Far: 1397649
+Took: 476.57 seconds
+Total Time: 110290.408838732
+----------------------------------------
+
+----------------------------------------
+Iteration: 227
+Average Episodic Length: 475.31
+Episodic Return: 391.23
+Average Loss: -0.002185
+Timesteps So Far: 1403828
+Took: 463.83 seconds
+Total Time: 110754.250584654
+----------------------------------------
+
+----------------------------------------
+Iteration: 228
+Average Episodic Length: 444.79
+Episodic Return: 316.36
+Average Loss: -0.001319
+Timesteps So Far: 1410055
+Took: 501.49 seconds
+Total Time: 111255.747423854
+----------------------------------------
+
+----------------------------------------
+Iteration: 229
+Average Episodic Length: 441.0
+Episodic Return: 439.58
+Average Loss: -0.002212
+Timesteps So Far: 1416229
+Took: 482.59 seconds
+Total Time: 111738.319428915
+----------------------------------------
+
+----------------------------------------
+Iteration: 230
+Average Episodic Length: 417.73
+Episodic Return: 282.53
+Average Loss: -0.00189
+Timesteps So Far: 1422495
+Took: 506.89 seconds
+Total Time: 112245.210272146
+----------------------------------------
+
+----------------------------------------
+Iteration: 231
+Average Episodic Length: 439.5
+Episodic Return: 437.47
+Average Loss: -0.001508
+Timesteps So Far: 1428648
+Took: 472.07 seconds
+Total Time: 112717.283632054
+----------------------------------------
+
+----------------------------------------
+Iteration: 232
+Average Episodic Length: 422.07
+Episodic Return: 376.76
+Average Loss: -0.001333
+Timesteps So Far: 1434979
+Took: 493.38 seconds
+Total Time: 113210.670589489
+----------------------------------------
+
+----------------------------------------
+Iteration: 233
+Average Episodic Length: 426.07
+Episodic Return: 177.98
+Average Loss: -0.000766
+Timesteps So Far: 1441370
+Took: 521.94 seconds
+Total Time: 113732.612960592
+----------------------------------------
+
+----------------------------------------
+Iteration: 234
+Average Episodic Length: 447.93
+Episodic Return: 298.17
+Average Loss: -0.002671
+Timesteps So Far: 1447641
+Took: 513.42 seconds
+Total Time: 114246.038640248
+----------------------------------------
+
+----------------------------------------
+Iteration: 235
+Average Episodic Length: 451.07
+Episodic Return: 468.93
+Average Loss: -0.001649
+Timesteps So Far: 1453956
+Took: 511.32 seconds
+Total Time: 114757.349323781
+----------------------------------------
+
+----------------------------------------
+Iteration: 236
+Average Episodic Length: 454.64
+Episodic Return: 375.48
+Average Loss: -0.000761
+Timesteps So Far: 1460321
+Took: 512.73 seconds
+Total Time: 115270.082201843
+----------------------------------------
+
+----------------------------------------
+Iteration: 237
+Average Episodic Length: 442.5
+Episodic Return: 428.55
+Average Loss: -0.001461
+Timesteps So Far: 1466516
+Took: 480.24 seconds
+Total Time: 115750.324176386
+----------------------------------------
+
+----------------------------------------
+Iteration: 238
+Average Episodic Length: 466.77
+Episodic Return: 390.37
+Average Loss: -0.001373
+Timesteps So Far: 1472584
+Took: 468.4 seconds
+Total Time: 116218.727194306
+----------------------------------------
+
+----------------------------------------
+Iteration: 239
+Average Episodic Length: 481.46
+Episodic Return: 284.94
+Average Loss: -0.001897
+Timesteps So Far: 1478843
+Took: 479.93 seconds
+Total Time: 116698.659469403
+----------------------------------------
+
+----------------------------------------
+Iteration: 240
+Average Episodic Length: 458.86
+Episodic Return: 490.32
+Average Loss: -0.000689
+Timesteps So Far: 1485267
+Took: 492.22 seconds
+Total Time: 117190.873580001
+----------------------------------------
+
+----------------------------------------
+Iteration: 241
+Average Episodic Length: 449.43
+Episodic Return: 413.09
+Average Loss: -0.001759
+Timesteps So Far: 1491559
+Took: 513.19 seconds
+Total Time: 117704.064303278
+----------------------------------------
+
+----------------------------------------
+Iteration: 242
+Average Episodic Length: 414.93
+Episodic Return: 452.18
+Average Loss: -0.001196
+Timesteps So Far: 1497783
+Took: 504.48 seconds
+Total Time: 118208.544179849
+----------------------------------------
+
+----------------------------------------
+Iteration: 243
+Average Episodic Length: 430.07
+Episodic Return: 395.3
+Average Loss: -0.001284
+Timesteps So Far: 1503804
+Took: 480.74 seconds
+Total Time: 118689.276352464
+----------------------------------------
+
+----------------------------------------
+Iteration: 244
+Average Episodic Length: 445.71
+Episodic Return: 502.17
+Average Loss: -0.000702
+Timesteps So Far: 1510044
+Took: 480.33 seconds
+Total Time: 119169.608999126
+----------------------------------------
+
+----------------------------------------
+Iteration: 245
+Average Episodic Length: 449.57
+Episodic Return: 382.24
+Average Loss: -0.00134
+Timesteps So Far: 1516338
+Took: 477.11 seconds
+Total Time: 119646.719391107
+----------------------------------------
+
+----------------------------------------
+Iteration: 246
+Average Episodic Length: 435.43
+Episodic Return: 500.14
+Average Loss: -0.000941
+Timesteps So Far: 1522434
+Took: 488.67 seconds
+Total Time: 120135.389467635
+----------------------------------------
+
+----------------------------------------
+Iteration: 247
+Average Episodic Length: 435.79
+Episodic Return: 484.97
+Average Loss: -0.001652
+Timesteps So Far: 1528535
+Took: 497.18 seconds
+Total Time: 120632.565846709
+----------------------------------------
+
+----------------------------------------
+Iteration: 248
+Average Episodic Length: 439.64
+Episodic Return: 500.05
+Average Loss: -0.001614
+Timesteps So Far: 1534690
+Took: 493.95 seconds
+Total Time: 121126.516274077
+----------------------------------------
+
+----------------------------------------
+Iteration: 249
+Average Episodic Length: 416.93
+Episodic Return: 343.85
+Average Loss: -0.001715
+Timesteps So Far: 1540944
+Took: 513.6 seconds
+Total Time: 121640.126642248
+----------------------------------------
+
+----------------------------------------
+Iteration: 250
+Average Episodic Length: 419.67
+Episodic Return: 496.53
+Average Loss: -0.001051
+Timesteps So Far: 1547239
+Took: 511.08 seconds
+Total Time: 122151.213528928
+----------------------------------------
+
+----------------------------------------
+Iteration: 251
+Average Episodic Length: 423.07
+Episodic Return: 356.4
+Average Loss: -0.001151
+Timesteps So Far: 1553585
+Took: 516.03 seconds
+Total Time: 122667.23465558
+----------------------------------------
+
+----------------------------------------
+Iteration: 252
+Average Episodic Length: 461.54
+Episodic Return: 390.48
+Average Loss: -0.002573
+Timesteps So Far: 1559585
+Took: 459.88 seconds
+Total Time: 123127.115131607
+----------------------------------------
+
+----------------------------------------
+Iteration: 253
+Average Episodic Length: 486.31
+Episodic Return: 433.38
+Average Loss: -0.00161
+Timesteps So Far: 1565907
+Took: 493.05 seconds
+Total Time: 123620.167301228
+----------------------------------------
+
+----------------------------------------
+Iteration: 254
+Average Episodic Length: 467.69
+Episodic Return: 414.37
+Average Loss: -0.001578
+Timesteps So Far: 1571987
+Took: 499.29 seconds
+Total Time: 124119.451087102
+----------------------------------------
+
+----------------------------------------
+Iteration: 255
+Average Episodic Length: 464.54
+Episodic Return: 345.04
+Average Loss: -0.001102
+Timesteps So Far: 1578026
+Took: 479.04 seconds
+Total Time: 124598.492163996
+----------------------------------------
+
+----------------------------------------
+Iteration: 256
+Average Episodic Length: 471.85
+Episodic Return: 433.87
+Average Loss: -0.001291
+Timesteps So Far: 1584160
+Took: 482.59 seconds
+Total Time: 125081.078820429
+----------------------------------------
+
+----------------------------------------
+Iteration: 257
+Average Episodic Length: 480.38
+Episodic Return: 483.62
+Average Loss: -0.00216
+Timesteps So Far: 1590405
+Took: 496.69 seconds
+Total Time: 125577.778757997
+----------------------------------------
+
+----------------------------------------
+Iteration: 258
+Average Episodic Length: 480.15
+Episodic Return: 427.71
+Average Loss: -0.001054
+Timesteps So Far: 1596647
+Took: 503.43 seconds
+Total Time: 126081.196665022
+----------------------------------------
+
+----------------------------------------
+Iteration: 259
+Average Episodic Length: 503.25
+Episodic Return: 567.08
+Average Loss: -0.002155
+Timesteps So Far: 1602686
+Took: 468.32 seconds
+Total Time: 126549.520438271
+----------------------------------------
+
+----------------------------------------
+Iteration: 260
+Average Episodic Length: 524.0
+Episodic Return: 94.45
+Average Loss: -0.000299
+Timesteps So Far: 1608974
+Took: 516.81 seconds
+Total Time: 127066.34270384
+----------------------------------------
+
+----------------------------------------
+Iteration: 261
+Average Episodic Length: 516.83
+Episodic Return: 409.22
+Average Loss: -0.00128
+Timesteps So Far: 1615176
+Took: 432.13 seconds
+Total Time: 127498.463084064
+----------------------------------------
+
+----------------------------------------
+Iteration: 262
+Average Episodic Length: 524.0
+Episodic Return: 408.77
+Average Loss: -0.001343
+Timesteps So Far: 1621464
+Took: 501.93 seconds
+Total Time: 128000.394558736
+----------------------------------------
+
+----------------------------------------
+Iteration: 263
+Average Episodic Length: 490.69
+Episodic Return: 465.75
+Average Loss: -0.000871
+Timesteps So Far: 1627843
+Took: 474.23 seconds
+Total Time: 128474.619549632
+----------------------------------------
+
+----------------------------------------
+Iteration: 264
+Average Episodic Length: 508.25
+Episodic Return: 370.75
+Average Loss: -0.001491
+Timesteps So Far: 1633942
+Took: 489.29 seconds
+Total Time: 128963.918673486
+----------------------------------------
+
+----------------------------------------
+Iteration: 265
+Average Episodic Length: 515.83
+Episodic Return: 468.63
+Average Loss: -0.000798
+Timesteps So Far: 1640132
+Took: 489.36 seconds
+Total Time: 129453.271695303
+----------------------------------------
+
+----------------------------------------
+Iteration: 266
+Average Episodic Length: 498.38
+Episodic Return: 513.14
+Average Loss: -0.002
+Timesteps So Far: 1646611
+Took: 497.63 seconds
+Total Time: 129950.898959141
+----------------------------------------
+
+----------------------------------------
+Iteration: 267
+Average Episodic Length: 517.33
+Episodic Return: 464.51
+Average Loss: -0.000878
+Timesteps So Far: 1652819
+Took: 494.63 seconds
+Total Time: 130445.542081124
+----------------------------------------
+
+----------------------------------------
+Iteration: 268
+Average Episodic Length: 519.83
+Episodic Return: 312.6
+Average Loss: -0.001295
+Timesteps So Far: 1659057
+Took: 500.01 seconds
+Total Time: 130945.544127928
+----------------------------------------
+
+----------------------------------------
+Iteration: 269
+Average Episodic Length: 534.17
+Episodic Return: 310.83
+Average Loss: -0.001319
+Timesteps So Far: 1665467
+Took: 487.82 seconds
+Total Time: 131433.367870941
+----------------------------------------
+
+----------------------------------------
+Iteration: 270
+Average Episodic Length: 543.67
+Episodic Return: 477.69
+Average Loss: -0.000737
+Timesteps So Far: 1671991
+Took: 499.52 seconds
+Total Time: 131932.894640713
+----------------------------------------
+
+----------------------------------------
+Iteration: 271
+Average Episodic Length: 549.36
+Episodic Return: 533.68
+Average Loss: -0.001343
+Timesteps So Far: 1678034
+Took: 431.78 seconds
+Total Time: 132364.678632476
+----------------------------------------
+
+----------------------------------------
+Iteration: 272
+Average Episodic Length: 540.42
+Episodic Return: 401.16
+Average Loss: -0.002068
+Timesteps So Far: 1684519
+Took: 502.58 seconds
+Total Time: 132867.258619948
+----------------------------------------
+
+----------------------------------------
+Iteration: 273
+Average Episodic Length: 535.08
+Episodic Return: 411.88
+Average Loss: -0.001152
+Timesteps So Far: 1690940
+Took: 521.66 seconds
+Total Time: 133388.908092034
+----------------------------------------
+
+----------------------------------------
+Iteration: 274
+Average Episodic Length: 533.17
+Episodic Return: 458.37
+Average Loss: -0.001501
+Timesteps So Far: 1697338
+Took: 504.17 seconds
+Total Time: 133893.084587842
+----------------------------------------
+
+----------------------------------------
+Iteration: 275
+Average Episodic Length: 517.67
+Episodic Return: 179.53
+Average Loss: -0.001368
+Timesteps So Far: 1703550
+Took: 541.39 seconds
+Total Time: 134434.468388307
+----------------------------------------
+
+----------------------------------------
+Iteration: 276
+Average Episodic Length: 536.42
+Episodic Return: 402.25
+Average Loss: -0.000725
+Timesteps So Far: 1709987
+Took: 524.72 seconds
+Total Time: 134959.191951279
+----------------------------------------
+
+----------------------------------------
+Iteration: 277
+Average Episodic Length: 502.33
+Episodic Return: 235.57
+Average Loss: -0.0014
+Timesteps So Far: 1716015
+Took: 498.46 seconds
+Total Time: 135457.655786197
+----------------------------------------
+
+----------------------------------------
+Iteration: 278
+Average Episodic Length: 544.58
+Episodic Return: 507.15
+Average Loss: -0.001356
+Timesteps So Far: 1722550
+Took: 497.45 seconds
+Total Time: 135955.100102537
+----------------------------------------
+
+----------------------------------------
+Iteration: 279
+Average Episodic Length: 503.25
+Episodic Return: 497.71
+Average Loss: -0.001727
+Timesteps So Far: 1728589
+Took: 462.79 seconds
+Total Time: 136417.891296887
+----------------------------------------
+
+----------------------------------------
+Iteration: 280
+Average Episodic Length: 534.5
+Episodic Return: 510.09
+Average Loss: -0.000929
+Timesteps So Far: 1735003
+Took: 481.41 seconds
+Total Time: 136899.300291179
+----------------------------------------
+
+----------------------------------------
+Iteration: 281
+Average Episodic Length: 518.83
+Episodic Return: 347.33
+Average Loss: -0.001355
+Timesteps So Far: 1741229
+Took: 505.81 seconds
+Total Time: 137405.114638636
+----------------------------------------
+
+----------------------------------------
+Iteration: 282
+Average Episodic Length: 518.33
+Episodic Return: 390.35
+Average Loss: -0.000996
+Timesteps So Far: 1747449
+Took: 519.31 seconds
+Total Time: 137924.429941634
+----------------------------------------
+
+----------------------------------------
+Iteration: 283
+Average Episodic Length: 497.31
+Episodic Return: 382.36
+Average Loss: -0.000854
+Timesteps So Far: 1753914
+Took: 539.6 seconds
+Total Time: 138464.039913135
+----------------------------------------
+
+----------------------------------------
+Iteration: 284
+Average Episodic Length: 524.5
+Episodic Return: 305.1
+Average Loss: -0.000844
+Timesteps So Far: 1760208
+Took: 521.95 seconds
+Total Time: 138985.986632973
+----------------------------------------
+
+----------------------------------------
+Iteration: 285
+Average Episodic Length: 507.33
+Episodic Return: 570.83
+Average Loss: -0.00279
+Timesteps So Far: 1766296
+Took: 480.78 seconds
+Total Time: 139466.766630554
+----------------------------------------
+
+----------------------------------------
+Iteration: 286
+Average Episodic Length: 522.5
+Episodic Return: 298.58
+Average Loss: -0.000774
+Timesteps So Far: 1772566
+Took: 521.3 seconds
+Total Time: 139988.063451858
+----------------------------------------
+
+----------------------------------------
+Iteration: 287
+Average Episodic Length: 514.75
+Episodic Return: 287.38
+Average Loss: -0.00154
+Timesteps So Far: 1778743
+Took: 503.48 seconds
+Total Time: 140491.544384059
+----------------------------------------
+
+----------------------------------------
+Iteration: 288
+Average Episodic Length: 498.23
+Episodic Return: 219.48
+Average Loss: -0.001614
+Timesteps So Far: 1785220
+Took: 551.56 seconds
+Total Time: 141043.101063431
+----------------------------------------
+
+----------------------------------------
+Iteration: 289
+Average Episodic Length: 496.08
+Episodic Return: 472.47
+Average Loss: -0.002068
+Timesteps So Far: 1791669
+Took: 538.84 seconds
+Total Time: 141581.940256874
+----------------------------------------
+
+----------------------------------------
+Iteration: 290
+Average Episodic Length: 485.31
+Episodic Return: 474.16
+Average Loss: -0.001476
+Timesteps So Far: 1797978
+Took: 529.32 seconds
+Total Time: 142111.260269585
+----------------------------------------
+
+----------------------------------------
+Iteration: 291
+Average Episodic Length: 498.54
+Episodic Return: 379.72
+Average Loss: -0.001343
+Timesteps So Far: 1804459
+Took: 532.61 seconds
+Total Time: 142643.868679201
+----------------------------------------
+
+----------------------------------------
+Iteration: 292
+Average Episodic Length: 515.5
+Episodic Return: 512.15
+Average Loss: -0.002315
+Timesteps So Far: 1810645
+Took: 498.58 seconds
+Total Time: 143142.449062224
+----------------------------------------
+
+----------------------------------------
+Iteration: 293
+Average Episodic Length: 484.54
+Episodic Return: 351.13
+Average Loss: -0.002014
+Timesteps So Far: 1816944
+Took: 522.85 seconds
+Total Time: 143665.295631722
+----------------------------------------
+
+----------------------------------------
+Iteration: 294
+Average Episodic Length: 478.54
+Episodic Return: 522.46
+Average Loss: -0.000896
+Timesteps So Far: 1823165
+Took: 514.8 seconds
+Total Time: 144180.111123331
+----------------------------------------
+
+----------------------------------------
+Iteration: 295
+Average Episodic Length: 457.5
+Episodic Return: 539.92
+Average Loss: -0.001868
+Timesteps So Far: 1829570
+Took: 524.97 seconds
+Total Time: 144705.065692703
+----------------------------------------
+
+----------------------------------------
+Iteration: 296
+Average Episodic Length: 449.43
+Episodic Return: 440.07
+Average Loss: -0.000795
+Timesteps So Far: 1835862
+Took: 533.6 seconds
+Total Time: 145238.664246977
+----------------------------------------
+
+----------------------------------------
+Iteration: 297
+Average Episodic Length: 472.46
+Episodic Return: 486.78
+Average Loss: -0.001625
+Timesteps So Far: 1842004
+Took: 487.17 seconds
+Total Time: 145725.836244243
+----------------------------------------
+
+----------------------------------------
+Iteration: 298
+Average Episodic Length: 484.23
+Episodic Return: 524.08
+Average Loss: -0.001451
+Timesteps So Far: 1848299
+Took: 507.62 seconds
+Total Time: 146233.462636673
+----------------------------------------
+
+----------------------------------------
+Iteration: 299
+Average Episodic Length: 482.69
+Episodic Return: 481.05
+Average Loss: -0.001774
+Timesteps So Far: 1854574
+Took: 492.61 seconds
+Total Time: 146726.071146236
+----------------------------------------
+
+----------------------------------------
+Iteration: 300
+Average Episodic Length: 478.62
+Episodic Return: 292.69
+Average Loss: -0.001118
+Timesteps So Far: 1860796
+Took: 525.28 seconds
+Total Time: 147251.349925804
+----------------------------------------
+
+----------------------------------------
+Iteration: 301
+Average Episodic Length: 463.69
+Episodic Return: 436.78
+Average Loss: -0.001141
+Timesteps So Far: 1866824
+Took: 466.34 seconds
+Total Time: 147717.694816608
+----------------------------------------
+
+----------------------------------------
+Iteration: 302
+Average Episodic Length: 529.42
+Episodic Return: 510.52
+Average Loss: -0.001343
+Timesteps So Far: 1873177
+Took: 488.44 seconds
+Total Time: 148206.129868977
+----------------------------------------
+
+----------------------------------------
+Iteration: 303
+Average Episodic Length: 482.62
+Episodic Return: 320.24
+Average Loss: -0.001754
+Timesteps So Far: 1879451
+Took: 515.15 seconds
+Total Time: 148721.275999211
+----------------------------------------
+
+----------------------------------------
+Iteration: 304
+Average Episodic Length: 449.57
+Episodic Return: 524.94
+Average Loss: -0.001191
+Timesteps So Far: 1885745
+Took: 541.25 seconds
+Total Time: 149262.534637302
+----------------------------------------
+
+----------------------------------------
+Iteration: 305
+Average Episodic Length: 503.25
+Episodic Return: 461.77
+Average Loss: -0.00229
+Timesteps So Far: 1891784
+Took: 476.67 seconds
+Total Time: 149739.196193805
+----------------------------------------
+
+----------------------------------------
+Iteration: 306
+Average Episodic Length: 476.0
+Episodic Return: 578.21
+Average Loss: -0.00197
+Timesteps So Far: 1897972
+Took: 526.05 seconds
+Total Time: 150265.258702182
+----------------------------------------
+
+----------------------------------------
+Iteration: 307
+Average Episodic Length: 507.83
+Episodic Return: 469.65
+Average Loss: -0.002754
+Timesteps So Far: 1904066
+Took: 491.67 seconds
+Total Time: 150756.918065753
+----------------------------------------
+
+----------------------------------------
+Iteration: 308
+Average Episodic Length: 522.0
+Episodic Return: 405.45
+Average Loss: -0.001335
+Timesteps So Far: 1910330
+Took: 493.41 seconds
+Total Time: 151250.334646287
+----------------------------------------
+
+----------------------------------------
+Iteration: 309
+Average Episodic Length: 525.33
+Episodic Return: 398.6
+Average Loss: -0.002454
+Timesteps So Far: 1916634
+Took: 488.58 seconds
+Total Time: 151738.909693628
+----------------------------------------
+
+----------------------------------------
+Iteration: 310
+Average Episodic Length: 516.5
+Episodic Return: 565.84
+Average Loss: -0.001412
+Timesteps So Far: 1922832
+Took: 507.12 seconds
+Total Time: 152246.028026219
+----------------------------------------
+
+----------------------------------------
+Iteration: 311
+Average Episodic Length: 530.92
+Episodic Return: 464.78
+Average Loss: -0.001923
+Timesteps So Far: 1929203
+Took: 531.54 seconds
+Total Time: 152777.574686958
+----------------------------------------
+
+----------------------------------------
+Iteration: 312
+Average Episodic Length: 531.58
+Episodic Return: 563.36
+Average Loss: -0.001685
+Timesteps So Far: 1935582
+Took: 501.17 seconds
+Total Time: 153278.740104355
+----------------------------------------
+
+----------------------------------------
+Iteration: 313
+Average Episodic Length: 496.85
+Episodic Return: 528.19
+Average Loss: -0.000884
+Timesteps So Far: 1942041
+Took: 545.46 seconds
+Total Time: 153824.204248654
+----------------------------------------
+
+----------------------------------------
+Iteration: 314
+Average Episodic Length: 487.85
+Episodic Return: 559.4
+Average Loss: -0.002391
+Timesteps So Far: 1948383
+Took: 515.48 seconds
+Total Time: 154339.68439045
+----------------------------------------
+
+----------------------------------------
+Iteration: 315
+Average Episodic Length: 505.58
+Episodic Return: 452.58
+Average Loss: -0.002171
+Timesteps So Far: 1954450
+Took: 477.87 seconds
+Total Time: 154817.55216365
+----------------------------------------
+
+----------------------------------------
+Iteration: 316
+Average Episodic Length: 489.77
+Episodic Return: 473.6
+Average Loss: -0.001001
+Timesteps So Far: 1960817
+Took: 491.5 seconds
+Total Time: 155309.056500588
+----------------------------------------
+
+----------------------------------------
+Iteration: 317
+Average Episodic Length: 510.33
+Episodic Return: 569.12
+Average Loss: -0.000784
+Timesteps So Far: 1966941
+Took: 503.49 seconds
+Total Time: 155812.548191389
+----------------------------------------
+
+----------------------------------------
+Iteration: 318
+Average Episodic Length: 508.67
+Episodic Return: 493.52
+Average Loss: -0.002268
+Timesteps So Far: 1973045
+Took: 515.59 seconds
+Total Time: 156328.145235063
+----------------------------------------
+
+----------------------------------------
+Iteration: 319
+Average Episodic Length: 450.79
+Episodic Return: 390.14
+Average Loss: -0.00147
+Timesteps So Far: 1979356
+Took: 537.88 seconds
+Total Time: 156866.016079471
+----------------------------------------
+
+----------------------------------------
+Iteration: 320
+Average Episodic Length: 494.92
+Episodic Return: 479.74
+Average Loss: -0.001365
+Timesteps So Far: 1985790
+Took: 540.13 seconds
+Total Time: 157406.157007371
+----------------------------------------
+
+----------------------------------------
+Iteration: 321
+Average Episodic Length: 512.75
+Episodic Return: 567.32
+Average Loss: -0.000338
+Timesteps So Far: 1991943
+Took: 503.42 seconds
+Total Time: 157909.568534273
+----------------------------------------
+
+----------------------------------------
+Iteration: 322
+Average Episodic Length: 491.38
+Episodic Return: 417.81
+Average Loss: -0.001007
+Timesteps So Far: 1998331
+Took: 526.52 seconds
+Total Time: 158436.088852068
+----------------------------------------
+
+----------------------------------------
+Iteration: 323
+Average Episodic Length: 516.83
+Episodic Return: 293.92
+Average Loss: -0.001892
+Timesteps So Far: 2004533
+Took: 526.19 seconds
+Total Time: 158962.287476069
+----------------------------------------
+
+----------------------------------------
+Iteration: 324
+Average Episodic Length: 521.58
+Episodic Return: 564.81
+Average Loss: -0.001505
+Timesteps So Far: 2010792
+Took: 535.34 seconds
+Total Time: 159497.616502138
+----------------------------------------
+
+----------------------------------------
+Iteration: 325
+Average Episodic Length: 536.25
+Episodic Return: 562.87
+Average Loss: -0.0008
+Timesteps So Far: 2017227
+Took: 528.96 seconds
+Total Time: 160026.585693191
+----------------------------------------
+
+----------------------------------------
+Iteration: 326
+Average Episodic Length: 532.08
+Episodic Return: 396.82
+Average Loss: -0.001235
+Timesteps So Far: 2023612
+Took: 506.26 seconds
+Total Time: 160532.844853031
+----------------------------------------
+
+----------------------------------------
+Iteration: 327
+Average Episodic Length: 522.0
+Episodic Return: 567.75
+Average Loss: -0.00066
+Timesteps So Far: 2029876
+Took: 501.48 seconds
+Total Time: 161034.322627902
+----------------------------------------
+
+----------------------------------------
+Iteration: 328
+Average Episodic Length: 535.17
+Episodic Return: 562.95
+Average Loss: -0.000669
+Timesteps So Far: 2036298
+Took: 538.31 seconds
+Total Time: 161572.638713484
+----------------------------------------
+
+----------------------------------------
+Iteration: 329
+Average Episodic Length: 466.69
+Episodic Return: 57.3
+Average Loss: -0.000917
+Timesteps So Far: 2042365
+Took: 496.0 seconds
+Total Time: 162068.634094478
+----------------------------------------
+
+----------------------------------------
+Iteration: 330
+Average Episodic Length: 523.92
+Episodic Return: 286.95
+Average Loss: -0.001436
+Timesteps So Far: 2048652
+Took: 537.43 seconds
+Total Time: 162606.058276708
+----------------------------------------
+
+----------------------------------------
+Iteration: 331
+Average Episodic Length: 530.58
+Episodic Return: 347.96
+Average Loss: -0.000786
+Timesteps So Far: 2055019
+Took: 539.01 seconds
+Total Time: 163145.065250689
+----------------------------------------
+
+----------------------------------------
+Iteration: 332
+Average Episodic Length: 532.67
+Episodic Return: 502.56
+Average Loss: -0.001792
+Timesteps So Far: 2061411
+Took: 532.24 seconds
+Total Time: 163677.308562726
+----------------------------------------
+
+----------------------------------------
+Iteration: 333
+Average Episodic Length: 509.33
+Episodic Return: 573.78
+Average Loss: -0.001245
+Timesteps So Far: 2067523
+Took: 515.38 seconds
+Total Time: 164192.684091186
+----------------------------------------
+
+----------------------------------------
+Iteration: 334
+Average Episodic Length: 519.75
+Episodic Return: 456.52
+Average Loss: -0.002416
+Timesteps So Far: 2073760
+Took: 517.34 seconds
+Total Time: 164710.025266278
+----------------------------------------
+
+----------------------------------------
+Iteration: 335
+Average Episodic Length: 520.67
+Episodic Return: 514.3
+Average Loss: -0.001494
+Timesteps So Far: 2080008
+Took: 499.24 seconds
+Total Time: 165209.261462906
+----------------------------------------
+
+----------------------------------------
+Iteration: 336
+Average Episodic Length: 524.25
+Episodic Return: 461.1
+Average Loss: -0.001399
+Timesteps So Far: 2086299
+Took: 497.55 seconds
+Total Time: 165706.807563211
+----------------------------------------
+
+----------------------------------------
+Iteration: 337
+Average Episodic Length: 518.67
+Episodic Return: 565.26
+Average Loss: -0.001058
+Timesteps So Far: 2092523
+Took: 495.82 seconds
+Total Time: 166202.634644356
+----------------------------------------
+
+----------------------------------------
+Iteration: 338
+Average Episodic Length: 524.75
+Episodic Return: 567.99
+Average Loss: -0.001736
+Timesteps So Far: 2098820
+Took: 477.92 seconds
+Total Time: 166680.552704458
+----------------------------------------
+
+----------------------------------------
+Iteration: 339
+Average Episodic Length: 498.69
+Episodic Return: 572.65
+Average Loss: -0.002073
+Timesteps So Far: 2105303
+Took: 546.66 seconds
+Total Time: 167227.212157237
+----------------------------------------
+
+----------------------------------------
+Iteration: 340
+Average Episodic Length: 493.15
+Episodic Return: 571.39
+Average Loss: -0.000916
+Timesteps So Far: 2111714
+Took: 531.0 seconds
+Total Time: 167758.216589915
+----------------------------------------
+
+----------------------------------------
+Iteration: 341
+Average Episodic Length: 485.15
+Episodic Return: 530.84
+Average Loss: -0.001637
+Timesteps So Far: 2118021
+Took: 521.44 seconds
+Total Time: 168279.660267795
+----------------------------------------
+
+----------------------------------------
+Iteration: 342
+Average Episodic Length: 500.08
+Episodic Return: 572.89
+Average Loss: -0.00093
+Timesteps So Far: 2124522
+Took: 537.06 seconds
+Total Time: 168816.7194811
+----------------------------------------
+
+----------------------------------------
+Iteration: 343
+Average Episodic Length: 495.15
+Episodic Return: 524.68
+Average Loss: -0.000986
+Timesteps So Far: 2130959
+Took: 532.12 seconds
+Total Time: 169348.844033281
+----------------------------------------
+
+----------------------------------------
+Iteration: 344
+Average Episodic Length: 457.0
+Episodic Return: 538.41
+Average Loss: -0.001688
+Timesteps So Far: 2137357
+Took: 524.11 seconds
+Total Time: 169872.951902279
+----------------------------------------
+
+----------------------------------------
+Iteration: 345
+Average Episodic Length: 485.08
+Episodic Return: 529.47
+Average Loss: -0.00044
+Timesteps So Far: 2143663
+Took: 537.75 seconds
+Total Time: 170410.703729061
+----------------------------------------
+
+----------------------------------------
+Iteration: 346
+Average Episodic Length: 468.54
+Episodic Return: 577.41
+Average Loss: -0.001392
+Timesteps So Far: 2149754
+Took: 503.19 seconds
+Total Time: 170913.892211743
+----------------------------------------
+
+----------------------------------------
+Iteration: 347
+Average Episodic Length: 462.93
+Episodic Return: 582.1
+Average Loss: -0.000947
+Timesteps So Far: 2156235
+Took: 559.75 seconds
+Total Time: 171473.644347734
+----------------------------------------
+
+----------------------------------------
+Iteration: 348
+Average Episodic Length: 487.0
+Episodic Return: 577.2
+Average Loss: -0.001103
+Timesteps So Far: 2162566
+Took: 541.04 seconds
+Total Time: 172014.680329686
+----------------------------------------
+
+----------------------------------------
+Iteration: 349
+Average Episodic Length: 485.85
+Episodic Return: 531.14
+Average Loss: -0.001592
+Timesteps So Far: 2168882
+Took: 503.38 seconds
+Total Time: 172518.057273233
 ----------------------------------------

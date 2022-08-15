@@ -1,9 +1,3 @@
-"""
-Author: Reuben Ferrante
-Date:   10/05/2017
-Description: This is a general training template.
-"""
-
 import sys
 import os
 import shutil
@@ -20,9 +14,6 @@ from env.constants import *
 
 
 def train(env, agent, FLAGS):
-    print(f"Im here - 23")
-    #print("Fuel Cost = 0, Max Steps = 500, Episode Training = 2000, RANDOM FORCE = 20000, RANDOM X_FORCE = 0.2*RANDOM FORCE")
-    #print("Fuel Cost = 0, Max Steps = Unlimited, Episode Training = 2000")
     obs_size = env.observation_space.shape[0]
 
     util = Utils()
@@ -38,9 +29,6 @@ def train(env, agent, FLAGS):
         state = util.normalize(state)
         max_steps = 600
 
-        #left_or_right_barge_movement = np.random.randint(0, 2)
-        #epsilon = 0.05
-
         for t in range(max_steps): # env.spec.max_episode_steps
             if FLAGS.show or episode % 10 == 0:
                 env.refresh(render=True)
@@ -54,11 +42,6 @@ def train(env, agent, FLAGS):
             state, reward, done, _ = env.step(action[0])
             state = util.normalize(state)
             total_reward += reward
-
-            #if state[LEFT_GROUND_CONTACT] == 0 and state[RIGHT_GROUND_CONTACT] == 0:
-            #    env.move_barge_randomly(epsilon, left_or_right_barge_movement)
-            #    env.apply_random_x_disturbance(epsilon=0.005, left_or_right=left_or_right_barge_movement)
-            #    env.apply_random_y_disturbance(epsilon=0.005)
 
             if not FLAGS.test:
                 # update q vals

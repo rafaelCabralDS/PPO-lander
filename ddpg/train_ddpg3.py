@@ -49,7 +49,7 @@ env = RocketLander(simulation_settings)
 #env = wrappers.Monitor(env, '/tmp/contlunarlander', force=True, write_upon_reset=True)
 
 FLAGS.retrain = False # Restore weights if False
-FLAGS.test = False
+FLAGS.test = True
 FLAGS.num_episodes = 500
 model_dir = './model3' # relative to the current location
 

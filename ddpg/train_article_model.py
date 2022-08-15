@@ -90,11 +90,14 @@ def train(env, agent, FLAGS):
         previous_t = current_t
         current_t = time.time_ns()
         delta_t = (current_t - previous_t) / 1e9
-        print_output(episode, length, episodic_return, t_so_far, delta_t, initial_t)
+        if not FLAGS.test:
+            print_train_output(episode, length, episodic_return, t_so_far, delta_t, initial_t)
+        else:
+            print_test_output(episode, length, episodic_return, env.successful_landing)
 
-def print_output(iteration, length, episodic_return, t_so_far, delta_t, initial_t):
+def print_train_output(iteration, length, episodic_return, t_so_far, delta_t, initial_t):
     
-    # Print logging statements
+    # Print train logging statements
     print(flush=True)
     print(f"----------------------------------------", flush=True)
     print(f"Iteration: {iteration}")
@@ -103,4 +106,14 @@ def print_output(iteration, length, episodic_return, t_so_far, delta_t, initial_
     print(f"Timesteps So Far: {t_so_far}", flush=True)
     print(f"Took: {delta_t} seconds", flush=True)
     print(f"Total Time: {(time.time_ns()-initial_t)/1e9}", flush=True)
+    print(f"----------------------------------------", flush=True)
+
+def print_test_output(ep_num, ep_len, ep_ret, successful_landing):
+    # Print test logging statements
+    print(flush=True)
+    print(f"----------------------------------------", flush=True)
+    print(f"Iteration: {ep_num}", flush=True) # written as Iteration to simplify make_graph consumption
+    print(f"Episodic Length: {ep_len}", flush=True)
+    print(f"Episodic Return: {ep_ret}", flush=True)
+    print(f"Success: {int(successful_landing)}", flush=True)
     print(f"----------------------------------------", flush=True)

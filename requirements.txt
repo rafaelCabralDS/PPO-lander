@@ -1,4 +1,4 @@
-tensorflow
+tensorflow # version 1
 matplotlib
 gym==0.21.0
 numpy
@@ -11,5 +11,7 @@ cvxpy
 torch
 argparse
 latex
+pandas
+sklearn
 
 # sudo apt install nvidia-cuda-toolkit # if you want to use GPU with ddpg

@@ -63,7 +63,7 @@ with tf.device('/cpu:0'):
         env.observation_space.shape[0],
         actor_learning_rate=0.0001,
         critic_learning_rate=0.001,
-        retrain=True, # set to true for now TODO: CHANGE IF NECESSARY
+        retrain=FLAGS.retrain, # set to true for now TODO: CHANGE IF NECESSARY
         log_dir='./logs',
         model_dir=model_dir)
 

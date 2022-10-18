@@ -10,8 +10,8 @@ def get_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--file', dest='file', type=str, default='')
-    #parser.add_argument('--title', dest='title', type=str, default='DDPG Testing Results') # best: model 3
-    parser.add_argument('--title', dest='title', type=str, default='PPO Testing Results') # best: model 3
+    parser.add_argument('--title', dest='title', type=str, default='DDPG Testing Results') # best: model 3
+    #parser.add_argument('--title', dest='title', type=str, default='PPO Testing Results') # best: model 3
     parser.add_argument('--save', dest='save', action='store_true', help='data to figures/<title>.png')
 
     args = parser.parse_args()
@@ -48,7 +48,8 @@ def graph_data(filepath, args):
     x, y, success = extract_data(filepath)
 
     plt.rcParams.update({'font.family':'serif'})
-    plt.rcParams.update({'font.size': 10})
+    plt.rcParams.update({'font.size': 14})
+    plt.rcParams.update({'figure.dpi': 200})
 
 
     plt.plot(x, y, 'o', c=[0,0,1])

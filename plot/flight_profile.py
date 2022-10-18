@@ -17,7 +17,7 @@ def get_args():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', dest='file', type=str, default="test_data/profile_ppo_actor_2.dat")
+    parser.add_argument('--file', dest='file', type=str, default="./test_data/ppo/profile_3_9.dat")
     # used "./test_data/ppo/profile_3_9.dat" for article
 
     args = parser.parse_args()
@@ -78,14 +78,15 @@ def graph_data(filepath, args):
     plt.rcParams["legend.loc"] = 'upper right' 
 
     plt.rcParams.update({'font.family':'serif'})
-    plt.rcParams.update({'font.size': 11})
+    plt.rcParams.update({'font.size': 14})
+    plt.rcParams.update({'figure.dpi': 200})
 
     # fuel with time ---1
     fuel_percentage = [100 * fuel_k / fuel[0] for fuel_k in fuel]
     plt.plot(step, fuel_percentage, 'b')
     plt.title('Remaining Fuel')
-    plt.ylabel('Fuel [%]')
-    plt.xlabel('Time step [s/60]')
+    plt.ylabel('Fuel [%]', fontsize=12)
+    plt.xlabel('Time step [s/60]', fontsize=12)
     plt.ylim(0,100)
     plt.grid()
     plt.tight_layout()
@@ -127,10 +128,10 @@ def graph_data(filepath, args):
     plt.plot(step, T_m_clipped, 'r.')
     plt.plot(step, T_s_clipped, 'b')
     plt.plot(step, Delta_delta_clipped, 'g')
-    plt.legend(['T_m','T_s',r'$\Delta(\delta)$'])
-    plt.title('Applied Control Efforts in Time')
-    plt.ylabel('Normalized Control Inputs')
-    plt.xlabel('Time step [s/60]')
+    plt.legend(['T_m','T_s',r'$\Delta(\delta)$'], loc='upper left')
+    plt.title('Applied Control Efforts in Time', fontsize=14)
+    plt.ylabel('Normalized Control Inputs', fontsize=12)
+    plt.xlabel('Time step [s/60]', fontsize=12)
     plt.ylim(-1,1)
     plt.grid()
     plt.tight_layout()
@@ -160,8 +161,8 @@ def graph_data(filepath, args):
     plt.plot(step, vh_m, 'b')
     plt.legend(['Vx','Vh'])
     plt.title('Velocity States')
-    plt.ylabel('Velocity [m/s]')
-    plt.xlabel('Time step [s/60]')
+    plt.ylabel('Velocity [m/s]', fontsize=12)
+    plt.xlabel('Time step [s/60]', fontsize=12)
     plt.ylim(-15,5)
     plt.grid()
     plt.tight_layout()
@@ -173,8 +174,8 @@ def graph_data(filepath, args):
     theta_deg = [theta_k / DEGTORAD for theta_k in theta]
     plt.plot(step, theta_deg, 'b')
     plt.title(r'$\theta$ Angle')
-    plt.ylabel(r'$\theta$ [°]')
-    plt.xlabel('Time step [s/60]')
+    plt.ylabel(r'$\theta$ [°]', fontsize=12)
+    plt.xlabel('Time step [s/60]', fontsize=12)
     plt.grid()
     plt.tight_layout()
     plt.show()
@@ -185,8 +186,8 @@ def graph_data(filepath, args):
     q_deg = [q_k / DEGTORAD for q_k in q]
     plt.plot(step, q_deg, 'b')
     plt.title(r'$\theta$ Derivative')
-    plt.ylabel('q [°/s]')
-    plt.xlabel('Time step [s/60]')
+    plt.ylabel('q [°/s]', fontsize=12)
+    plt.xlabel('Time step [s/60]', fontsize=12)
     plt.grid()
     plt.tight_layout()
     plt.show()
@@ -194,9 +195,9 @@ def graph_data(filepath, args):
 
     # plot (dx,dh) -> trajectory ---7
     plt.plot(dx_m, dh_m, 'b')
-    plt.title('Trajectory')
-    plt.ylabel(r'$\Delta$h [m]')
-    plt.xlabel(r'$\Delta$x [m]')
+    plt.title('Sample Trajectory')
+    plt.ylabel(r'$\Delta$(h) [m]', fontsize=12)
+    plt.xlabel(r'$\Delta$(x) [m]', fontsize=12)
     plt.xlim(-10,+10)
     plt.ylim(0,dh_m[0]+2)
     plt.grid()

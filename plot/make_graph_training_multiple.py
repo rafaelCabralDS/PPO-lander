@@ -122,17 +122,18 @@ def graph_data(filepaths, args):
     #
     #plt.rc( 'text', usetex = True ) # TeX dando pau na minha
     plt.rcParams.update({'font.family':'serif'})
-    plt.rcParams.update({'font.size': 52})
+    plt.rcParams.update({'font.size': 82}) # 52 - 72 - 
+    plt.rcParams.update({'figure.dpi': 300})
 
     # plot return
     df_1_sub["Upper_limit"] = df_1_sub["Mean_SMA20"]+df_1_sub["Stdev_SMA20"]
     df_1_sub["Lower_limit"] = df_1_sub["Mean_SMA20"]-df_1_sub["Stdev_SMA20"]
     ln1 = sns.lineplot(x="Episode", y="Mean_SMA20", color='blue', data=df_1_sub, alpha=0.8, label='Average Episodic Return')
     ax1.fill_between(df_1_sub["Episode"], df_1_sub["Lower_limit"] , df_1_sub["Upper_limit"] , color='b', alpha=0.3)
-    #ax1.set_title('DDPG Training Results')
-    ax1.set_title('PPO Training Results')
-    #ax1.set_xlabel('Episode')
-    ax1.set_xlabel('Batch Iterations')
+    ax1.set_title('DDPG Training Results') # ddpg
+    #ax1.set_title('PPO Training Results') # ppo
+    ax1.set_xlabel('Episode')           # ddpg
+    #ax1.set_xlabel('Batch Iterations') # ppo
     ax1.set_ylabel('Return')
     
     # overplot length
@@ -145,7 +146,8 @@ def graph_data(filepaths, args):
 
     # legend
     ax1.legend(loc='upper left')
-    ax2.legend(loc='upper left', bbox_to_anchor=(0, 0.93))
+    #ax2.legend(loc='upper left', bbox_to_anchor=(0, 0.93))
+    ax2.legend(loc='upper left', bbox_to_anchor=(0, 0.885))
 
     # save
     plt.grid()
@@ -159,6 +161,7 @@ def main(args):
     ''' Filepaths '''
     
     # ppo
+    '''
     filepaths = [
         "./training_data/ppo/train_1.txt",
         "./training_data/ppo/train_2.txt",
@@ -166,8 +169,9 @@ def main(args):
         "./training_data/ppo/train_4.txt",
         "./training_data/ppo/train_5.txt",
     ]
-    # ddpg
     '''
+    # ddpg
+    
     filepaths = [
         "./training_data/ddpg/train_1.txt",
         "./training_data/ddpg/train_2.txt",
@@ -175,7 +179,7 @@ def main(args):
         "./training_data/ddpg/train_4.txt",
         "./training_data/ddpg/train_5.txt",
     ]
-    '''
+    
     graph_data(filepaths, args)
 
 if __name__ == '__main__':

@@ -102,13 +102,14 @@ def graph_data(filepath, args):
     # end for
     
     plt.rcParams.update({'font.family':'serif'})
-    plt.rcParams.update({'font.size': 10})
+    plt.rcParams.update({'font.size': 12})
+    plt.rcParams.update({'figure.dpi': 300})
 
     plt.title(f'Monte Carlo Trajectory for {iteration[-1]} iterations')
-    plt.ylabel(r'$\Delta(h)$ [m]')
-    plt.xlabel(r'$\Delta(x)$ [m]')
+    plt.ylabel(r'$\Delta(h)$ [m]', fontsize=12)
+    plt.xlabel(r'$\Delta(x)$ [m]', fontsize=12)
     plt.xlim(-10,+10)
-    plt.ylim(0,55)
+    plt.ylim(0,52)
 
     plt.grid()
     plt.tight_layout()
